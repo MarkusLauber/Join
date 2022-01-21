@@ -13,6 +13,7 @@ let addedUsers;
 let currentUsers = [];
 
 init = () => {
+    setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
     userArea = document.getElementById("addUserArea");
     addedUsers = document.getElementById("addedUsers");
     fillAddUserArea();
@@ -41,7 +42,8 @@ saveTask = () => {
     saveToServer();
 }
 
-saveToServer = () => {
+saveToServer = async() => {
+    await backend.setItem('tasks', JSON.stringify(task));
     alert("Task wurde gespeichert");
     clearTask();
 }
