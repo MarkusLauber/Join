@@ -13,8 +13,8 @@ let addedUsers;
 let currentUsers = [];
 
 init = () => {
-    userArea = document.getElementById("addUserArea")
-    addedUsers = document.getElementById("addedUsers")
+    userArea = document.getElementById("addUserArea");
+    addedUsers = document.getElementById("addedUsers");
     fillAddUserArea();
 }
 
@@ -27,6 +27,8 @@ clearTask = () => {
     document.getElementById("date").value = null;
     document.getElementById("urgency").value = "High";
     document.getElementById("description").value = null;
+    currentUsers = [];
+    updateAddedUsers();
 }
 
 saveTask = () => {
@@ -40,7 +42,8 @@ saveTask = () => {
 }
 
 saveToServer = () => {
-    console.log("SAVE")
+    alert("Task wurde gespeichert");
+    clearTask();
 }
 
 fillAddUserArea = () => {
@@ -76,10 +79,15 @@ addUser = (i) => {
     updateAddedUsers();
 }
 
+removeUser = (i) => {
+    currentUsers.splice(i, 1);
+    updateAddedUsers();
+}
+
 updateAddedUsers = () => {
     addedUsers.innerHTML = null;
     currentUsers.forEach((user, i) => {
-        addedUsers.innerHTML += `<img class="userpic"src="${user.picture}" "onclick=remove(${i})">`
+        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.picture}" style="border: 3px solid ${user.color};" onclick="removeUser(${i})">`
     })
     addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea()"></div>`
 }
