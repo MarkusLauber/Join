@@ -1,0 +1,203 @@
+@font-face {
+    font-family: PT;
+    src: url("/ressources/fonts/PTSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: PT-bold;
+    src: url("/ressources/fonts/PTSans-Bold.ttf")
+}
+
+:root {
+    --joinblue: #1E3190;
+    --joingray: #f4f3fb;
+    --fontsize: 18px;
+}
+
+Body {
+    margin: 0;
+    display: flex;
+    font-family: PT;
+}
+
+header {
+    width: 10%;
+    height: 100vh;
+    background-color: var(--joinblue);
+}
+
+main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    font-family: PT-bold;
+}
+
+.small {
+    height: 50px;
+    font-size: var(--fontsize);
+}
+
+.medium {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.big {
+    height: 150px;
+    font-size: var(--fontsize);
+}
+
+.label {
+    font-family: PT-bold;
+    color: var(--joinblue);
+    margin: 8px 0 8px 0;
+}
+
+.inputarea {
+    width: 90%;
+    display: flex;
+    background-color: var(--joingray);
+    margin: 8px;
+    justify-content: space-evenly;
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.inputcolumn {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputbox {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+    position: relative;
+}
+
+input {
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+.addUser {
+    width: 50px;
+    height: 50px;
+    background-image: url("/ressources/img/iconplus.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.userpic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.buttonbox {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button {
+    width: 30%;
+    cursor: pointer;
+}
+
+select {
+    appearance: none;
+    background-image: url("/ressources/img/chevron.png");
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position-x: 98%;
+    background-position-y: 50%;
+    padding-left: 4px;
+    cursor: pointer;
+}
+
+#dateBtn {
+    border: none;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 2%;
+    background-image: url("/ressources/img/icons8-calendar-150.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+#addUserArea {
+    z-index: 1;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--joingray);
+    border-radius: 8px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 8px 4px 8px;
+}
+
+.usercard {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin: 4px;
+}
+
+.userinfo {
+    width: 93%;
+    border-radius: 20px 8px 8px 20px;
+    border-left: 1px solid black;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px 0 4px;
+}
+
+.userdata {
+    width: 50%;
+    height: 100%;
+    padding: 4px 0 4px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.username {
+    font-size: 18px;
+    text-align: center;
+}
+
+.userdetail {
+    text-align: left;
+}
+
+.hide {
+    display: none !important;
+}
