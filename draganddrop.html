@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban - Drag and Drop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="draganddrop.css">
+    <script src="draganddrop.js"></script>
+</head>
+<body onload="updateDragAndDropArea()">
+    <section id="dragAreaContainerID" class="dragAreaContainer flexCenterContent">
+        <article class="dragAreaSingle flexCenterContent">
+            <span class="dragAreaHead flexCenterContent">
+                TO DO
+            </span>
+            <div class="dragArea" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
+        </article>
+        <article class="dragAreaSingle flexCenterContent">
+            <span class="dragAreaHead flexCenterContent">
+                IN PROGRESS
+            </span>
+            <div class="dragArea" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
+        </article>
+        <article class="dragAreaSingle flexCenterContent">
+            <span class="dragAreaHead flexCenterContent">
+                TESTING
+            </span>
+            <div class="dragArea" id="testing" ondrop="moveTo('testing')" ondragover="allowDrop(event)"></div>
+        </article>
+        <article class="dragAreaSingle flexCenterContent">
+            <span class="dragAreaHead flexCenterContent">
+                DONE
+            </span>
+        <div class="dragArea" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+        </article>
+    </section>
+</body>
+</html>

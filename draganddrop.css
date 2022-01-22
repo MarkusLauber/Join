@@ -1,0 +1,119 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body * {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.flexCenterContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dragAreaContainer {
+    background-color: rgb(82, 82, 82);
+    height: 100%;
+    width: 100%;
+}
+
+.dragArea {
+    height: 800px;
+    width: 240px;
+    background-color: rgb(95, 95, 95);
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.dragAreaHead {
+    background-color: rgb(155, 155, 155);
+    border-radius: 8px;
+    font-size: 2.4rem;
+    font-weight: 400;
+    height: 4rem;
+    width: 24rem;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.dragAreaSingle {
+    height: 1000px;
+    width: 300px;
+    flex-direction: column;
+}
+
+.task {
+    height: 10rem;
+    width: 200px;
+    border: 1px solid grey;
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    align-items: flex-start;
+    background-color: rgb(114, 114, 114);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 4px 10px 4px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.openedTask {
+    z-index: 2;
+    position: absolute;
+    top: auto;
+    right: auto;
+    left: auto;
+    width: 60rem;
+    height: 20rem;
+    border: 1px solid grey;
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.task:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+    zoom: 110%;
+}
+
+.elementUser {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.elementUserImg {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.elementDetails {
+    font-size: 1.6rem;
+}
+
+.elementCategory {
+    font-size: 2rem;
+}
+
+.innerHTMLTask {
+    width: 140px;
+    flex-direction: column;
+}
