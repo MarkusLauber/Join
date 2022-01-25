@@ -13,6 +13,7 @@ let addedUsers;
 let currentUsers = [];
 
 init = () => {
+    includeHTML();
     setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
     userArea = document.getElementById("addUserArea");
     addedUsers = document.getElementById("addedUsers");
@@ -65,7 +66,6 @@ fillAddUserArea = () => {
                             </div>`
     })
 }
-
 
 openUserArea = () => {
     userArea.classList.remove("hide");

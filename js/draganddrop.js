@@ -7,19 +7,16 @@ let boardTasks = [
     'category': 'Marketing',
     'details': 'lorem bla',
     'status': 'board',
-    'boardStatus':'toDo',
-    'urgency': 'urgencyRed'
+    'boardStatus':'toDo'
 }, {
     'id': 1,
     'userImg': 'profileImg/cow.jpg',
     'user': 'Samson',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Product',
-    'details': 'lorem bla dasf sa a fdsa dsa fdsa fawa ds awfa dsa dfsaf wae asf awadwafe awewa dsa wawaf wadsafwfsdaf awfds a',
+    'details': 'lorem bla',
     'status': 'board',
-    'boardStatus':'inProgress',
-    'urgency': 'urgencyGreen'
-
+    'boardStatus':'inProgress'
 }, {
     'id': 2,
     'userImg': 'profileImg/dolphin.jpg',
@@ -28,9 +25,7 @@ let boardTasks = [
     'category': 'Sale',
     'details': 'lorem bla',
     'status': 'board',
-    'boardStatus':'testing',
-    'urgency': 'urgencyOrange'
-
+    'boardStatus':'testing'
 }, {
     'id': 3,
     'userImg': 'profileImg/fox.jpg',
@@ -39,24 +34,22 @@ let boardTasks = [
     'category': 'Marketing',
     'details': 'lorem bla',
     'status': 'board',
-    'boardStatus':'done',
-    'urgency': 'urgencyGreen'
-
+    'boardStatus':'done'
 }
 ];
 
 let currentDraggedElement;
 
 
-updateDragAndDropArea = () => {
+function updateDragAndDropArea() {
     enableToDo();
     enableInProgress();
     enableTesting();
     enableDone();
 }
 
-enableToDo = () => {
-    let toDo = boardTasks.filter(filterTask => filterTask.boardStatus == 'toDo');
+function enableToDo() {
+    let toDo = boardTasks.filter(filterTask => filterTask['boardStatus'] == 'toDo');
 
     document.getElementById('toDo').innerHTML = '';
 
@@ -66,8 +59,8 @@ enableToDo = () => {
     }
 }
 
-enableInProgress = () => {
-    let inProgress = boardTasks.filter(filterTask => filterTask.boardStatus == 'inProgress');
+function enableInProgress() {
+    let inProgress = boardTasks.filter(filterTask => filterTask['boardStatus'] == 'inProgress');
 
     document.getElementById('inProgress').innerHTML = '';
 
@@ -77,8 +70,8 @@ enableInProgress = () => {
     }
 }
 
-enableTesting = () => {
-    let testing = boardTasks.filter(filterTask => filterTask.boardStatus == 'testing');
+function enableTesting() {
+    let testing = boardTasks.filter(filterTask => filterTask['boardStatus'] == 'testing');
 
     document.getElementById('testing').innerHTML = '';
 
@@ -88,8 +81,8 @@ enableTesting = () => {
     }
 }
 
-enableDone = () => {
-    let done = boardTasks.filter(filterTask => filterTask.boardStatus == 'done');
+function enableDone() {
+    let done = boardTasks.filter(filterTask => filterTask['boardStatus'] == 'done');
 
     document.getElementById('done').innerHTML = '';
 
@@ -99,71 +92,58 @@ enableDone = () => {
     }
 }
 
-startDragging = (id) => {
+function startDragging(id) {
     currentDraggedElement = id;
 }
 
-generateTask = (element, id) => {
+function generateTask(element) {
     return `
-    <div onclick="openTaskWindow(${element.id})" id="taskID" draggable="true" ondragstart="startDragging(${element.id})" class="task ${element.urgency}">
-        <img class="elementUserImg" src="${element.userImg}">
+    <div id="taskID" draggable="true" ondragstart="startDragging(${element['id']})" class="task">
+        <img class="elementUserImg" src="${element['userImg']}">
         <div class="innerHTMLTask flexCenterContent">
-            <div class="elementHeader">
-                <span class="elementUser">
-                    ${element.user}
-                </span>
-                <span class="elementCategory">
-                    ${element.category}
-                </span>
-            </div>
+            <span class="elementUser">
+                ${element['user']}
+            </span>
+            <span class="elementCategory">
+                ${element['category']}
+            </span>
             <span class="elementDetails">
-                ${element.details}
+                ${element['details']}
             </span>
         </div>
     <div>
-    `;
+    `
+    ;
 }
 
-allowDrop = (ev) => {
+function allowDrop(ev) {
     ev.preventDefault();
 }
 
-moveTo = (boardStatus) => {
+function moveTo(boardStatus) {
     boardTasks[currentDraggedElement]['boardStatus'] = boardStatus;
     updateDragAndDropArea();
 }
 
-openTaskWindow = (id) => {
-    document.getElementById('openedTaskID').style = "display: flex;";
+/*         - IN PROGRESS -
 
-    document.getElementById('openedTaskID').innerHTML += `
-    <div id="openedTaskWindowID" class="openedTask">
-        <img class="openedUserImg" src="${boardTasks[id].userImg}">
-        <div class="openedInnerHTMLTask">
-            <div class="openedHeader">
-                <span class="openedUser">${boardTasks[id].user}</span><span class="OpenedCategory">Department: ${boardTasks[id].category}</span>
-            </div>
-            <span id="openedDetailsID" class="openedDetails" contenteditable="true" onchange="updateDetails(${id})">
-                ${boardTasks[id].details}
+function openTaskWindow(element) {
+    document.getElementById('dragAreaContainerID').innerHTML += `
+    <div id="openedTaskWindowID" onclick="closeTaskWindow()" class="openedTask">
+        <img class="elementUserImg" src="${element['userImg']}">
+        <div class="innerHTMLTask flexCenterContent">
+            <span class="elementUser">
+                ${element['user']}
             </span>
-                <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), closeTaskWindow()" src="icons/x.ico">  
+            <span class="elementCategory">
+                ${element['category']}
+            </span>
+            <span class="elementDetails">
+                ${element['details']}
+            </span>
         </div>
     <div>
     `;
 }
 
-updateDetails = (id) => {
-        let details = boardTasks[id].details;
-        let newDetails = document.getElementById('openedDetailsID').innerText;
-    
-        if(details != newDetails) {
-            boardTasks[id].details = newDetails;
-            updateDragAndDropArea();
-        }
-}
-
-closeTaskWindow = () => {
-    document.getElementById('openedTaskID').style = "display: none;"
-
-    document.getElementById('openedTaskID').innerHTML = '';
-}
+*/

@@ -25,6 +25,7 @@
     width: 90%;
 }
 
+
 .backlogContainer {
     display: flex;
     flex-direction: column;
@@ -117,3 +118,11 @@
     border-radius: 10px;
     background-color: #0072f53d;
 }
+
+.backlogContainer{
+        width: 100%;
+        background: rgba(0, 0, 0, 0.1);
+        height: 100%;
+        margin-top: 35px;
+}
+
