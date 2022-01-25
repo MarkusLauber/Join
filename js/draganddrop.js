@@ -146,7 +146,7 @@ openTaskWindow = (id) => {
             <span id="openedDetailsID" class="openedDetails" contenteditable="true" onchange="updateDetails(${id})">
                 ${boardTasks[id].details}
             </span>
-                <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), closeTaskWindow()" src="icons/x.ico">  
+                <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
         </div>
     <div>
     `;
