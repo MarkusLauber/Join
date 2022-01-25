@@ -20,12 +20,6 @@ Body {
     font-family: PT;
 }
 
-header {
-    width: 10%;
-    height: 100vh;
-    background-color: var(--joinblue);
-}
-
 main {
     width: 80%;
     display: flex;
