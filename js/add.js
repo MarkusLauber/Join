@@ -67,7 +67,6 @@ fillAddUserArea = () => {
     })
 }
 
-
 openUserArea = () => {
     userArea.classList.remove("hide");
 }
