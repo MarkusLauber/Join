@@ -1,14 +1,17 @@
-.upperPart{
-width: 90%;
+.upperPart {
+    width: 90%;
 }
-.backlogName{
+
+.backlogName {
     margin-left: 35px;
 }
-.backlogDefinition{
+
+.backlogDefinition {
     margin-left: 35px;
     color: blue;
 }
-.titles{
+
+.titles {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,29 +20,30 @@ width: 90%;
     margin-top: 100px;
     color: blue;
 }
-.backlogBigContainer{
+
+.backlogBigContainer {
     width: 90%;
 }
-.backlogContainer{
+
+.backlogContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.1);
-        height: 100%;
-        margin-top: 35px;
+    width: 100%;
+    margin-top: 35px;
+    margin-left: 10px;
 }
 
-.memberColor{
+.memberColor {
     width: 99%;
     height: 100px;
     box-sizing: border-box;
-    background-color: red;
     border-radius: 10px;
     border: 2px solid black;
     margin-top: 10px;
 }
 
-.memberBox{
+.memberBox {
     width: 99%;
     height: 95px;
     background-color: whitesmoke;
@@ -49,34 +53,34 @@ width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
+
 }
 
-.memberImg{
+.memberImg {
     height: 70px;
     width: 70px;
     object-fit: cover;
     border-radius: 100%;
-    background: red;
     border: 1px solid lightgrey;
 }
 
-.memberProfil{
+.memberProfil {
     height: 70px;
-    width: 100px;
+    width: 200px;
+    margin-left: 20px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 
-.memberImgAndProfil{
+.memberImgAndProfil {
     margin-left: 20px;
     display: flex;
 }
 
-.category{
-    margin-right: 10px;
+.category {
+    margin-right: 160px;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -85,16 +89,17 @@ width: 90%;
     border-radius: 10px;
     transition: ease-in-out 225ms;
     padding: 5px;
-    
+
 }
-.category:hover{
+
+.category:hover {
     cursor: pointer;
     border: lightgrey 1px solid;
     border-radius: 10px;
     background-color: #0072f53d;
 }
 
-.details{
+.details {
     margin-right: 10px;
     height: 50px;
     display: flex;
@@ -106,7 +111,7 @@ width: 90%;
     padding: 5px;
 }
 
-.details:hover{
+.details:hover {
     cursor: pointer;
     border: lightgrey 1px solid;
     border-radius: 10px;
