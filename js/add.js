@@ -1,13 +1,3 @@
-let task = {
-    "status": "backlog",
-    "list": "todo",
-    "title": "",
-    "category": "",
-    "description": "",
-    "date": "",
-    "urgency": "",
-    "users": []
-}
 let userArea;
 let addedUsers;
 let currentUsers = [];
@@ -47,6 +37,15 @@ clearTask = () => {
 }
 
 saveTask = () => {
+    let task = {
+        "status": "backlog",
+        "title": "",
+        "category": "",
+        "description": "",
+        "date": "",
+        "urgency": "",
+        "users": []
+    }
     task.title = document.getElementById("title").value;
     task.category = document.getElementById("category").value;
     task.description = document.getElementById("description").value;
