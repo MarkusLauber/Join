@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/draganddrop.css">
+    <script src="js/main.js"></script>
+    <script src="js/mini_backend.js"></script>
     <script src="js/draganddrop.js"></script>
 </head>
+
 <body onload="updateDragAndDropArea()">
+    <header w3-include-html="ressources/header/header.html"></header>
+
     <section id="dragAreaContainerID" class="dragAreaContainer flexCenterContent">
         <section id="openedTaskID" class="openedTaskWindow" style="display: none;">
         </section>
@@ -37,8 +44,9 @@
             <span class="dragAreaHead flexCenterContent">
                 DONE
             </span>
-        <div class="dragArea" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+            <div class="dragArea" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
         </article>
     </section>
 </body>
+
 </html>

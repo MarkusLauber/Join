@@ -1,5 +1,4 @@
-let boardTasks = [
-    {
+let boardTasks = [{
     'id': 0,
     'userImg': 'profileImg/chameleon.jpg',
     'user': 'Anton',
@@ -7,7 +6,7 @@ let boardTasks = [
     'category': 'Marketing',
     'details': 'lorem bla',
     'status': 'board',
-    'boardStatus':'toDo',
+    'boardStatus': 'toDo',
     'urgency': 'urgencyRed'
 }, {
     'id': 1,
@@ -17,7 +16,7 @@ let boardTasks = [
     'category': 'Product',
     'details': 'lorem bla dasf sa a fdsa dsa fdsa fawa ds awfa dsa dfsaf wae asf awadwafe awewa dsa wawaf wadsafwfsdaf awfds a',
     'status': 'board',
-    'boardStatus':'inProgress',
+    'boardStatus': 'inProgress',
     'urgency': 'urgencyGreen'
 
 }, {
@@ -28,7 +27,7 @@ let boardTasks = [
     'category': 'Sale',
     'details': 'lorem bla',
     'status': 'board',
-    'boardStatus':'testing',
+    'boardStatus': 'testing',
     'urgency': 'urgencyOrange'
 
 }, {
@@ -39,16 +38,16 @@ let boardTasks = [
     'category': 'Marketing',
     'details': 'lorem bla',
     'status': 'board',
-    'boardStatus':'done',
+    'boardStatus': 'done',
     'urgency': 'urgencyGreen'
 
-}
-];
+}];
 
 let currentDraggedElement;
 
 
 updateDragAndDropArea = () => {
+    includeHTML();
     enableToDo();
     enableInProgress();
     enableTesting();
@@ -60,7 +59,7 @@ enableToDo = () => {
 
     document.getElementById('toDo').innerHTML = '';
 
-    for(let i = 0; i < toDo.length; i++) {
+    for (let i = 0; i < toDo.length; i++) {
         const element = toDo[i];
         document.getElementById('toDo').innerHTML += generateTask(element);
     }
@@ -71,7 +70,7 @@ enableInProgress = () => {
 
     document.getElementById('inProgress').innerHTML = '';
 
-    for(let i = 0; i < inProgress.length; i++) {
+    for (let i = 0; i < inProgress.length; i++) {
         const element = inProgress[i];
         document.getElementById('inProgress').innerHTML += generateTask(element);
     }
@@ -82,7 +81,7 @@ enableTesting = () => {
 
     document.getElementById('testing').innerHTML = '';
 
-    for(let i = 0; i < testing.length; i++) {
+    for (let i = 0; i < testing.length; i++) {
         const element = testing[i];
         document.getElementById('testing').innerHTML += generateTask(element);
     }
@@ -93,7 +92,7 @@ enableDone = () => {
 
     document.getElementById('done').innerHTML = '';
 
-    for(let i = 0; i < done.length; i++) {
+    for (let i = 0; i < done.length; i++) {
         const element = done[i];
         document.getElementById('done').innerHTML += generateTask(element);
     }
@@ -153,13 +152,13 @@ openTaskWindow = (id) => {
 }
 
 updateDetails = (id) => {
-        let details = boardTasks[id].details;
-        let newDetails = document.getElementById('openedDetailsID').innerText;
-    
-        if(details != newDetails) {
-            boardTasks[id].details = newDetails;
-            updateDragAndDropArea();
-        }
+    let details = boardTasks[id].details;
+    let newDetails = document.getElementById('openedDetailsID').innerText;
+
+    if (details != newDetails) {
+        boardTasks[id].details = newDetails;
+        updateDragAndDropArea();
+    }
 }
 
 closeTaskWindow = () => {

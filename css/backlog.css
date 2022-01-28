@@ -25,7 +25,6 @@
     width: 90%;
 }
 
-
 .backlogContainer {
     display: flex;
     flex-direction: column;
@@ -54,7 +53,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .memberImg {
@@ -90,7 +88,6 @@
     border-radius: 10px;
     transition: ease-in-out 225ms;
     padding: 5px;
-
 }
 
 .category:hover {
@@ -119,10 +116,9 @@
     background-color: #0072f53d;
 }
 
-.backlogContainer{
-        width: 100%;
-        background: rgba(0, 0, 0, 0.1);
-        height: 100%;
-        margin-top: 35px;
+.backlogContainer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    height: 100%;
+    margin-top: 35px;
 }
-

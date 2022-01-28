@@ -1,5 +1,5 @@
-
 async function loadBacklog() {
+    includeHTML();
     setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
     await downloadFromServer();
     tasks = await JSON.parse(backend.getItem("tasks"));
@@ -26,4 +26,3 @@ async function loadBacklog() {
 `;
     }
 }
-

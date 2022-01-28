@@ -1,0 +1,20 @@
+@font-face {
+    font-family: PT;
+    src: url("/ressources/fonts/PTSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: PT-bold;
+    src: url("/ressources/fonts/PTSans-Bold.ttf")
+}
+
+:root {
+    --joinblue: #1E3190;
+    --joingray: #f4f3fb;
+    --fontsize: 18px;
+}
+
+body {
+    margin: 0;
+    display: flex;
+}

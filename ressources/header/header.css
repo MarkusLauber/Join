@@ -1,17 +1,3 @@
-@font-face {
-    font-family: PT;
-    src: url("/ressources/fonts/PTSans-Regular.ttf");
-}
-
-@font-face {
-    font-family: PT-bold;
-    src: url("/ressources/fonts/PTSans-Bold.ttf")
-}
-
-body {
-    margin: 0;
-}
-
 #header_body {
     width: 150px;
     height: 100vh;
@@ -24,7 +10,7 @@ body {
 #logo {
     width: 100px;
     height: 100px;
-    background-image: url("../ressources/img/logo.png");
+    background-image: url("../img/logo.png");
     background-repeat: no-repeat;
     background-position: center;
 }

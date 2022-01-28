@@ -2,11 +2,6 @@ html {
     font-size: 62.5%;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
 body * {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -20,7 +15,7 @@ body * {
 .dragAreaContainer {
     background-color: rgb(82, 82, 82);
     height: 100%;
-    width: 100%;
+    width: 80%;
 }
 
 .dragArea {
@@ -138,7 +133,6 @@ body * {
     font-size: 1.6rem;
 }
 
-
 .innerHTMLTask {
     width: 180px;
     height: 10rem;
@@ -212,4 +206,4 @@ body * {
 
 [contenteditable] {
     outline: 0px solid transparent;
-  }
+}
