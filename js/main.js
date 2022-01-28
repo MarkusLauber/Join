@@ -24,6 +24,16 @@ let users = [{
     "color": "green"
 }]
 
+serverLoad = async() => {
+    setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem("tasks"));
+}
+
+serverSave = async() => {
+    await backend.setItem('tasks', JSON.stringify(tasks));
+}
+
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /* Loop through a collection of all HTML elements: */

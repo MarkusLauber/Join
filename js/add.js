@@ -13,18 +13,6 @@ init = () => {
 
 getDate = () => {}
 
-serverLoad = async() => {
-    setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
-    await downloadFromServer();
-    tasks = JSON.parse(backend.getItem("tasks"));
-}
-
-serverSave = async() => {
-    await backend.setItem('tasks', JSON.stringify(tasks));
-    alert("Task wurde gespeichert");
-    clearTask();
-}
-
 clearTask = () => {
     document.getElementById("title").value = null;
     document.getElementById("category").value = "Product";
@@ -39,23 +27,17 @@ clearTask = () => {
 saveTask = () => {
     let task = {
         "status": "backlog",
-        "title": "",
-        "category": "",
-        "description": "",
-        "date": "",
-        "urgency": "",
-        "users": []
+        "list": "todo",
+        "title": document.getElementById("title").value,
+        "category": document.getElementById("category").value,
+        "description": document.getElementById("description").value,
+        "date": document.getElementById("date").value,
+        "urgency": document.getElementById("urgency").value,
+        "users": currentUsers
     }
-    task.title = document.getElementById("title").value;
-    task.category = document.getElementById("category").value;
-    task.description = document.getElementById("description").value;
-    task.date = document.getElementById("date").value;
-    task.urgency = document.getElementById("urgency").value;
-    task.users = currentUsers;
     tasks.push(task);
-    console.log(task);
-    console.log(tasks);
     serverSave();
+    clearTask();
 }
 
 fillAddUserArea = () => {
