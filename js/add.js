@@ -11,16 +11,29 @@ let task = {
 let userArea;
 let addedUsers;
 let currentUsers = [];
+let tasks = [];
 
 init = () => {
     includeHTML();
-    setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
+    serverLoad();
     userArea = document.getElementById("addUserArea");
     addedUsers = document.getElementById("addedUsers");
     fillAddUserArea();
 }
 
 getDate = () => {}
+
+serverLoad = async() => {
+    setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem("tasks"));
+}
+
+serverSave = async() => {
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    alert("Task wurde gespeichert");
+    clearTask();
+}
 
 clearTask = () => {
     document.getElementById("title").value = null;
@@ -40,13 +53,10 @@ saveTask = () => {
     task.date = document.getElementById("date").value;
     task.urgency = document.getElementById("urgency").value;
     task.users = currentUsers;
-    saveToServer();
-}
-
-saveToServer = async() => {
-    await backend.setItem('tasks', JSON.stringify(task));
-    alert("Task wurde gespeichert");
-    clearTask();
+    tasks.push(task);
+    console.log(task);
+    console.log(tasks);
+    serverSave();
 }
 
 fillAddUserArea = () => {
