@@ -1,6 +1,6 @@
 let boardTasks = [{
     'id': 0,
-    'userImg': 'profileImg/chameleon.jpg',
+    'userImg': 'ressources/img/pictures/1.jpg',
     'user': 'Anton',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Marketing',
@@ -10,7 +10,7 @@ let boardTasks = [{
     'urgency': 'urgencyRed'
 }, {
     'id': 1,
-    'userImg': 'profileImg/cow.jpg',
+    'userImg': 'ressources/img/pictures/2.jpg',
     'user': 'Samson',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Product',
@@ -21,7 +21,7 @@ let boardTasks = [{
 
 }, {
     'id': 2,
-    'userImg': 'profileImg/dolphin.jpg',
+    'userImg': 'ressources/img/pictures/3.jpg',
     'user': 'Alex',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Sale',
@@ -32,7 +32,7 @@ let boardTasks = [{
 
 }, {
     'id': 3,
-    'userImg': 'profileImg/fox.jpg',
+    'userImg': 'ressources/img/pictures/4.jpg',
     'user': 'Martin',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Marketing',
