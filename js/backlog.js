@@ -11,10 +11,10 @@ async function loadBacklog() {
     <div class="memberColor" style="background-color:${users[i].color}">
     <div class="memberBox">
         <div class="memberImgAndProfil">
-             <div class="memberImg"><img class="memberImg" src="${users[i].picture}" style="box-shadow: 1px 1px 5px 1px ${users[i].color}"</img></div>
+             <div class="memberImg"><img class="memberImg" src="${users[i].pic}" style="box-shadow: 1px 1px 5px 1px ${users[i].color}"</img></div>
               <div class="memberProfil">
                 <span class="memberName">${users[i].name}</span>
-                <span class="memberEmail">${users[i].email}</span>
+                <span class="memberEmail">${users[i].mail}</span>
                 <span class="memberPhone">tel. Nr: ${users[i].phone}</span>
               </div>
         </div>

@@ -1,7 +1,7 @@
 let boardTasks = [{
     'id': 0,
-    'userImg': 'ressources/img/pictures/1.jpg',
-    'user': 'Anton',
+    'pic': 'ressources/img/pictures/1.jpg',
+    'name': 'Anton',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Marketing',
     'details': 'lorem bla',
@@ -10,8 +10,8 @@ let boardTasks = [{
     'urgency': 'urgencyRed'
 }, {
     'id': 1,
-    'userImg': 'ressources/img/pictures/2.jpg',
-    'user': 'Samson',
+    'pic': 'ressources/img/pictures/2.jpg',
+    'name': 'Samson',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Product',
     'details': 'lorem bla dasf sa a fdsa dsa fdsa fawa ds awfa dsa dfsaf wae asf awadwafe awewa dsa wawaf wadsafwfsdaf awfds a',
@@ -21,8 +21,8 @@ let boardTasks = [{
 
 }, {
     'id': 2,
-    'userImg': 'ressources/img/pictures/3.jpg',
-    'user': 'Alex',
+    'pic': 'ressources/img/pictures/3.jpg',
+    'name': 'Alex',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Sale',
     'details': 'lorem bla',
@@ -32,8 +32,8 @@ let boardTasks = [{
 
 }, {
     'id': 3,
-    'userImg': 'ressources/img/pictures/4.jpg',
-    'user': 'Martin',
+    'pic': 'ressources/img/pictures/4.jpg',
+    'name': 'Martin',
     'mail': 'Beispielmail@gmx.net',
     'category': 'Marketing',
     'details': 'lorem bla',
@@ -105,11 +105,11 @@ startDragging = (id) => {
 generateTask = (element, id) => {
     return `
     <div onclick="openTaskWindow(${element.id})" id="taskID" draggable="true" ondragstart="startDragging(${element.id})" class="task ${element.urgency}">
-        <img class="elementUserImg" src="${element.userImg}">
+        <img class="elementUserImg" src="${element.pic}">
         <div class="innerHTMLTask flexCenterContent">
             <div class="elementHeader">
                 <span class="elementUser">
-                    ${element.user}
+                    ${element.name}
                 </span>
                 <span class="elementCategory">
                     ${element.category}
@@ -137,10 +137,10 @@ openTaskWindow = (id) => {
 
     document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
-        <img class="openedUserImg" src="${boardTasks[id].userImg}">
+        <img class="openedUserImg" src="${boardTasks[id].pic}">
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span class="openedUser">${boardTasks[id].user}</span><span class="OpenedCategory">Department: ${boardTasks[id].category}</span>
+                <span class="openedUser">${boardTasks[id].name}</span><span class="OpenedCategory">Department: ${boardTasks[id].category}</span>
             </div>
             <span id="openedDetailsID" class="openedDetails" contenteditable="true" onchange="updateDetails(${id})">
                 ${boardTasks[id].details}

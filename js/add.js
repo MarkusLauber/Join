@@ -16,10 +16,9 @@ getDate = () => {}
 clearTask = () => {
     document.getElementById("title").value = null;
     document.getElementById("category").value = "Product";
-    document.getElementById("description").value = null;
+    document.getElementById("details").value = null;
     document.getElementById("date").value = null;
     document.getElementById("urgency").value = "High";
-    document.getElementById("description").value = null;
     currentUsers = [];
     updateAddedUsers();
 }
@@ -27,10 +26,10 @@ clearTask = () => {
 saveTask = () => {
     let task = {
         "status": "backlog",
-        "list": "todo",
+        "boardStatus": "todo",
         "title": document.getElementById("title").value,
         "category": document.getElementById("category").value,
-        "description": document.getElementById("description").value,
+        "details": document.getElementById("details").value,
         "date": document.getElementById("date").value,
         "urgency": document.getElementById("urgency").value,
         "users": currentUsers
