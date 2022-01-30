@@ -43,11 +43,11 @@ fillAddUserArea = () => {
     users.forEach((user, i) => {
         userArea.innerHTML += `<div class="usercard" style="background-color:${user.color};">
                                 <div class="userinfo">
-                                    <img class="userpic" src=${user.picture} ">
+                                    <img class="userpic" src=${user.pic} ">
                                     <div class="userdata">
                                         <div class="username">${user.name}</div>
                                         <div>
-                                            <div class="userdetail">Email: ${user.email}</div>
+                                            <div class="userdetail">Email: ${user.mail}</div>
                                             <div class="userdetail">Phone: ${user.phone}</div>
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@ removeUser = (i) => {
 updateAddedUsers = () => {
     addedUsers.innerHTML = null;
     currentUsers.forEach((user, i) => {
-        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.picture}" style="border: 3px solid ${user.color};" onclick="removeUser(${i})">`
+        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="border: 3px solid ${user.color};" onclick="removeUser(${i})">`
     })
     addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea()"></div>`
 }
