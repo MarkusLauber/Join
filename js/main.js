@@ -25,7 +25,6 @@ let users = [{
 }]
 
 let tasks = [{
-    'id': 0,
     'pic': 'ressources/img/pictures/1.jpg',
     'name': 'Anton',
     'mail': 'Beispielmail@gmx.net',
@@ -35,7 +34,6 @@ let tasks = [{
     'boardStatus': 'toDo',
     'urgency': 'vHigh'
 }, {
-    'id': 1,
     'pic': 'ressources/img/pictures/2.jpg',
     'name': 'Samson',
     'mail': 'Beispielmail@gmx.net',
@@ -46,7 +44,6 @@ let tasks = [{
     'urgency': 'vLow'
 
 }, {
-    'id': 2,
     'pic': 'ressources/img/pictures/3.jpg',
     'name': 'Alex',
     'mail': 'Beispielmail@gmx.net',
@@ -57,7 +54,6 @@ let tasks = [{
     'urgency': 'medium'
 
 }, {
-    'id': 3,
     'pic': 'ressources/img/pictures/4.jpg',
     'name': 'Martin',
     'mail': 'Beispielmail@gmx.net',
@@ -68,7 +64,6 @@ let tasks = [{
     'urgency': 'low'
 
 }, {
-    'id': 4,
     'pic': 'ressources/img/pictures/4.jpg',
     'name': 'Martin',
     'mail': 'Beispielmail@gmx.net',
@@ -77,7 +72,6 @@ let tasks = [{
     'status': 'board',
     'boardStatus': 'done',
     'urgency': 'high'
-
 }];
 
 serverLoad = async() => {

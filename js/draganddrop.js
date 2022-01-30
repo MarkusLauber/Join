@@ -58,7 +58,7 @@ startDragging = (id) => {
 
 generateTask = (element, id) => {
     return `
-    <div onclick="openTaskWindow(${element.id})" id="taskID" draggable="true" ondragstart="startDragging(${element.id})" class="task ${element.urgency}">
+    <div onclick="openTaskWindow(${tasks.indexOf(element)})" id="${tasks.indexOf(element)}" draggable="true" ondragstart="startDragging(${tasks.indexOf(element)})" class="task ${element.urgency}">
         <img class="elementUserImg" src="${element.pic}">
         <div class="innerHTMLTask flexCenterContent">
             <div class="elementHeader">
