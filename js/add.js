@@ -48,7 +48,7 @@ showTaskSave = () => {
 
 fillAddUserArea = () => {
     users.forEach((user, i) => {
-        userArea.innerHTML += `<div class="usercard" style="background-color:${user.color};">
+        userArea.innerHTML += `<div class="usercard" onclick="addUser(${i})" style="background-color:${user.color};">
                                 <div class="userinfo">
                                     <img class="userpic" src=${user.pic} ">
                                     <div class="userdata">
@@ -58,7 +58,6 @@ fillAddUserArea = () => {
                                             <div class="userdetail">Phone: ${user.phone}</div>
                                         </div>
                                     </div>
-                                    <div class="addUser" onclick="addUser(${i})"></div>
                                 </div>
                             </div>`
     })

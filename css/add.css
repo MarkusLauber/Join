@@ -84,7 +84,10 @@ textarea {
 .userpic {
     width: 80px;
     height: 80px;
+    object-fit: cover;
+    object-position: top;
     border-radius: 50%;
+    margin-right: 4px;
 }
 
 .buttonbox {
@@ -123,7 +126,7 @@ select {
 
 #addUserArea {
     z-index: 1;
-    width: 50%;
+    width: max(30%, 220px);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -139,7 +142,7 @@ select {
 
 .usercard {
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     display: flex;
     justify-content: flex-end;
     border-radius: 8px;
@@ -153,7 +156,7 @@ select {
     border-left: 1px solid black;
     background: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 0 4px 0 4px;
 }
@@ -174,7 +177,7 @@ select {
 }
 
 .userdetail {
-    text-align: left;
+    text-align: center;
 }
 
 #savescreen {

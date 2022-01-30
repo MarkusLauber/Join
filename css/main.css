@@ -19,6 +19,10 @@ body {
     display: flex;
 }
 
+header {
+    width: max(10vw, 90px);
+}
+
 .hide {
     display: none !important;
 }
