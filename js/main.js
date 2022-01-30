@@ -24,6 +24,8 @@ let users = [{
     "color": "green"
 }]
 
+let tasks = [];
+
 serverLoad = async() => {
     setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
     await downloadFromServer();

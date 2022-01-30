@@ -1,7 +1,6 @@
 let userArea;
 let addedUsers;
 let currentUsers = [];
-let tasks = [];
 
 init = () => {
     includeHTML();
