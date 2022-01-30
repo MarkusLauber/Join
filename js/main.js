@@ -24,7 +24,61 @@ let users = [{
     "color": "green"
 }]
 
-let tasks = [];
+let tasks = [{
+    'id': 0,
+    'pic': 'ressources/img/pictures/1.jpg',
+    'name': 'Anton',
+    'mail': 'Beispielmail@gmx.net',
+    'category': 'Marketing',
+    'details': 'lorem bla',
+    'status': 'board',
+    'boardStatus': 'toDo',
+    'urgency': 'vHigh'
+}, {
+    'id': 1,
+    'pic': 'ressources/img/pictures/2.jpg',
+    'name': 'Samson',
+    'mail': 'Beispielmail@gmx.net',
+    'category': 'Product',
+    'details': 'lorem bla dasf sa a fdsa dsa fdsa fawa ds awfa dsa dfsaf wae asf awadwafe awewa dsa wawaf wadsafwfsdaf awfds a',
+    'status': 'board',
+    'boardStatus': 'inProgress',
+    'urgency': 'vLow'
+
+}, {
+    'id': 2,
+    'pic': 'ressources/img/pictures/3.jpg',
+    'name': 'Alex',
+    'mail': 'Beispielmail@gmx.net',
+    'category': 'Sale',
+    'details': 'lorem bla',
+    'status': 'board',
+    'boardStatus': 'testing',
+    'urgency': 'medium'
+
+}, {
+    'id': 3,
+    'pic': 'ressources/img/pictures/4.jpg',
+    'name': 'Martin',
+    'mail': 'Beispielmail@gmx.net',
+    'category': 'Marketing',
+    'details': 'lorem bla',
+    'status': 'board',
+    'boardStatus': 'done',
+    'urgency': 'low'
+
+}, {
+    'id': 4,
+    'pic': 'ressources/img/pictures/4.jpg',
+    'name': 'Martin',
+    'mail': 'Beispielmail@gmx.net',
+    'category': 'Marketing',
+    'details': 'lorem bla',
+    'status': 'board',
+    'boardStatus': 'done',
+    'urgency': 'high'
+
+}];
 
 serverLoad = async() => {
     setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
