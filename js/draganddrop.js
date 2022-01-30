@@ -1,4 +1,4 @@
-let boardTasks = [{
+let tasks = [{
     'id': 0,
     'pic': 'ressources/img/pictures/1.jpg',
     'name': 'Anton',
@@ -7,7 +7,7 @@ let boardTasks = [{
     'details': 'lorem bla',
     'status': 'board',
     'boardStatus': 'toDo',
-    'urgency': 'urgencyRed'
+    'urgency': 'vHigh'
 }, {
     'id': 1,
     'pic': 'ressources/img/pictures/2.jpg',
@@ -17,7 +17,7 @@ let boardTasks = [{
     'details': 'lorem bla dasf sa a fdsa dsa fdsa fawa ds awfa dsa dfsaf wae asf awadwafe awewa dsa wawaf wadsafwfsdaf awfds a',
     'status': 'board',
     'boardStatus': 'inProgress',
-    'urgency': 'urgencyGreen'
+    'urgency': 'vLow'
 
 }, {
     'id': 2,
@@ -28,7 +28,7 @@ let boardTasks = [{
     'details': 'lorem bla',
     'status': 'board',
     'boardStatus': 'testing',
-    'urgency': 'urgencyOrange'
+    'urgency': 'medium'
 
 }, {
     'id': 3,
@@ -39,7 +39,18 @@ let boardTasks = [{
     'details': 'lorem bla',
     'status': 'board',
     'boardStatus': 'done',
-    'urgency': 'urgencyGreen'
+    'urgency': 'low'
+
+}, {
+    'id': 4,
+    'pic': 'ressources/img/pictures/4.jpg',
+    'name': 'Martin',
+    'mail': 'Beispielmail@gmx.net',
+    'category': 'Marketing',
+    'details': 'lorem bla',
+    'status': 'board',
+    'boardStatus': 'done',
+    'urgency': 'high'
 
 }];
 
@@ -55,7 +66,7 @@ updateDragAndDropArea = () => {
 }
 
 enableToDo = () => {
-    let toDo = boardTasks.filter(filterTask => filterTask.boardStatus == 'toDo');
+    let toDo = tasks.filter(filterTask => filterTask.boardStatus == 'toDo');
 
     document.getElementById('toDo').innerHTML = '';
 
@@ -66,7 +77,7 @@ enableToDo = () => {
 }
 
 enableInProgress = () => {
-    let inProgress = boardTasks.filter(filterTask => filterTask.boardStatus == 'inProgress');
+    let inProgress = tasks.filter(filterTask => filterTask.boardStatus == 'inProgress');
 
     document.getElementById('inProgress').innerHTML = '';
 
@@ -77,7 +88,7 @@ enableInProgress = () => {
 }
 
 enableTesting = () => {
-    let testing = boardTasks.filter(filterTask => filterTask.boardStatus == 'testing');
+    let testing = tasks.filter(filterTask => filterTask.boardStatus == 'testing');
 
     document.getElementById('testing').innerHTML = '';
 
@@ -88,7 +99,7 @@ enableTesting = () => {
 }
 
 enableDone = () => {
-    let done = boardTasks.filter(filterTask => filterTask.boardStatus == 'done');
+    let done = tasks.filter(filterTask => filterTask.boardStatus == 'done');
 
     document.getElementById('done').innerHTML = '';
 
@@ -128,7 +139,7 @@ allowDrop = (ev) => {
 }
 
 moveTo = (boardStatus) => {
-    boardTasks[currentDraggedElement]['boardStatus'] = boardStatus;
+    tasks[currentDraggedElement]['boardStatus'] = boardStatus;
     updateDragAndDropArea();
 }
 
@@ -137,13 +148,13 @@ openTaskWindow = (id) => {
 
     document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
-        <img class="openedUserImg" src="${boardTasks[id].pic}">
+        <img class="openedUserImg" src="${tasks[id].pic}">
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span class="openedUser">${boardTasks[id].name}</span><span class="OpenedCategory">Department: ${boardTasks[id].category}</span>
+                <span class="openedUser">${tasks[id].name}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
             </div>
             <span id="openedDetailsID" class="openedDetails" contenteditable="true" onchange="updateDetails(${id})">
-                ${boardTasks[id].details}
+                ${tasks[id].details}
             </span>
                 <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
         </div>
@@ -152,11 +163,11 @@ openTaskWindow = (id) => {
 }
 
 updateDetails = (id) => {
-    let details = boardTasks[id].details;
+    let details = tasks[id].details;
     let newDetails = document.getElementById('openedDetailsID').innerText;
 
     if (details != newDetails) {
-        boardTasks[id].details = newDetails;
+        tasks[id].details = newDetails;
         updateDragAndDropArea();
     }
 }

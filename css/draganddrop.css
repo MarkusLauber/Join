@@ -192,16 +192,24 @@ body * {
     align-items: center;
 }
 
-.urgencyRed {
+.vHigh {
+    background-color: rgba(248, 100, 253, 0.288);
+}
+
+.high {
     background-color: rgba(253, 100, 100, 0.288);
 }
 
-.urgencyGreen {
+.medium {
+    background-color: rgba(252, 211, 134, 0.527);
+}
+
+.low {
     background-color: rgba(131, 224, 131, 0.342);
 }
 
-.urgencyOrange {
-    background-color: rgba(252, 211, 134, 0.527);
+.vLow {
+    background-color: rgba(131, 133, 224, 0.342);
 }
 
 [contenteditable] {
