@@ -177,12 +177,22 @@ select {
     text-align: left;
 }
 
-.hide {
-    display: none !important;
-}
-
-.pointer {
-    cursor: pointer;
+#savescreen {
+    width: 200px;
+    height: 100px;
+    color: white;
+    font-family: PT-bold;
+    font-size: var(--fontsize);
+    background-color: var(--joinblue);
+    border-radius: 4px;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX (-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 @media screen and (max-width:700px) {

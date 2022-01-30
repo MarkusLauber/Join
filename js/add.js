@@ -36,8 +36,16 @@ saveTask = () => {
     }
     tasks.push(task);
     serverSave();
+    showTaskSave();
     clearTask();
 }
+
+showTaskSave = () => {
+    let savescreen = document.getElementById("savescreen");
+    savescreen.classList.remove("hide");
+    setTimeout(() => { savescreen.classList.add("hide") }, 1500);
+}
+
 
 fillAddUserArea = () => {
     users.forEach((user, i) => {

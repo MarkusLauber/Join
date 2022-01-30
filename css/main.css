@@ -18,3 +18,11 @@ body {
     margin: 0;
     display: flex;
 }
+
+.hide {
+    display: none !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
