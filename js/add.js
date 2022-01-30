@@ -5,9 +5,9 @@ let currentUsers = [];
 init = () => {
     includeHTML();
     serverLoad();
-    userArea = document.getElementById("addUserArea");
+    userArea = document.getElementById("userArea");
     addedUsers = document.getElementById("addedUsers");
-    fillAddUserArea();
+    updateUserArea();
 }
 
 getDate = () => {}
@@ -20,12 +20,13 @@ clearTask = () => {
     document.getElementById("urgency").value = "High";
     currentUsers = [];
     updateAddedUsers();
+    users.forEach((user) => { user.assigned = false })
+    updateUserArea();
 }
 
 saveTask = () => {
     let task = {
         "status": "backlog",
-        "boardStatus": "todo",
         "title": document.getElementById("title").value,
         "category": document.getElementById("category").value,
         "details": document.getElementById("details").value,
@@ -45,10 +46,11 @@ showTaskSave = () => {
     setTimeout(() => { savescreen.classList.add("hide") }, 1500);
 }
 
-
-fillAddUserArea = () => {
-    users.forEach((user, i) => {
-        userArea.innerHTML += `<div class="usercard" onclick="addUser(${i})" style="background-color:${user.color};">
+updateUserArea = () => {
+    let freeUsers = filterFreeUsers();
+    userArea.innerHTML = null;
+    freeUsers.forEach((user, i) => {
+        userArea.innerHTML += `<div class="usercard" onclick="addUser(${users.indexOf(user)})" style="background-color:${user.color};">
                                 <div class="userinfo">
                                     <img class="userpic" src=${user.pic} ">
                                     <div class="userdata">
@@ -73,19 +75,29 @@ closeUserArea = () => {
 
 addUser = (i) => {
     currentUsers.push(users[i]);
+    users[i].assigned = true;
     closeUserArea();
     updateAddedUsers();
+    updateUserArea();
 }
 
-removeUser = (i) => {
+removeUser = (i, j) => {
     currentUsers.splice(i, 1);
+    users[j].assigned = false;
     updateAddedUsers();
+    updateUserArea();
 }
 
 updateAddedUsers = () => {
     addedUsers.innerHTML = null;
     currentUsers.forEach((user, i) => {
-        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="border: 3px solid ${user.color};" onclick="removeUser(${i})">`
+        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="border: 3px solid ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
     })
-    addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea()"></div>`
+    if (currentUsers.length < 3) {
+        addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea()"></div>`
+    }
+}
+
+filterFreeUsers = () => {
+    return users.filter(free => free.assigned == false)
 }

@@ -88,6 +88,7 @@
     border-radius: 10px;
     transition: ease-in-out 225ms;
     padding: 5px;
+    min-width: 100px;
 }
 
 .category:hover {
@@ -101,12 +102,13 @@
     margin-right: 10px;
     height: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     border: lightgrey 1px solid;
     border-radius: 10px;
     transition: ease-in-out 225ms;
     padding: 5px;
+    min-width: 300px;
 }
 
 .details:hover {
@@ -116,9 +118,4 @@
     background-color: #0072f53d;
 }
 
-.backlogContainer {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    height: 100%;
-    margin-top: 35px;
-}
+.backlogContainer {}

@@ -67,9 +67,6 @@ body * {
 .openedTask {
     z-index: 2;
     position: absolute;
-    top: auto;
-    right: auto;
-    left: auto;
     width: 60rem;
     height: 20rem;
     border-radius: 20px;
@@ -103,28 +100,28 @@ body * {
 
 .elementUserImg {
     position: relative;
-    top: -11px;
-    left: -11px;
-    height: 40px;
-    width: 40px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
     object-fit: cover;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 
 .elementHeader {
-    width: 140px;
+    width: 160px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+}
+
+.userContainer {
+    width: 30px;
 }
 
 .elementDetails {
     position: relative;
-    left: -30px;
     font-size: 1.4rem;
     max-height: 8rem;
-    width: 180px;
+    width: 160px;
     overflow: hidden;
     margin-top: 20px;
 }
@@ -134,19 +131,18 @@ body * {
 }
 
 .innerHTMLTask {
-    width: 180px;
+    margin-left: 10px;
+    width: 160px;
     height: 10rem;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 .openedUserImg {
-    position: absolute;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     object-fit: cover;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 50%;
 }
 
 .closeIcon {
@@ -160,12 +156,10 @@ body * {
 }
 
 .openedHeader {
-    width: 40rem;
-    height: 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 10px;
+    width: 60rem;
 }
 
 .openedUser {
@@ -173,42 +167,54 @@ body * {
 }
 
 .openedDetails {
-    height: 12rem;
+    position: absolute;
     font-size: 2.2rem;
-    margin: 20px 10px 20px 10px;
     overflow: hidden;
+    width: 50rem;
+    left: 7rem;
+    margin-top: 20px;
 }
 
 .openedCategory {
     font-size: 3.6rem;
 }
 
-.openedInnerHTMLTask {
-    width: 60rem;
+.openedUserImgContainer {
+    position: absolute;
+    top: 0;
+    left: 10px;
     height: 20rem;
+    width: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
 }
 
-.vHigh {
+.openedInnerHTMLTask {
+    position: absolute;
+    width: 60rem;
+    height: 20rem;
+    top: 8px;
+}
+
+.prio1 {
     background-color: rgba(248, 100, 253, 0.288);
 }
 
-.high {
+.prio2 {
     background-color: rgba(253, 100, 100, 0.288);
 }
 
-.medium {
+.prio3 {
     background-color: rgba(252, 211, 134, 0.527);
 }
 
-.low {
+.prio4 {
     background-color: rgba(131, 224, 131, 0.342);
 }
 
-.vLow {
+.prio5 {
     background-color: rgba(131, 133, 224, 0.342);
 }
 

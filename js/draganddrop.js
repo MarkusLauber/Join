@@ -1,7 +1,12 @@
 let currentDraggedElement;
 
-updateDragAndDropArea = () => {
+startTasks = () => {
+    serverLoad();
     includeHTML();
+    setTimeout(updateDragAndDropArea, 50)
+}
+
+updateDragAndDropArea = () => {
     enableToDo();
     enableInProgress();
     enableTesting();
@@ -9,7 +14,7 @@ updateDragAndDropArea = () => {
 }
 
 enableToDo = () => {
-    let toDo = tasks.filter(filterTask => filterTask.boardStatus == 'toDo');
+    let toDo = tasks.filter(filterTask => filterTask.status == 'toDo');
 
     document.getElementById('toDo').innerHTML = '';
 
@@ -20,7 +25,7 @@ enableToDo = () => {
 }
 
 enableInProgress = () => {
-    let inProgress = tasks.filter(filterTask => filterTask.boardStatus == 'inProgress');
+    let inProgress = tasks.filter(filterTask => filterTask.status == 'inProgress');
 
     document.getElementById('inProgress').innerHTML = '';
 
@@ -31,7 +36,7 @@ enableInProgress = () => {
 }
 
 enableTesting = () => {
-    let testing = tasks.filter(filterTask => filterTask.boardStatus == 'testing');
+    let testing = tasks.filter(filterTask => filterTask.status == 'testing');
 
     document.getElementById('testing').innerHTML = '';
 
@@ -42,7 +47,7 @@ enableTesting = () => {
 }
 
 enableDone = () => {
-    let done = tasks.filter(filterTask => filterTask.boardStatus == 'done');
+    let done = tasks.filter(filterTask => filterTask.status == 'done');
 
     document.getElementById('done').innerHTML = '';
 
@@ -59,11 +64,13 @@ startDragging = (id) => {
 generateTask = (element, id) => {
     return `
     <div onclick="openTaskWindow(${tasks.indexOf(element)})" id="${tasks.indexOf(element)}" draggable="true" ondragstart="startDragging(${tasks.indexOf(element)})" class="task ${element.urgency}">
-        <img class="elementUserImg" src="${element.pic}">
+        <div id="userPics" class="userContainer">` +
+        getUserPics(element) +
+        ` </div>
         <div class="innerHTMLTask flexCenterContent">
             <div class="elementHeader">
                 <span class="elementUser">
-                    ${element.name}
+                    ${element.title}
                 </span>
                 <span class="elementCategory">
                     ${element.category}
@@ -81,8 +88,9 @@ allowDrop = (ev) => {
     ev.preventDefault();
 }
 
-moveTo = (boardStatus) => {
-    tasks[currentDraggedElement]['boardStatus'] = boardStatus;
+moveTo = (status) => {
+    tasks[currentDraggedElement]['status'] = status;
+    serverSave();
     updateDragAndDropArea();
 }
 
@@ -91,16 +99,20 @@ openTaskWindow = (id) => {
 
     document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
-        <img class="openedUserImg" src="${tasks[id].pic}">
+        <div class="openedUserImgContainer">
+            <img class="openedUserImg" src="${tasks[id].pic}">
+            <img class="openedUserImg" src="${tasks[id].pic}">
+            <img class="openedUserImg" src="${tasks[id].pic}">
+        </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span class="openedUser">${tasks[id].name}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
+                <span id="openedTitleID" onchange="updateTitle(${id})" contenteditable="true" class="openedUser">${tasks[id].name}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
             </div>
             <span id="openedDetailsID" class="openedDetails" contenteditable="true" onchange="updateDetails(${id})">
                 ${tasks[id].details}
             </span>
-                <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
         </div>
+        <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
     <div>
     `;
 }
@@ -111,6 +123,18 @@ updateDetails = (id) => {
 
     if (details != newDetails) {
         tasks[id].details = newDetails;
+        serverSave();
+        updateDragAndDropArea();
+    }
+}
+
+updateTitle = (id) => {
+    let title = tasks[id].name;
+    let newTitle = document.getElementById('openedTitleID').innerText;
+
+    if (title != newTitle) {
+        tasks[id].Title = newTitle;
+        serverSave();
         updateDragAndDropArea();
     }
 }
@@ -119,4 +143,11 @@ closeTaskWindow = () => {
     document.getElementById('openedTaskID').style = "display: none;"
 
     document.getElementById('openedTaskID').innerHTML = '';
+}
+
+getUserPics = (element) => {
+    let userPicString = "";
+    element.users.forEach((user) =>
+        userPicString += `<img class="openedUserImg" src="${user.pic}">`)
+    return userPicString;
 }

@@ -25,6 +25,7 @@ h1 {
 .medium {
     height: 100px;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -124,7 +125,7 @@ select {
     cursor: pointer;
 }
 
-#addUserArea {
+#userArea {
     z-index: 1;
     width: max(30%, 220px);
     position: absolute;
