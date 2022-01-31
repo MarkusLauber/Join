@@ -61,7 +61,7 @@ startDragging = (id) => {
     currentDraggedElement = id;
 }
 
-generateTask = (element, id) => {
+generateTask = (element) => {
     let tNumber = tasks.indexOf(element);
     return `
     <div onclick="openTaskWindow(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
@@ -103,7 +103,9 @@ openTaskWindow = (id) => {
     document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
         <div class="openedUserImgContainer">
-        
+        ` 
+        + getOpenedUserPics(id) +
+        ` 
         </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
@@ -153,11 +155,10 @@ getUserPics = (element) => {
     return userPicString;
 }
 
-/*
-getOpenedUserPics = () => {
+
+getOpenedUserPics = (id) => {
     let userPicString = "";
-    .users.forEach((user) =>
+    tasks[id].users.forEach((user) =>
         userPicString += `<img class="openedUserImg" src="${user.pic}">`)
     return userPicString;
 }
-*/
