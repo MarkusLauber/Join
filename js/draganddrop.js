@@ -109,20 +109,20 @@ openTaskWindow = (id) => {
         </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span id="openedTitleID" contenteditable="true" class="openedUser">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
+                <span id="openedTitleID" contenteditable="true" class="openedUser" onkeydown="acceptChanges(${id})">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
             </div>
             <span id="openedDetailsID" class="openedDetails" contenteditable="true">
                 ${tasks[id].details}
             </span>
         </div>
-        <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
+        <img class="closeIcon" id="closedIconImg(${id})" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
     <div>
     `;
 }
 
 updateDetails = (id) => {
-    let details = tasks[id].details;
-    let newDetails = document.getElementById('openedDetailsID').innerText;
+    details = tasks[id].details;
+    newDetails = document.getElementById('openedDetailsID').innerText;
 
     if (details != newDetails) {
         tasks[id].details = newDetails;
@@ -132,8 +132,8 @@ updateDetails = (id) => {
 }
 
 updateTitle = (id) => {
-    let title = tasks[id].title;
-    let newTitle = document.getElementById('openedTitleID').innerText;
+    title = tasks[id].title;
+    newTitle = document.getElementById('openedTitleID').innerText;
 
     if (title != newTitle) {
         tasks[id].title = newTitle;
@@ -141,6 +141,16 @@ updateTitle = (id) => {
         updateDragAndDropArea();
     }
 }
+
+/*
+
+acceptChanges = (title, newTitle, details, newDetails, id) => {
+    if(title != newTitle || details != newDetails) {
+        document.getElementById(`closedIconImg(${id})`).src = 'ressources/icons/check.ico';
+    }
+}
+
+*/
 
 closeTaskWindow = () => {
     document.getElementById('openedTaskID').style = "display: none;"
