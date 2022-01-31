@@ -62,11 +62,14 @@ startDragging = (id) => {
 }
 
 generateTask = (element, id) => {
+    let tNumber = tasks.indexOf(element);
     return `
-    <div onclick="openTaskWindow(${tasks.indexOf(element)})" id="${tasks.indexOf(element)}" draggable="true" ondragstart="startDragging(${tasks.indexOf(element)})" class="task ${element.urgency}">
-        <div id="userPics" class="userContainer">` +
-        getUserPics(element) +
-        ` </div>
+    <div onclick="openTaskWindow(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
+        <div id="userPics" class="userContainer">
+        ` 
+        + getUserPics(element) +
+        ` 
+        </div>
         <div class="innerHTMLTask flexCenterContent">
             <div class="elementHeader">
                 <span class="elementUser">
@@ -100,19 +103,17 @@ openTaskWindow = (id) => {
     document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
         <div class="openedUserImgContainer">
-            <img class="openedUserImg" src="${tasks[id].pic}">
-            <img class="openedUserImg" src="${tasks[id].pic}">
-            <img class="openedUserImg" src="${tasks[id].pic}">
+        
         </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span id="openedTitleID" onchange="updateTitle(${id})" contenteditable="true" class="openedUser">${tasks[id].name}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
+                <span id="openedTitleID" contenteditable="true" class="openedUser">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
             </div>
-            <span id="openedDetailsID" class="openedDetails" contenteditable="true" onchange="updateDetails(${id})">
+            <span id="openedDetailsID" class="openedDetails" contenteditable="true">
                 ${tasks[id].details}
             </span>
         </div>
-        <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
+        <img class="closeIcon" id="closeIconID" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
     <div>
     `;
 }
@@ -129,11 +130,11 @@ updateDetails = (id) => {
 }
 
 updateTitle = (id) => {
-    let title = tasks[id].name;
+    let title = tasks[id].title;
     let newTitle = document.getElementById('openedTitleID').innerText;
 
     if (title != newTitle) {
-        tasks[id].Title = newTitle;
+        tasks[id].title = newTitle;
         serverSave();
         updateDragAndDropArea();
     }
@@ -148,6 +149,15 @@ closeTaskWindow = () => {
 getUserPics = (element) => {
     let userPicString = "";
     element.users.forEach((user) =>
+        userPicString += `<img class="elementUserImg" src="${user.pic}">`)
+    return userPicString;
+}
+
+/*
+getOpenedUserPics = () => {
+    let userPicString = "";
+    .users.forEach((user) =>
         userPicString += `<img class="openedUserImg" src="${user.pic}">`)
     return userPicString;
 }
+*/
