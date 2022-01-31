@@ -143,11 +143,10 @@ body {
 }
 
 .taskDetails {
-    width: 80%;
+    flex: 1;
     background-color: var(--lightgray);
 }
 
 .taskUsers {
     display: flex;
-    flex-direction: column;
 }
