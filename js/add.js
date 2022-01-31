@@ -91,7 +91,7 @@ removeUser = (i, j) => {
 updateAddedUsers = () => {
     addedUsers.innerHTML = null;
     currentUsers.forEach((user, i) => {
-        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="border: 3px solid ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
+        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
     })
     if (currentUsers.length < 3) {
         addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea()"></div>`

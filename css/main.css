@@ -12,6 +12,9 @@
     --joinblue: #1E3190;
     --joingray: #f4f3fb;
     --fontsize: 18px;
+    --darkgray: rgb(82, 82, 82);
+    --mediumgray: rgb(95, 95, 95);
+    --lightgray: rgba(155, 155, 155, 0.637);
 }
 
 body {
@@ -29,4 +32,28 @@ header {
 
 .pointer {
     cursor: pointer;
+}
+
+.box-shadow {
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.prio1 {
+    background-color: rgba(248, 100, 253, 0.288);
+}
+
+.prio2 {
+    background-color: rgba(253, 100, 100, 0.288);
+}
+
+.prio3 {
+    background-color: rgba(252, 211, 134, 0.527);
+}
+
+.prio4 {
+    background-color: rgba(131, 224, 131, 0.342);
+}
+
+.prio5 {
+    background-color: rgba(131, 133, 224, 0.342);
 }

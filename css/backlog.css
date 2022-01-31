@@ -1,3 +1,8 @@
+body {
+    background-color: var(--darkgray);
+    font-family: PT;
+}
+
 .upperPart {
     width: 90%;
 }
@@ -8,7 +13,7 @@
 
 .backlogDefinition {
     margin-left: 35px;
-    color: blue;
+    color: var(--joinblue);
 }
 
 .titles {
@@ -18,11 +23,11 @@
     width: 90%;
     padding-left: 40px;
     margin-top: 100px;
-    color: blue;
+    color: var(--joinblue);
 }
 
 .backlogBigContainer {
-    width: 90%;
+    width: 100%;
 }
 
 .backlogContainer {
@@ -46,7 +51,7 @@
 .memberBox {
     width: 99%;
     height: 95px;
-    background-color: whitesmoke;
+    background-color: var(--lightgray);
     border: 1px solid black;
     border-radius: 10px;
     margin-left: 10px;
@@ -79,7 +84,7 @@
 }
 
 .category {
-    margin-right: 160px;
+    /* margin-right: 160px; */
     height: 50px;
     display: flex;
     justify-content: center;
@@ -89,6 +94,7 @@
     transition: ease-in-out 225ms;
     padding: 5px;
     min-width: 100px;
+    background-color: var(--mediumgray);
 }
 
 .category:hover {
@@ -119,3 +125,29 @@
 }
 
 .backlogContainer {}
+
+.taskMain {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 4px 0 4px 0;
+}
+
+.taskTop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskBottom {
+    display: flex;
+}
+
+.taskDetails {
+    width: 80%;
+    background-color: var(--lightgray);
+}
+
+.taskUsers {
+    display: flex;
+    flex-direction: column;
+}
