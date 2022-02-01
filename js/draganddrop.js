@@ -1,9 +1,9 @@
 let currentDraggedElement;
 
-startTasks = () => {
-    serverLoad();
+startTasks = async() => {
+    await serverLoad();
     includeHTML();
-    setTimeout(updateDragAndDropArea, 50)
+    setTimeout(updateDragAndDropArea, 100)
 }
 
 updateDragAndDropArea = () => {
@@ -66,8 +66,8 @@ generateTask = (element) => {
     return `
     <div onclick="openTaskWindow(${tNumber}), addDeleteTask(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
         <div id="userPics" class="userContainer">
-        ` 
-        + getUserPics(element) +
+        ` +
+        getUserPics(element) +
         ` 
         </div>
         <div class="innerHTMLTask flexCenterContent">
@@ -84,8 +84,7 @@ generateTask = (element) => {
             </span>
         </div>
     <div>
-    `
-    ;
+    `;
 }
 
 allowDrop = (ev) => {
@@ -105,8 +104,8 @@ openTaskWindow = (id) => {
     document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
         <div class="openedUserImgContainer">
-        ` 
-        + getOpenedUserPics(id) +
+        ` +
+        getOpenedUserPics(id) +
         ` 
         </div>
         <div class="openedInnerHTMLTask">
@@ -119,8 +118,7 @@ openTaskWindow = (id) => {
         </div>
         <img class="closeIcon" id="closedIconImg(${id})" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">
     <div>
-    `
-    ;
+    `;
 }
 
 updateDetails = (id) => {
@@ -146,7 +144,7 @@ updateTitle = (id) => {
 }
 
 acceptChanges = (id) => {
-        document.getElementById(`closedIconImg(${id})`).src = 'ressources/icons/check.ico';
+    document.getElementById(`closedIconImg(${id})`).src = 'ressources/icons/check.ico';
 }
 
 closeTaskWindow = () => {
@@ -170,7 +168,7 @@ getOpenedUserPics = (id) => {
 }
 
 addDeleteTask = (tNumber) => {
-    if(tasks[tNumber].status == 'done') {
+    if (tasks[tNumber].status == 'done') {
         document.getElementById("openedTaskWindowID").innerHTML += `
         <img onclick="deleteTask(${tNumber})" class="trashIcon" src="ressources/icons/trash.ico">
         `;
@@ -178,5 +176,5 @@ addDeleteTask = (tNumber) => {
 }
 
 deleteTask = (tNumber) => {
-    
+
 }

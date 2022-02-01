@@ -51,9 +51,9 @@ updateUserArea = () => {
     let freeUsers = filterFreeUsers();
     userArea.innerHTML = null;
     freeUsers.forEach((user, i) => {
-        userArea.innerHTML += `<div class="usercard" onclick="addUser(${users.indexOf(user)})" style="background-color:${user.color};">
+        userArea.innerHTML += `<div class="usercard" onclick="addUser(${users.indexOf(user)})">
                                 <div class="userinfo">
-                                    <img class="userpic" src=${user.pic} ">
+                                    <img class="userpic" src="${user.pic}"style="box-shadow: 1px 1px 5px 1px ${user.color}">
                                     <div class="userdata">
                                         <div class="username">${user.name}</div>
                                         <div>
@@ -70,9 +70,9 @@ updateUserArea = () => {
 
 openUserArea = () => {
     userArea.classList.remove("hide");
-    document.addEventListener('click', (event) => {
-        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
-    })
+    // document.addEventListener('click', (event) => {
+    //     if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+    // }) style="background-color:${user.color};"
     userAreaOpen = true;
 
 }
@@ -80,9 +80,9 @@ openUserArea = () => {
 
 closeUserArea = () => {
     userArea.classList.add("hide");
-    document.removeEventListener('click', (event) => {
-        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
-    })
+    // document.removeEventListener('click', (event) => {
+    //     if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+    // })
     userAreaOpen = false;
 }
 
