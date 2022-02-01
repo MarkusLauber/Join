@@ -13,16 +13,6 @@ updateDragAndDropArea = () => {
     enableDone();
 }
 
-urgencySort = (a, b) => {
-    if (a.urgency < b.urgency) {
-        return -1;
-    }
-    if (a.urgency > b.urgency) {
-        return 1;
-    }
-    return 0;
-}
-
 enableToDo = () => {
     let toDo = tasks.filter(filterTask => filterTask.status == 'toDo');
     toDo.sort(urgencySort);

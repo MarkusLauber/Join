@@ -57,7 +57,7 @@ updateUserArea = () => {
     freeUsers.forEach((user, i) => {
         userArea.innerHTML += `<div class="usercard" onclick="addUser(${users.indexOf(user)})">
                                 <div class="userinfo">
-                                    <img class="userpic" src="${user.pic}"style="box-shadow: 1px 1px 5px 1px ${user.color}">
+                                    <img class="userpic" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">
                                     <div class="userdata">
                                         <div class="username">${user.name}</div>
                                         <div>

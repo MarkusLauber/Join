@@ -1,11 +1,12 @@
-let backlog;
+let backlogContainer;
+let backlog
 
 async function loadBacklog() {
     includeHTML();
     setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
     await downloadFromServer();
     tasks = await JSON.parse(backend.getItem("tasks"));
-    backlog = document.getElementById(`backlog`);
+    backlogContainer = document.getElementById(`backlog`);
     generateBacklog2();
 }
 
@@ -13,7 +14,7 @@ async function loadBacklog() {
 
 generateBacklog = () => {
     tasks.forEach((task) => {
-        backlog.innerHTML += `
+        backlogContainer.innerHTML += `
     <div class="memberColor" style="background-color:${task.users[0].color}">
     <div class="memberBox">
         <div class="memberImgAndProfil">
@@ -33,10 +34,12 @@ generateBacklog = () => {
 }
 
 generateBacklog2 = () => {
-    backlog.innerHTML = null;
-    tasks.forEach((task, i) => {
-        backlog.innerHTML += `
-<div class="taskMain ${task.urgency}">
+    backlogContainer.innerHTML = null;
+    let backlog = tasks.filter(item => item.status == 'backlog');
+    backlog.sort(urgencySort);
+    backlog.forEach((task, i) => {
+        backlogContainer.innerHTML += `
+<div id="${tasks.indexOf(task)}" class="taskMain ${task.urgency}">
     <div class="taskTop">
         <div id="categoryTask${i}" class="taskCategory">${task.category}</div>
         <div id="titleTask${i}" class="taskTitle">${task.title}</div>
@@ -55,6 +58,6 @@ generateBacklog2 = () => {
 getUsersBacklog = (element) => {
     let userPicString = "";
     element.users.forEach((user) =>
-        userPicString += `<img class="memberImg" src="${user.pic}">`)
+        userPicString += `<img class="memberImg" src="${user.pic}"style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
     return userPicString;
 }
