@@ -145,14 +145,9 @@ updateTitle = (id) => {
     }
 }
 
-//____________________
-
 acceptChanges = (id) => {
-        document.getElementById(`closeIconImg(${id})`).src = 'ressources/icons/check.ico';
+        document.getElementById(`closedIconImg(${id})`).src = 'ressources/icons/check.ico';
 }
-
-//____________________
-
 
 closeTaskWindow = () => {
     document.getElementById('openedTaskID').style = "display: none;"
@@ -166,7 +161,6 @@ getUserPics = (element) => {
         userPicString += `<img class="elementUserImg" src="${user.pic}">`)
     return userPicString;
 }
-
 
 getOpenedUserPics = (id) => {
     let userPicString = "";
