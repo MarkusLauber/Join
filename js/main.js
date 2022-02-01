@@ -29,6 +29,7 @@ let users = [{
 }]
 
 let tasks = [];
+let colors = false;
 
 serverLoad = async() => {
     setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
@@ -76,4 +77,19 @@ urgencySort = (a, b) => {
         return 1;
     }
     return 0;
+}
+
+changeColors = () => {
+    let root = document.documentElement;
+    if (!colors) {
+        root.style.setProperty('--dark', '#b4a284');
+        root.style.setProperty('--medium', '#a2a595');
+        root.style.setProperty('--light', '#f6ead4');
+        colors = true;
+    } else {
+        root.style.setProperty('--dark', 'rgb(82, 82, 82)');
+        root.style.setProperty('--medium', 'rgb(95, 95, 95)');
+        root.style.setProperty('--light', 'rgba(155, 155, 155, 0.637)');
+        colors = false;
+    }
 }

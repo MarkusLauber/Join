@@ -114,3 +114,12 @@ removeUser = (i, j) => {
 filterFreeUsers = () => {
     return users.filter(free => free.assigned == false)
 }
+
+setSelectColor = () => {
+    let select = document.getElementById("urgency");
+    if (select.value == "prio1") { select.classList = "small prio1" };
+    if (select.value == "prio2") { select.classList = "small prio2" };
+    if (select.value == "prio3") { select.classList = "small prio3" };
+    if (select.value == "prio4") { select.classList = "small prio4" };
+    if (select.value == "prio5") { select.classList = "small prio5" };
+}

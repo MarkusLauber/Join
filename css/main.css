@@ -12,9 +12,17 @@
     --joinblue: #1E3190;
     --joingray: #f4f3fb;
     --fontsize: 18px;
-    --darkgray: rgb(82, 82, 82);
-    --mediumgray: rgb(95, 95, 95);
-    --lightgray: rgba(155, 155, 155, 0.637);
+    --dark: rgb(82, 82, 82);
+    --medium: rgb(95, 95, 95);
+    --light: rgba(155, 155, 155, 0.637);
+    --headerColor: rgb(48, 48, 48);
+    --headerFontColor: white;
+    --mainFontColor: rgb(48, 48, 48);
+    --prio1: rgba(248, 100, 253, 0.288);
+    --prio2: rgba(253, 100, 100, 0.288);
+    --prio3: rgba(252, 211, 134, 0.527);
+    --prio4: rgba(131, 224, 131, 0.342);
+    --prio5: rgba(131, 133, 224, 0.342);
 }
 
 body {
@@ -43,21 +51,21 @@ h1 {
 }
 
 .prio1 {
-    background-color: rgba(248, 100, 253, 0.288);
+    background-color: var(--prio1);
 }
 
 .prio2 {
-    background-color: rgba(253, 100, 100, 0.288);
+    background-color: var(--prio2);
 }
 
 .prio3 {
-    background-color: rgba(252, 211, 134, 0.527);
+    background-color: var(--prio3);
 }
 
 .prio4 {
-    background-color: rgba(131, 224, 131, 0.342);
+    background-color: var(--prio4);
 }
 
 .prio5 {
-    background-color: rgba(131, 133, 224, 0.342);
+    background-color: var(--prio5);
 }

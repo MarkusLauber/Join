@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: PT;
-    background-color: rgb(82, 82, 82);
+    background-color: var(--dark);
 }
 
 .flexCenterContent {
@@ -22,7 +22,7 @@ body {
 .dragArea {
     height: 100%;
     width: 90%;
-    background-color: rgb(95, 95, 95);
+    background-color: var(--medium);
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@ body {
 }
 
 .dragAreaHead {
-    background-color: rgba(155, 155, 155, 0.637);
+    background-color: var(--light);
     border-radius: 8px;
     font-family: PT-bold;
     font-size: 2.4rem;

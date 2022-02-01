@@ -1,5 +1,5 @@
 body {
-    background-color: var(--darkgray);
+    background-color: var(--dark);
     font-family: PT;
 }
 
@@ -21,7 +21,7 @@ main {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    background-color: var(--mediumgray);
+    background-color: var(--medium);
     border-radius: 8px;
     padding: 16px;
     box-sizing: border-box;

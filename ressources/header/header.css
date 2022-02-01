@@ -1,6 +1,6 @@
 #header_body {
     height: max(100vh, 100%);
-    background-color: #1E3190;
+    background-color: var(--headerColor);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@
 }
 
 a {
-    color: white;
+    color: var(--headerFontColor);
     font-family: PT-bold;
     font-size: 24px;
     text-decoration: none;
