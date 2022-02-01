@@ -72,7 +72,7 @@ generateTask = (element) => {
         </div>
         <div class="innerHTMLTask flexCenterContent">
             <div class="elementHeader">
-                <span class="elementUser">
+                <span class="elementTitle">
                     ${element.title}
                 </span>
                 <span class="elementCategory">
@@ -111,7 +111,7 @@ openTaskWindow = (id) => {
         </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span id="openedTitleID" onkeydown="acceptChanges(${id})" contenteditable="true" class="openedUser">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
+                <span id="openedTitleID" onkeydown="acceptChanges(${id})" contenteditable="true" class="openedTitle">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
             </div>
             <span id="openedDetailsID" onkeydown="acceptChanges(${id})" class="openedDetails" contenteditable="true">
                 ${tasks[id].details}

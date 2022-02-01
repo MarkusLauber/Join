@@ -94,9 +94,12 @@ body {
     zoom: 110%;
 }
 
-.elementUser {
+.elementTitle {
     font-size: 1.8rem;
     font-weight: 400;
+    overflow: hidden;
+    width: 14rem;
+    height: 2rem;
 }
 
 .elementUserImg {
@@ -108,7 +111,7 @@ body {
 }
 
 .elementHeader {
-    width: 160px;
+    width: 20rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -122,7 +125,7 @@ body {
     position: relative;
     font-size: 1.4rem;
     max-height: 8rem;
-    width: 160px;
+    width: 20rem;
     overflow: hidden;
     margin-top: 20px;
 }
@@ -133,7 +136,7 @@ body {
 
 .innerHTMLTask {
     margin-left: 10px;
-    width: 160px;
+    width: 20rem;
     height: 10rem;
     flex-direction: column;
     justify-content: flex-start;
@@ -171,14 +174,15 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 60rem;
+    width: 50rem;
+    margin-left: 4.2rem;
 }
 
-.openedUser {
-    width: 16rem;
+.openedTitle {
+    width: 22rem;
     height: 4.4rem;
     overflow: hidden;
-    font-size: 4rem;
+    font-size: 3.2rem;
 }
 
 .openedDetails {
