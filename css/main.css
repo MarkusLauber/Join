@@ -1,11 +1,11 @@
 @font-face {
     font-family: PT;
-    src: url("/ressources/fonts/PTSans-Regular.ttf");
+    src: url("../ressources/fonts/PTSans-Regular.ttf");
 }
 
 @font-face {
     font-family: PT-bold;
-    src: url("/ressources/fonts/PTSans-Bold.ttf")
+    src: url("../ressources/fonts/PTSans-Bold.ttf")
 }
 
 :root {

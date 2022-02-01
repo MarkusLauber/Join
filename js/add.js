@@ -66,19 +66,23 @@ updateUserArea = () => {
     })
 }
 
-// document.addEventListener('click', function(event) {
-//     if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
-// })
 
 
 openUserArea = () => {
     userArea.classList.remove("hide");
+    document.addEventListener('click', (event) => {
+        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+    })
     userAreaOpen = true;
+
 }
 
 
 closeUserArea = () => {
     userArea.classList.add("hide");
+    document.removeEventListener('click', (event) => {
+        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+    })
     userAreaOpen = false;
 }
 

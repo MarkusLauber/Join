@@ -28,56 +28,6 @@ let users = [{
     "assigned": false
 }]
 
-// let tasks = [{
-//     'pic': 'ressources/img/pictures/1.jpg',
-//     'title': 'Anton',
-//     'mail': 'Beispielmail@gmx.net',
-//     'category': 'Marketing',
-//     'details': 'lorem bla',
-//     'status': 'board',
-//     'boardStatus': 'toDo',
-//     'urgency': 'prio1'
-// }, {
-//     'pic': 'ressources/img/pictures/2.jpg',
-//     'title': 'Samson',
-//     'mail': 'Beispielmail@gmx.net',
-//     'category': 'Product',
-//     'details': 'lorem bla dasf sa a fdsa dsa fdsa fawa ds awfa dsa dfsaf wae asf awadwafe awewa dsa wawaf wadsafwfsdaf awfds a',
-//     'status': 'board',
-//     'boardStatus': 'inProgress',
-//     'urgency': 'prio5'
-
-// }, {
-//     'pic': 'ressources/img/pictures/3.jpg',
-//     'title': 'Alex',
-//     'mail': 'Beispielmail@gmx.net',
-//     'category': 'Sale',
-//     'details': 'lorem bla',
-//     'status': 'board',
-//     'boardStatus': 'testing',
-//     'urgency': 'prio3'
-
-// }, {
-//     'pic': 'ressources/img/pictures/4.jpg',
-//     'title': 'Martin',
-//     'mail': 'Beispielmail@gmx.net',
-//     'category': 'Marketing',
-//     'details': 'lorem bla',
-//     'status': 'board',
-//     'boardStatus': 'done',
-//     'urgency': 'prio4'
-
-// }, {
-//     'pic': 'ressources/img/pictures/4.jpg',
-//     'title': 'Martin',
-//     'mail': 'Beispielmail@gmx.net',
-//     'category': 'Marketing',
-//     'details': 'lorem bla',
-//     'status': 'board',
-//     'boardStatus': 'done',
-//     'urgency': 'prio2'
-// }];
-
 let tasks = [];
 
 serverLoad = async() => {
