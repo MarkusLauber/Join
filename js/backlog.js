@@ -58,6 +58,6 @@ generateBacklog2 = () => {
 getUsersBacklog = (element) => {
     let userPicString = "";
     element.users.forEach((user) =>
-        userPicString += `<img class="memberImg" src="${user.pic}"style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
+        userPicString += `<img class="memberImg" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
     return userPicString;
 }

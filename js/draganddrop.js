@@ -155,14 +155,14 @@ closeTaskWindow = () => {
 getUserPics = (element) => {
     let userPicString = "";
     element.users.forEach((user) =>
-        userPicString += `<img class="elementUserImg" src="${user.pic}">`)
+        userPicString += `<img class="elementUserImg" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
     return userPicString;
 }
 
 getOpenedUserPics = (id) => {
     let userPicString = "";
     tasks[id].users.forEach((user) =>
-        userPicString += `<img class="openedUserImg" src="${user.pic}">`)
+        userPicString += `<img class="openedUserImg" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
     return userPicString;
 }
 
