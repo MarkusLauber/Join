@@ -26,6 +26,10 @@ header {
     width: max(10vw, 90px);
 }
 
+h1 {
+    font-family: PT-bold;
+}
+
 .hide {
     display: none !important;
 }

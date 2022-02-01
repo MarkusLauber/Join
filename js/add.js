@@ -1,4 +1,5 @@
 let userArea;
+let userAreaOpen = false;
 let addedUsers;
 let currentUsers = [];
 
@@ -65,12 +66,20 @@ updateUserArea = () => {
     })
 }
 
+document.addEventListener('click', function(event) {
+    if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+})
+
+
 openUserArea = () => {
     userArea.classList.remove("hide");
+    userAreaOpen = true;
 }
+
 
 closeUserArea = () => {
     userArea.classList.add("hide");
+    userAreaOpen = false;
 }
 
 addUser = (i) => {

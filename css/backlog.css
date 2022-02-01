@@ -28,15 +28,21 @@ body {
 
 .backlogBigContainer {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .backlogContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-    margin-top: 35px;
-    margin-left: 10px;
+    align-items: center;
+    width: 90%;
+    background-color: var(--mediumgray);
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 .memberColor {
@@ -124,10 +130,8 @@ body {
     background-color: #0072f53d;
 }
 
-.backlogContainer {}
-
 .taskMain {
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     margin: 4px 0 4px 0;

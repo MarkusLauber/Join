@@ -16,10 +16,6 @@ main {
     background-color: var(--darkgray);
 }
 
-h1 {
-    font-family: PT-bold;
-}
-
 .small {
     height: 50px;
     font-size: var(--fontsize);
@@ -47,7 +43,6 @@ h1 {
     width: 90%;
     display: flex;
     background-color: var(--mediumgray);
-    margin: 8px;
     justify-content: space-evenly;
     border-radius: 8px;
     padding: 16px;
@@ -161,9 +156,8 @@ select {
 }
 
 .userinfo {
-    width: 93%;
-    border-radius: 20px 8px 8px 20px;
-    border-left: 1px solid black;
+    width: 100%;
+    border-radius: 8px;
     background: var(--lightgray);
     display: flex;
     justify-content: space-evenly;
