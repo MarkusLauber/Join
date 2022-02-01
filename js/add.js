@@ -66,9 +66,9 @@ updateUserArea = () => {
     })
 }
 
-document.addEventListener('click', function(event) {
-    if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
-})
+// document.addEventListener('click', function(event) {
+//     if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+// })
 
 
 openUserArea = () => {
