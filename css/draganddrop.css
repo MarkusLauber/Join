@@ -157,6 +157,16 @@ body {
     right: 10px;
 }
 
+.trashIcon {
+    opacity: 0.6;
+    cursor: pointer;
+    position: absolute;
+    height: 24px;
+    object-fit: cover;
+    top: 10px;
+    right: 10px;
+}
+
 .openedHeader {
     display: flex;
     justify-content: space-around;
@@ -165,6 +175,9 @@ body {
 }
 
 .openedUser {
+    width: 16rem;
+    height: 4.4rem;
+    overflow: hidden;
     font-size: 4rem;
 }
 

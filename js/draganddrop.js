@@ -64,7 +64,7 @@ startDragging = (id) => {
 generateTask = (element) => {
     let tNumber = tasks.indexOf(element);
     return `
-    <div onclick="openTaskWindow(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
+    <div onclick="openTaskWindow(${tNumber}), addDeleteTask(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
         <div id="userPics" class="userContainer">
         ` 
         + getUserPics(element) +
@@ -84,7 +84,8 @@ generateTask = (element) => {
             </span>
         </div>
     <div>
-    `;
+    `
+    ;
 }
 
 allowDrop = (ev) => {
@@ -99,6 +100,7 @@ moveTo = (status) => {
 
 openTaskWindow = (id) => {
     document.getElementById('openedTaskID').style = "display: flex;";
+    document.getElementById('openedTaskID').innerHTML = '';
 
     document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
@@ -109,15 +111,16 @@ openTaskWindow = (id) => {
         </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span id="openedTitleID" contenteditable="true" class="openedUser" onkeydown="acceptChanges(${id})">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
+                <span id="openedTitleID" onkeydown="acceptChanges(${id})" contenteditable="true" class="openedUser">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
             </div>
-            <span id="openedDetailsID" class="openedDetails" contenteditable="true">
+            <span id="openedDetailsID" onkeydown="acceptChanges(${id})" class="openedDetails" contenteditable="true">
                 ${tasks[id].details}
             </span>
         </div>
-        <img class="closeIcon" id="closedIconImg(${id})" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">  
+        <img class="closeIcon" id="closedIconImg(${id})" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">
     <div>
-    `;
+    `
+    ;
 }
 
 updateDetails = (id) => {
@@ -142,15 +145,14 @@ updateTitle = (id) => {
     }
 }
 
-/*
+//____________________
 
-acceptChanges = (title, newTitle, details, newDetails, id) => {
-    if(title != newTitle || details != newDetails) {
-        document.getElementById(`closedIconImg(${id})`).src = 'ressources/icons/check.ico';
-    }
+acceptChanges = (id) => {
+        document.getElementById(`closeIconImg(${id})`).src = 'ressources/icons/check.ico';
 }
 
-*/
+//____________________
+
 
 closeTaskWindow = () => {
     document.getElementById('openedTaskID').style = "display: none;"
@@ -171,4 +173,16 @@ getOpenedUserPics = (id) => {
     tasks[id].users.forEach((user) =>
         userPicString += `<img class="openedUserImg" src="${user.pic}">`)
     return userPicString;
+}
+
+addDeleteTask = (tNumber) => {
+    if(tasks[tNumber].status == 'done') {
+        document.getElementById("openedTaskWindowID").innerHTML += `
+        <img onclick="deleteTask(${tNumber})" class="trashIcon" src="ressources/icons/trash.ico">
+        `;
+    }
+}
+
+deleteTask = (tNumber) => {
+    
 }
