@@ -13,11 +13,20 @@ updateDragAndDropArea = () => {
     enableDone();
 }
 
+urgencySort = (a, b) => {
+    if (a.urgency < b.urgency) {
+        return -1;
+    }
+    if (a.urgency > b.urgency) {
+        return 1;
+    }
+    return 0;
+}
+
 enableToDo = () => {
     let toDo = tasks.filter(filterTask => filterTask.status == 'toDo');
-
+    toDo.sort(urgencySort);
     document.getElementById('toDo').innerHTML = '';
-
     for (let i = 0; i < toDo.length; i++) {
         const element = toDo[i];
         document.getElementById('toDo').innerHTML += generateTask(element);
@@ -26,7 +35,7 @@ enableToDo = () => {
 
 enableInProgress = () => {
     let inProgress = tasks.filter(filterTask => filterTask.status == 'inProgress');
-
+    inProgress.sort(urgencySort);
     document.getElementById('inProgress').innerHTML = '';
 
     for (let i = 0; i < inProgress.length; i++) {
@@ -37,7 +46,7 @@ enableInProgress = () => {
 
 enableTesting = () => {
     let testing = tasks.filter(filterTask => filterTask.status == 'testing');
-
+    testing.sort(urgencySort)
     document.getElementById('testing').innerHTML = '';
 
     for (let i = 0; i < testing.length; i++) {
@@ -48,7 +57,7 @@ enableTesting = () => {
 
 enableDone = () => {
     let done = tasks.filter(filterTask => filterTask.status == 'done');
-
+    done.sort(urgencySort)
     document.getElementById('done').innerHTML = '';
 
     for (let i = 0; i < done.length; i++) {

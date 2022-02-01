@@ -8,7 +8,7 @@ init = () => {
     serverLoad();
     userArea = document.getElementById("userArea");
     addedUsers = document.getElementById("addedUsers");
-    updateUserArea();
+    updateUsers();
 }
 
 getDate = () => {}
@@ -18,11 +18,10 @@ clearTask = () => {
     document.getElementById("category").value = "Product";
     document.getElementById("details").value = null;
     document.getElementById("date").value = null;
-    document.getElementById("urgency").value = "High";
+    document.getElementById("urgency").value = "prio2";
     currentUsers = [];
-    updateAddedUsers();
     users.forEach((user) => { user.assigned = false })
-    updateUserArea();
+    updateUsers();
 }
 
 saveTask = () => {
@@ -47,6 +46,11 @@ showTaskSave = () => {
     setTimeout(() => { savescreen.classList.add("hide") }, 1500);
 }
 
+updateUsers = () => {
+    updateUserArea();
+    updateAddedUsers();
+}
+
 updateUserArea = () => {
     let freeUsers = filterFreeUsers();
     userArea.innerHTML = null;
@@ -66,23 +70,29 @@ updateUserArea = () => {
     })
 }
 
-
+updateAddedUsers = () => {
+    addedUsers.innerHTML = null;
+    currentUsers.forEach((user, i) => {
+        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
+    })
+    if (currentUsers.length < 3) {
+        addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea(), event.stopPropagation()"></div>`
+    }
+}
 
 openUserArea = () => {
     userArea.classList.remove("hide");
-    // document.addEventListener('click', (event) => {
-    //     if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
-    // }) style="background-color:${user.color};"
+    document.addEventListener('click', (event) => {
+        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+    })
     userAreaOpen = true;
-
 }
-
 
 closeUserArea = () => {
     userArea.classList.add("hide");
-    // document.removeEventListener('click', (event) => {
-    //     if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
-    // })
+    document.removeEventListener('click', (event) => {
+        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+    })
     userAreaOpen = false;
 }
 
@@ -99,16 +109,6 @@ removeUser = (i, j) => {
     users[j].assigned = false;
     updateAddedUsers();
     updateUserArea();
-}
-
-updateAddedUsers = () => {
-    addedUsers.innerHTML = null;
-    currentUsers.forEach((user, i) => {
-        addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
-    })
-    if (currentUsers.length < 3) {
-        addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea()"></div>`
-    }
 }
 
 filterFreeUsers = () => {
