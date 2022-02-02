@@ -21,16 +21,21 @@
 
         <h1>Backlog</h1>
 
-
-
-        <div id="details" class="hide"></div>
-        <div id="backlog" class="backlogContainer box-shadow">
-
+        <div id="backgroundDetails" class="fadeOut">
+            <div id="detailsWindow" class="hide">
+                <div id="categoryInfo"></div>
+                <hr>
+                <div id="userDetailed"></div>
+                <div class="categoryDetailed"></div>
+                <hr>
+                <h2>Beschreibung:</h2>
+                <div id="fullText" class="fullTextField"></div>
+                <button onClick="closeDetails()">X</button>
+            </div>
         </div>
-
-
-
+        <div id="backlog" class="backlogContainer box-shadow"></div>
     </div>
+
 </body>
 
 </html>

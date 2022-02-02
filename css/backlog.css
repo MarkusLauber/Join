@@ -40,6 +40,11 @@ body {
     border: 1px solid lightgrey;
 }
 
+.big {
+    height: 60px;
+    width: 60px;
+}
+
 .taskMain {
     width: 95%;
     display: flex;
@@ -89,18 +94,108 @@ body {
     font-weight: bold;
 }
 
-#details {
+#detailsWindow {
     background-color: lightgrey;
-    height: 500px;
-    width: 500px;
-    position: fixed;
-    z-index: 1;
+    height: 600px;
+    width: 700px;
+    z-index: 2;
     top: 250px;
+    animation: zoom ease-in-out 225ms;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 20px;
 }
 
-.detailsBackground {
+#backgroundDetails {
     height: 100%;
+    width: 90%;
+    background-color: #000000cc;
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all;
+}
+
+.fadeIn {
+    animation: fade_in 500ms linear forwards;
+    visibility: visible;
+}
+
+@keyframes fade_in {
+    from {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+    to {
+        opacity: 100%;
+        transform: translateX(0px);
+    }
+}
+
+.fadeOut {
+    animation: fade_in 500ms linear backwards;
+    visibility: hidden;
+}
+
+@keyframes fade_out {
+    from {
+        opacity: 100%;
+        transform: translateX(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+}
+
+#userDetailed {
+    width: auto;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.memberInfo {
+    display: flex;
     width: 100%;
-    background-color: black;
-    opacity: 0.7;
+    align-items: center;
+}
+
+.infoUser {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 4px;
+    margin-left: 10px;
+    box-shadow: 3px -1px 3px 1px;
+}
+
+#categoryInfo {
+    font-size: 30px;
+    margin-left: 5px;
+}
+
+#fullText {
+    height: 100%;
+    margin: 5px;
+    overflow-wrap: break-word;
+    border: 3px solid;
+    border-radius: 5px;
+}
+
+p {
+    margin: 10px;
+    text-align: inherit;
+}
+
+h2 {
+    margin-left: 5px;
+}
+
+hr {
+    border: 1px solid black;
+    width: 100%;
 }

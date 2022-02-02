@@ -69,3 +69,11 @@ h1 {
 .prio5 {
     background-color: var(--prio5);
 }
+
+.visible {
+    visibility: visible;
+}
+
+.unvisible {
+    visibility: hidden;
+}
