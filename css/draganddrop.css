@@ -5,7 +5,9 @@ html {
 body {
     font-family: PT;
     background-color: var(--dark);
+    height: 100vh;
 }
+
 
 .flexCenterContent {
     display: flex;
@@ -17,6 +19,9 @@ body {
     height: calc(100vh - 8px);
     width: 100%;
     margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dragArea {
@@ -47,6 +52,9 @@ body {
 .dragAreaSingle {
     height: 100%;
     width: 23%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -138,8 +146,10 @@ body {
     margin-left: 10px;
     width: 20rem;
     height: 10rem;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .openedUserImg {
@@ -147,7 +157,7 @@ body {
     width: 50px;
     object-fit: cover;
     border-radius: 50%;
-    padding: 10px 5px 5px 0px;
+    margin: 10px 10px 0px 0px;
 }
 
 .closeIcon {
@@ -193,6 +203,7 @@ body {
     max-height: 8rem;
     left: 7rem;
     margin-top: 10px;
+    margin-left: 10px;
     padding: 10px;
     background-color: rgba(143, 142, 142, 0.144);
     border-radius: 20px;
@@ -228,4 +239,151 @@ body {
 
 [contenteditable] {
     outline: 0px solid transparent;
+}
+
+@media (max-width: 1400px) {
+    html {
+        font-size: 56%;
+    }
+    
+
+}
+
+@media (max-width: 1200px) {
+    .elementUserImg {
+        height: 20px;
+        width: 20px;
+    }
+
+    .task {
+        width: 16rem;
+    }
+
+    .task:hover {
+        zoom: 100%;
+    }
+
+    .innerHTMLTask, .elementDetails, .elementHeader {
+        width: 12rem;
+    }
+
+    .elementCategory {
+        display: none;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .userContainer {
+        display: none;
+    }
+
+    .task {
+        width: 12rem;
+    }
+
+    .dragArea {
+        width: 16rem;
+        min-height: 30rem;
+        height: fit-content;
+    }
+
+    .dragAreaContainer {
+        flex-wrap: wrap;
+        height: fit-content;
+    }
+
+    .dragAreaSingle {
+       min-height: 30rem;
+       height: fit-content;
+       width: 16rem;
+       margin: 6px;
+    }
+
+    .dragAreaHead {
+        width: 16rem;
+        font-size: 2rem;
+    }
+
+    .openedUserImg {
+        height: 30px;
+        width: 30px;
+    }
+
+    .openedHeader, .openedTaskWindow, .openedTask {
+        width: 40rem;
+    }
+
+    .openedTaskWindow, .openedTask {
+        height: 60rem;
+    }
+
+    .openedInnerHTMLTask {
+        width: 40rem;
+        height: 50rem;
+    }
+
+    .openedTaskWindow {
+        top: 10rem;
+    }
+
+    .openedTitle {
+        font-size: 2.2rem;
+    }
+
+    .openedCategory {
+        font-size: 1.8rem;
+    }
+
+    .openedDetails {
+        margin-left: 0;
+        font-size: 1.8rem;
+        width: 30rem;
+        max-height: 60rem;
+    }
+
+    .openedHeader {
+        width: 30rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .dragAreaSingle, .dragAreaHead, .dragArea {
+        width: 30rem;
+    }
+
+    .task {
+        width: 26rem;
+    }
+
+    .elementCategory {
+        display: flex;
+    }
+
+    .userContainer {
+        height: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 400px) {
+    .dragAreaSingle, .dragAreaHead, .dragArea {
+        width: 24rem;
+    }
+
+    .task {
+        width: 22rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .dragAreaSingle, .dragAreaHead, .dragArea {
+        width: 22rem;
+    }
+
+    .task {
+        width: 20rem;
+    }
 }

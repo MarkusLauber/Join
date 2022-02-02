@@ -69,7 +69,7 @@ generateTask = (element) => {
         getUserPics(element) +
         ` 
         </div>
-        <div class="innerHTMLTask flexCenterContent">
+        <div class="innerHTMLTask">
             <div class="elementHeader">
                 <span class="elementTitle">
                     ${element.title}

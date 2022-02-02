@@ -15,28 +15,28 @@
 
 <body onload="startTasks()">
     <header w3-include-html="ressources/header/header.html"></header>
-    <section id="dragAreaContainerID" class="dragAreaContainer flexCenterContent">
+    <section id="dragAreaContainerID" class="dragAreaContainer">
         <section id="openedTaskID" class="openedTaskWindow" style="display: none;">
         </section>
-        <article class="dragAreaSingle flexCenterContent">
+        <article class="dragAreaSingle">
             <span class="dragAreaHead flexCenterContent">
                 TO DO
             </span>
             <div class="dragArea" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
         </article>
-        <article class="dragAreaSingle flexCenterContent">
+        <article class="dragAreaSingle">
             <span class="dragAreaHead flexCenterContent">
                 IN PROGRESS
             </span>
             <div class="dragArea" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
         </article>
-        <article class="dragAreaSingle flexCenterContent">
+        <article class="dragAreaSingle">
             <span class="dragAreaHead flexCenterContent">
                 TESTING
             </span>
             <div class="dragArea" id="testing" ondrop="moveTo('testing')" ondragover="allowDrop(event)"></div>
         </article>
-        <article class="dragAreaSingle flexCenterContent">
+        <article class="dragAreaSingle">
             <span class="dragAreaHead flexCenterContent">
                 DONE
             </span>
