@@ -1,3 +1,20 @@
+.header_icon {
+    --size: 64px;
+    background-repeat: no-repeat;
+    background-size: var(--size);
+    background-color: var(--headerColor);
+    width: var(--size);
+    height: var(--size);
+}
+
+#burger {
+    background-image: url(../icons/menu_white.svg);
+}
+
+#close {
+    background-image: url(../icons/close_white.svg);
+}
+
 #header_body {
     height: max(100vh, 100%);
     background-color: var(--headerColor);
@@ -10,12 +27,20 @@
 #logo {
     width: 100px;
     height: 100px;
-    background-image: url("../img/logo.png");
+    background-image: url("../icons/joinlogo.png");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 a {
+    color: var(--headerFontColor);
+    font-family: PT-bold;
+    font-size: 24px;
+    text-decoration: none;
+    margin: 16px;
+}
+
+#toggle {
     color: var(--headerFontColor);
     font-family: PT-bold;
     font-size: 24px;

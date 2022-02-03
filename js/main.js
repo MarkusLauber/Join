@@ -2,28 +2,28 @@ let users = [{
     "name": "John Doe",
     "mail": "123@456.com",
     "phone": "12345",
-    "pic": "ressources/img/pictures/1.jpg",
+    "pic": "ressources/img/1.jpg",
     "color": "blue",
     "assigned": false
 }, {
     "name": "Martina Mustermann",
     "mail": "456@123.net",
     "phone": "345346536",
-    "pic": "ressources/img/pictures/2.jpg",
+    "pic": "ressources/img/2.jpg",
     "color": "red",
     "assigned": false
 }, {
     "name": "Anton Müller",
     "mail": "hier@da.de",
     "phone": "9876",
-    "pic": "ressources/img/pictures/3.jpg",
+    "pic": "ressources/img/3.jpg",
     "color": "yellow",
     "assigned": false
 }, {
     "name": "Beate Becker",
     "mail": "123@456.com",
     "phone": "46536",
-    "pic": "ressources/img/pictures/4.jpg",
+    "pic": "ressources/img/4.jpg",
     "color": "green",
     "assigned": false
 }]
@@ -85,11 +85,17 @@ changeColors = () => {
         root.style.setProperty('--dark', '#b4a284');
         root.style.setProperty('--medium', '#a2a595');
         root.style.setProperty('--light', '#f6ead4');
+        root.style.setProperty('--headerColor', 'rgb(48, 48, 48)');
+        root.style.setProperty('--headerFontColor', 'white');
+        root.style.setProperty('--mainFontColor', 'rgb(48, 48, 48)');
         colors = true;
     } else {
         root.style.setProperty('--dark', 'rgb(82, 82, 82)');
         root.style.setProperty('--medium', 'rgb(95, 95, 95)');
         root.style.setProperty('--light', 'rgba(155, 155, 155, 0.637)');
+        root.style.setProperty('--headerColor', 'rgb(48, 48, 48)');
+        root.style.setProperty('--headerFontColor', 'white');
+        root.style.setProperty('--mainFontColor', 'rgb(48, 48, 48)');
         colors = false;
     }
 }

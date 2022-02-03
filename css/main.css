@@ -10,14 +10,13 @@
 
 :root {
     --joinblue: #1E3190;
-    --joingray: #f4f3fb;
     --fontsize: 18px;
     --dark: rgb(82, 82, 82);
     --medium: rgb(95, 95, 95);
     --light: rgba(155, 155, 155, 0.637);
     --headerColor: rgb(48, 48, 48);
     --headerFontColor: white;
-    --mainFontColor: rgb(48, 48, 48);
+    --mainFontColor: black;
     --prio1: rgba(248, 100, 253, 0.288);
     --prio2: rgba(253, 100, 100, 0.288);
     --prio3: rgba(252, 211, 134, 0.527);
@@ -36,6 +35,7 @@ header {
 
 h1 {
     font-family: PT-bold;
+    color: var(--mainFontColor);
 }
 
 .hide {

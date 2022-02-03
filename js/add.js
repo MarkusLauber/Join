@@ -1,5 +1,4 @@
 let userArea;
-let userAreaOpen = false;
 let addedUsers;
 let currentUsers = [];
 
@@ -74,24 +73,22 @@ updateAddedUsers = () => {
         addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
     })
     if (currentUsers.length < 3) {
-        addedUsers.innerHTML += `<div class="addUser" onclick="openUserArea(), event.stopPropagation()"></div>`
+        addedUsers.innerHTML += `<div class="addUserContainer pointer" onclick="openUserArea(), event.stopPropagation()"><div class="addUser"></div>`
     }
 }
 
 openUserArea = () => {
     userArea.classList.remove("hide");
     document.addEventListener('click', (event) => {
-        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+        if (!userArea.contains(event.target)) { closeUserArea() }
     })
-    userAreaOpen = true;
 }
 
 closeUserArea = () => {
     userArea.classList.add("hide");
     document.removeEventListener('click', (event) => {
-        if (!userArea.contains(event.target) && userAreaOpen) { closeUserArea() }
+        if (!userArea.contains(event.target)) { closeUserArea() }
     })
-    userAreaOpen = false;
 }
 
 addUser = (i) => {
@@ -115,9 +112,5 @@ filterFreeUsers = () => {
 
 setSelectColor = () => {
     let select = document.getElementById("urgency");
-    if (select.value == "prio1") { select.classList = "small prio1" };
-    if (select.value == "prio2") { select.classList = "small prio2" };
-    if (select.value == "prio3") { select.classList = "small prio3" };
-    if (select.value == "prio4") { select.classList = "small prio4" };
-    if (select.value == "prio5") { select.classList = "small prio5" };
+    select.classList = "pointer small " + select.value;
 }

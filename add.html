@@ -27,7 +27,7 @@
                 </div>
                 <div class="inputbox">
                     <label class="label">CATEGORY</label>
-                    <select id="category" class="small">
+                    <select id="category" class="pointer small">
                         <option selected="selected" value="Product">Product</option>
                         <option value="Marketing">Marketing</option>
                         <option value="Management">Management</option>
@@ -43,12 +43,12 @@
             <div class="inputcolumn">
                 <div class="inputbox">
                     <label class="label">DUE DATE</label>
-                    <input id="date" class="small" type="date">
+                    <input id="date" class="small" type="date" onclick="">
                 </div>
                 <div class="inputbox">
                     <label class="label">URGENCY</label>
-                    <select id="urgency" class="small prio2" onchange="setSelectColor()">
-                        <option value="prio1" style="background-color:var(--prio1)">Very High</option>
+                    <select id="urgency" class="pointer small prio2" onchange="setSelectColor()">
+                        <option value="prio1" style="background-color:var(--prio1)"><span style="color:var(--prio1)">■</span>Very High</option>
                         <option selected="selected" value="prio2" style="background-color:var(--prio2)">High</option>
                         <option value="prio3" style="background-color:var(--prio3)">Medium</option>
                         <option value="prio4" style="background-color:var(--prio4)">Low</option>

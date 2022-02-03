@@ -49,7 +49,7 @@
 
 .datepicker-footer {
     box-shadow: inset 0 1px 1px rgba(10, 10, 10, 0.1);
-    background-color: var(--light)hitesmoke;
+    background-color: var(--light);
 }
 
 .datepicker-grid,
@@ -117,13 +117,13 @@
 }
 
 .datepicker-controls .button:hover {
-    border-color: #b5b5b5;
+    border-color: var(--medium);
     color: #363636;
 }
 
 .datepicker-controls .button:focus {
-    border-color: #3273dc;
-    color: #363636;
+    border-color: var(--medium);
+    color: var(--dark);
 }
 
 .datepicker-controls .button:focus:not(:active) {
@@ -223,8 +223,8 @@
 
 .datepicker-cell.selected,
 .datepicker-cell.selected:hover {
-    background-color: #3273dc;
-    color: #fff;
+    background-color: var(--medium);
+    color: var(--light);
     font-weight: 600;
 }
 
@@ -309,7 +309,7 @@
 }
 
 .datepicker-input.in-edit {
-    border-color: #2366d1;
+    border-color: var(--medium);
 }
 
 .datepicker-input.in-edit:focus,
