@@ -93,13 +93,16 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
+.category{
+
+}
 
 #detailsWindow {
     background-color: lightgrey;
     height: 600px;
     width: 700px;
     z-index: 2;
-    top: 250px;
+    position: relative;
     animation: zoom ease-in-out 225ms;
     display: flex;
     justify-content: flex-start;
@@ -116,21 +119,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all;
+    animation: fade_in ease-in-out 225ms;
 }
 
 .fadeIn {
     animation: fade_in 500ms linear forwards;
-    visibility: visible;
 }
 
 @keyframes fade_in {
     from {
-        opacity: 0;
         transform: translateX(-500px);
     }
     to {
-        opacity: 100%;
         transform: translateX(0px);
     }
 }
@@ -175,7 +175,9 @@ body {
 
 #categoryInfo {
     font-size: 30px;
-    margin-left: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
 
 #fullText {
@@ -199,3 +201,18 @@ hr {
     border: 1px solid black;
     width: 100%;
 }
+
+.editBtn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#deleteUser{
+    margin-left: 10px;
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.prioEdit

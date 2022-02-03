@@ -41,21 +41,45 @@ openDetails = (x) => {
     document.getElementById(`backgroundDetails`).classList = "fadeIn";
     document.getElementById(`detailsWindow`).classList.remove("hide");
     document.getElementById("pushBtn").onclick = () => { pushToTaskBoard(x) };
-    document.getElementById(`categoryInfo`).innerHTML = `<em>Category</em> - ${task.category}`
+
+    document.getElementById(`categoryInfo`).innerHTML = `
+    <div class=categoryInfo><em>Category</em> - ${task.category}</div>
+    <div id="prioEditing" class=prioEdit>${tasks[x].urgency}</div> 
+    <button class="editBtn" onClick="editingTaskOnBacklog()">edit</button>
+    `;
+    
+    
     for (let i = 0; i < task.users.length; i++) {
 
         document.getElementById("userDetailed").innerHTML += `
         <div class="memberInfo">
         <img id="detailedImg${i}" class="memberImg big"  src="${task.users[i].pic}" style="box-shadow: 1px 1px 5px 1px ${task.users[i].color}">
         <div>
-        <span class="infoUser"><b>Name:</b> ${task.users[i].name}</span> <span class="infoUser"><b>tel.Nr:</b> ${task.users[i].phone}</span> <span class="infoUser"><b>E-mail:</b> ${task.users[i].mail}</span>
+        <span class="infoUser">
+        <b>Name:</b> ${task.users[i].name}</span> 
+        <span class="infoUser"><b>tel.Nr:</b> ${task.users[i].phone}</span> 
+        <span class="infoUser"><b>E-mail:</b> ${task.users[i].mail}</span>
+        <span id="deleteUser${i}" onClick="deleteUserInEditmode${i}" class="hide">X</Span>
         </div>
-
-
         `
     };
 
     document.getElementById(`fullText`).innerHTML = `<p>${task.details}<p>`;
+}
+
+function editingTaskOnBacklog(i) {
+    document.getElementById(`deleteUser`).classList.remove('hide');
+
+    document.getElementById(`prioEditing`).innerHTML = `
+    <select name="prio" id="urgence">
+    <option value=${tasks[0].urgency}>Prio1</option>
+    <option value=${tasks[1].urgency}>Prio2</option>
+    <option value=${tasks[2].urgency}>Prio3</option>
+    <option value=${tasks[3].urgency}>Prio4</option>
+    <option value=${tasks[4].urgency}>Prio5</option>
+    </select>`;
+
+
 }
 
 getUsersBacklog = (element) => {
