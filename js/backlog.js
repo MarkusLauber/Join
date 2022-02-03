@@ -40,7 +40,7 @@ openDetails = (x) => {
     clearDetails();
     document.getElementById(`backgroundDetails`).classList = "fadeIn";
     document.getElementById(`detailsWindow`).classList.remove("hide");
-
+    document.getElementById("pushBtn").onclick = () => { pushToTaskBoard(x) };
     document.getElementById(`categoryInfo`).innerHTML = `<em>Category</em> - ${task.category}`
     for (let i = 0; i < task.users.length; i++) {
 
@@ -76,12 +76,9 @@ clearDetails = () => {
     document.getElementById("userDetailed").innerHTML = null;
 }
 
-
-generateTitle = (user) => {
-    return `
-${user.name}
-${user.mail} 
-${user.phone}
-`;
-
+pushToTaskBoard = (x) => {
+    tasks[x].status = "toDo";
+    serverSave();
+    generateBacklog();
+    closeDetails();
 }

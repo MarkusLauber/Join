@@ -116,6 +116,7 @@ openTaskWindow = (id) => {
             </span>
         </div>
         <img class="closeIcon" id="closedIconImg(${id})" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">
+        <button id="pullBtn" onclick="backToBacklog(${id})">back to BG</button>
     <div>
     `;
 }
@@ -176,4 +177,11 @@ addDeleteTask = (tNumber) => {
 
 deleteTask = (tNumber) => {
 
+}
+
+backToBacklog = (x) => {
+    tasks[x].status = "backlog";
+    serverSave();
+    closeTaskWindow();
+    updateDragAndDropArea();
 }

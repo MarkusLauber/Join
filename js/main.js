@@ -93,3 +93,11 @@ changeColors = () => {
         colors = false;
     }
 }
+
+generateTitle = (user) => {
+    return `
+${user.name}
+${user.mail} 
+${user.phone}
+`;
+}

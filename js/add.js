@@ -11,8 +11,6 @@ init = () => {
     updateUsers();
 }
 
-getDate = () => {}
-
 clearTask = () => {
     document.getElementById("title").value = null;
     document.getElementById("category").value = "Product";

@@ -66,21 +66,23 @@ input {
     box-sizing: border-box;
     border: none;
     background-color: var(--light);
+    padding: 0 2% 0 8px;
 }
 
 textarea {
     resize: none;
     background-color: var(--light);
+    padding: 0 8px 0 8px;
 }
 
 select {
     appearance: none;
-    background-image: url("../ressources/img/chevron.png");
+    background-image: url("../ressources/img/chevron_black.png");
     background-repeat: no-repeat;
     background-size: 30px;
     background-position-x: 98%;
     background-position-y: 50%;
-    padding-left: 4px;
+    padding-left: 8px;
     cursor: pointer;
     background-color: var(--light);
 }
