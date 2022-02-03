@@ -109,14 +109,14 @@ openTaskWindow = (id) => {
         </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
-                <span id="openedTitleID" onkeydown="acceptChanges(${id})" contenteditable="true" class="openedTitle">${tasks[id].title}</span><span class="OpenedCategory">Department: ${tasks[id].category}</span>
+                <span id="openedTitleID" onkeydown="acceptChanges(${id})" contenteditable="true" class="openedTitle">${tasks[id].title}</span><span class="openedCategory">Department: ${tasks[id].category}</span>
             </div>
             <span id="openedDetailsID" onkeydown="acceptChanges(${id})" class="openedDetails" contenteditable="true">
                 ${tasks[id].details}
             </span>
         </div>
         <img class="closeIcon" id="closedIconImg(${id})" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">
-        <button id="pullBtn" onclick="backToBacklog(${id})">back to BG</button>
+        <button class="backlogButton" id="pullBtn" onclick="backToBacklog(${id})">back to BG</button>
     <div>
     `;
 }
