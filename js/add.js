@@ -33,14 +33,8 @@ saveTask = () => {
     }
     tasks.push(task);
     serverSave();
-    showTaskSaved();
+    showSavescreen();
     clearTask();
-}
-
-showTaskSaved = () => {
-    let savescreen = document.getElementById("savescreen");
-    savescreen.classList.remove("hide");
-    setTimeout(() => { savescreen.classList.add("hide") }, 1500);
 }
 
 updateUsers = () => {
@@ -108,9 +102,4 @@ removeUser = (i, j) => {
 
 filterFreeUsers = () => {
     return users.filter(free => free.assigned == false)
-}
-
-setSelectColor = () => {
-    let select = document.getElementById("urgency");
-    select.classList = "pointer small " + select.value;
 }

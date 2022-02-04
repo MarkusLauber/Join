@@ -2,12 +2,10 @@ let backlogContainer;
 let backlog
 
 async function loadBacklog() {
+    await serverLoad();
     includeHTML();
-    setURL("http://gruppe-162.developerakademie.net/join/smallest_backend_ever-master");
-    await downloadFromServer();
-    tasks = await JSON.parse(backend.getItem("tasks"));
     backlogContainer = document.getElementById(`backlog`);
-    generateBacklog();
+    setTimeout(generateBacklog, 100)
 }
 
 generateBacklog = () => {
@@ -47,7 +45,7 @@ openDetails = (x) => {
     <div id="prioEditing" class=prioEdit>${tasks[x].urgency}</div> 
     <div id="editCon"><button id="editing" class="editBtn" onClick="editingTaskOnBacklog(${x})">edit</button></div>
     `;
-
+    //editTask(${x}) 
 
     for (let i = 0; i < task.users.length; i++) {
 
