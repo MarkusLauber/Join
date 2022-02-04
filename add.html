@@ -48,11 +48,11 @@
                 <div class="inputbox">
                     <label class="label">URGENCY</label>
                     <select id="urgency" class="pointer small prio2" onchange="setSelectColor()">
-                        <option value="prio1" style="background-color:var(--prio1)"><span style="color:var(--prio1)">■</span>Very High</option>
-                        <option selected="selected" value="prio2" style="background-color:var(--prio2)">High</option>
-                        <option value="prio3" style="background-color:var(--prio3)">Medium</option>
-                        <option value="prio4" style="background-color:var(--prio4)">Low</option>
-                        <option value="prio5" style="background-color:var(--prio5)">Very Low</option>
+                        <option id="op1" value="prio1"style="color:purple" > Very High</option>
+                        <option selected="selected" value="prio2" style="color:red">High</option>
+                        <option value="prio3" style="color:yellow">Medium</option>
+                        <option value="prio4" style="color:green">Low</option>
+                        <option value="prio5" style="color:blue">Very Low</option>
                     </select>
                 </div>
                 <div class="inputbox">
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div id="userArea" class="hide"></div>
+        <div id="userArea" class="box-shadow hide"></div>
         <div id="savescreen" class="hide">Task wurde gespeichert</div>
     </main>
 </body>

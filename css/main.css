@@ -13,16 +13,22 @@
     --fontsize: 18px;
     --dark: rgb(82, 82, 82);
     --medium: rgb(95, 95, 95);
-    --light: rgba(155, 155, 155, 0.637);
+    --light: rgb(155, 155, 155);
     --headerColor: rgb(48, 48, 48);
     --headerFontColor: white;
     --mainFontColor: black;
-    --prio1: rgba(248, 100, 253, 0.288);
-    --prio2: rgba(253, 100, 100, 0.288);
-    --prio3: rgba(252, 211, 134, 0.527);
-    --prio4: rgba(131, 224, 131, 0.342);
-    --prio5: rgba(131, 133, 224, 0.342);
+    --dropdown: gray;
+    --prio1: rgba(98, 35, 100, 0.5);
+    --prio2: rgba(253, 100, 100, 0.5);
+    --prio3: rgba(252, 211, 134, 0.5);
+    --prio4: rgba(131, 224, 131, 0.5);
+    --prio5: rgba(131, 133, 224, 0.5);
 }
+
+
+/* --prio2: rgba(253, 100, 100, 0.286);
+--prio3: rgba(252, 211, 134, 0.525);
+--prio4: rgba(131, 224, 131, 0.341); */
 
 body {
     margin: 0;
@@ -30,7 +36,7 @@ body {
 }
 
 header {
-    width: max(10vw, 108px);
+    width: max(10vw, 75px);
 }
 
 h1 {
@@ -70,10 +76,6 @@ h1 {
     background-color: var(--prio5);
 }
 
-.visible {
-    visibility: visible;
-}
-
-.unvisible {
-    visibility: hidden;
+.dark {
+    color: var(--dark);
 }

@@ -33,11 +33,11 @@ saveTask = () => {
     }
     tasks.push(task);
     serverSave();
-    showTaskSave();
+    showTaskSaved();
     clearTask();
 }
 
-showTaskSave = () => {
+showTaskSaved = () => {
     let savescreen = document.getElementById("savescreen");
     savescreen.classList.remove("hide");
     setTimeout(() => { savescreen.classList.add("hide") }, 1500);
@@ -58,8 +58,8 @@ updateUserArea = () => {
                                     <div class="userdata">
                                         <div class="username">${user.name}</div>
                                         <div>
-                                            <div class="userdetail">Email: ${user.mail}</div>
-                                            <div class="userdetail">Phone: ${user.phone}</div>
+                                            <div class="userdetail"><span class="dark">Email: </span>${user.mail}</div>
+                                            <div class="userdetail"><span class="dark">Phone: </span>${user.phone}</div>
                                         </div>
                                     </div>
                                 </div>

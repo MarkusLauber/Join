@@ -93,9 +93,8 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
-.category{
 
-}
+.category {}
 
 #detailsWindow {
     background-color: lightgrey;
@@ -202,17 +201,31 @@ hr {
     width: 100%;
 }
 
-.editBtn{
+.editBtn {
     position: absolute;
     right: 10px;
     top: 10px;
 }
 
-#deleteUser{
+.editAddBtn {
+    position: absolute;
+    right: 70px;
+    top: 10px;
+}
+
+.deleteUser {
     margin-left: 10px;
     padding: 4px;
     border: 1px solid black;
     border-radius: 4px;
 }
 
-.prioEdit
+.deleteUser:hover {
+    cursor: pointer;
+}
+
+.prioEdit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

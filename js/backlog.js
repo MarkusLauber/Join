@@ -45,41 +45,83 @@ openDetails = (x) => {
     document.getElementById(`categoryInfo`).innerHTML = `
     <div class=categoryInfo><em>Category</em> - ${task.category}</div>
     <div id="prioEditing" class=prioEdit>${tasks[x].urgency}</div> 
-    <button class="editBtn" onClick="editingTaskOnBacklog()">edit</button>
+    <div id="editCon"><button id="editing" class="editBtn" onClick="editingTaskOnBacklog(${x})">edit</button></div>
     `;
-    
-    
+
+
     for (let i = 0; i < task.users.length; i++) {
 
         document.getElementById("userDetailed").innerHTML += `
-        <div class="memberInfo">
+        <div id="infoUser${i}" class="memberInfo">
         <img id="detailedImg${i}" class="memberImg big"  src="${task.users[i].pic}" style="box-shadow: 1px 1px 5px 1px ${task.users[i].color}">
         <div>
         <span class="infoUser">
         <b>Name:</b> ${task.users[i].name}</span> 
         <span class="infoUser"><b>tel.Nr:</b> ${task.users[i].phone}</span> 
         <span class="infoUser"><b>E-mail:</b> ${task.users[i].mail}</span>
-        <span id="deleteUser${i}" onClick="deleteUserInEditmode${i}" class="hide">X</Span>
+        <span id="deleteUser${i}" onClick="deleteUserInEditmode(${i})" class="hide">X</Span>
         </div>
         `
     };
 
-    document.getElementById(`fullText`).innerHTML = `<p>${task.details}<p>`;
+    document.getElementById(`fullText`).innerHTML = `<p id="editableText" contenteditable="false">${task.details}<p>`;
 }
 
-function editingTaskOnBacklog(i) {
-    document.getElementById(`deleteUser`).classList.remove('hide');
 
+function deleteUserInEditmode(i) {
+    document.getElementById(`infoUser${i}`).innerHTML = ``
+};
+
+function editingTaskOnBacklog(x) {
+
+    let task = tasks[x];
+
+
+
+    let deleteBtn = document.getElementById(`editing`);
+    deleteBtn.remove();
+    let saveBtn = document.getElementById(`editCon`);
+    saveBtn.innerHTML = `
+    <button id="addUser" class="editAddBtn" onClick="addUserOnEdit()">add User</button>
+    <button class="editBtn" onClick="saveEditedTaskOnBacklog(${x})">save</button>`;
+
+
+
+    showXMark(task);
+    editUrgency(task);
+    textEditable();
+}
+
+function addUserOnEdit() {
+    document.getElementById('addUser').innerHTML = `
+    <select name="addingUser" id="selectingUser" placeholder="add User">
+    <Option value="
+    </select
+    `
+}
+
+function showXMark(task) {
+    for (let i = 0; i < task.users.length; i++) {
+        document.getElementById("deleteUser" + i).classList.remove('hide');
+        document.getElementById("deleteUser" + i).classList.add('deleteUser');
+    }
+}
+
+function editUrgency(task) {
     document.getElementById(`prioEditing`).innerHTML = `
     <select name="prio" id="urgence">
-    <option value=${tasks[0].urgency}>Prio1</option>
-    <option value=${tasks[1].urgency}>Prio2</option>
-    <option value=${tasks[2].urgency}>Prio3</option>
-    <option value=${tasks[3].urgency}>Prio4</option>
-    <option value=${tasks[4].urgency}>Prio5</option>
+    <option value="prio1">Very High</option>
+    <option value="prio2">High</option>
+    <option value="prio3">Medium</option>
+    <option value="prio4">Low</option>
+    <option value="prio5">Very Low</option>
     </select>`;
+    document.getElementById(`urgence`).value = task.urgency;
+}
 
-
+function textEditable() {
+    let newText = document.getElementById('editableText');
+    newText.contentEditable = "true";
 }
 
 getUsersBacklog = (element) => {
@@ -91,7 +133,6 @@ getUsersBacklog = (element) => {
 
 
 closeDetails = () => {
-
     document.getElementById(`backgroundDetails`).classList = "fadeOut";
     document.getElementById(`detailsWindow`).classList.add("hide");
 }
