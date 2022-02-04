@@ -63,6 +63,7 @@ main {
 }
 
 input {
+    font-family: PT;
     box-sizing: border-box;
     border: none;
     background: var(--light);
@@ -70,6 +71,7 @@ input {
 }
 
 textarea {
+    font-family: PT;
     resize: none;
     background: var(--light);
     padding: 0 8px 0 8px;
@@ -77,6 +79,7 @@ textarea {
 
 select {
     appearance: none;
+    font-family: PT;
     background-image: url("../ressources/icons/expand_more_black.svg");
     background-repeat: no-repeat;
     background-size: 30px;
@@ -84,11 +87,6 @@ select {
     background-position-y: 50%;
     padding-left: 8px;
     background-color: var(--light)
-}
-
-select:hover::after {
-    color: #2C3E50;
-    background-color: #F39C12;
 }
 
 #urgency option {
@@ -127,7 +125,7 @@ select:hover::after {
 
 .button {
     width: 30%;
-    cursor: pointer;
+    font-family: PT;
     background: var(--light);
     border: none;
 }
