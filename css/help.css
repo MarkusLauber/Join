@@ -30,7 +30,7 @@ main {
 .legendBox {
     width: 16%;
     height: 80px;
-    color: white;
+    color: var(--mainFontColor);
     display: flex;
     justify-content: center;
     align-items: center;
