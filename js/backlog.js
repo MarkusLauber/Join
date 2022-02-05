@@ -3,9 +3,11 @@ let backlog
 
 async function loadBacklog() {
     await serverLoad();
+    colors();
     includeHTML();
     backlogContainer = document.getElementById(`backlog`);
-    setTimeout(generateBacklog, 100)
+    setTimeout(generateBacklog, 100);
+
 }
 
 generateBacklog = () => {

@@ -29,7 +29,6 @@ let users = [{
 }]
 
 let tasks = [];
-let colors = false;
 let editID = null;
 
 serverLoad = async() => {
@@ -70,6 +69,12 @@ function includeHTML() {
     }
 }
 
+initHelp = () => {
+    colors();
+    includeHTML();
+
+}
+
 urgencySort = (a, b) => {
     if (a.urgency < b.urgency) {
         return -1;
@@ -80,13 +85,33 @@ urgencySort = (a, b) => {
     return 0;
 }
 
-changeColors = () => {
+colors = () => {
     let root = document.documentElement;
-    if (!colors) {
+    let col = sessionStorage.getItem("mode")
+    if (col == "bright") {
         bright(root)
     } else {
         dark(root)
     }
+}
+
+
+changeColors = () => {
+    if (sessionStorage.getItem("mode") != null) {
+        let col = sessionStorage.getItem("mode")
+        if (col == "dark") {
+            sessionStorage.setItem("mode", "bright")
+            colors();
+        } else {
+            sessionStorage.setItem("mode", "dark")
+            colors();
+        }
+
+    } else {
+        sessionStorage.setItem("mode", "bright")
+        colors();
+    }
+    colors();
 }
 
 bright = (root) => {
@@ -96,7 +121,6 @@ bright = (root) => {
     root.style.setProperty('--headerColor', '#bd7f4a');
     root.style.setProperty('--headerFontColor', 'black');
     root.style.setProperty('--mainFontColor', 'black');
-    colors = true;
 }
 
 dark = (root) => {
@@ -106,7 +130,6 @@ dark = (root) => {
     root.style.setProperty('--headerColor', 'rgb(48, 48, 48)');
     root.style.setProperty('--headerFontColor', 'white');
     root.style.setProperty('--mainFontColor', 'black');
-    colors = false;
 }
 
 

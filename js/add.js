@@ -3,6 +3,7 @@ let addedUsers;
 let currentUsers = [];
 
 init = () => {
+    colors();
     includeHTML();
     serverLoad();
     userArea = document.getElementById("userArea");

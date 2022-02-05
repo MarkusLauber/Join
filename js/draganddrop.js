@@ -1,6 +1,7 @@
 let currentDraggedElement;
 
 startTasks = async() => {
+    colors();
     await serverLoad();
     includeHTML();
     setTimeout(updateDragAndDropArea, 100)
@@ -11,6 +12,7 @@ updateDragAndDropArea = () => {
     enableInProgress();
     enableTesting();
     enableDone();
+
 }
 
 enableToDo = () => {
