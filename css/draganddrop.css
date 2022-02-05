@@ -25,7 +25,7 @@ body {
 
 .dragArea {
     height: 90vh;
-    overflow:scroll;
+    overflow: scroll;
     width: 90%;
     background-color: var(--medium);
     margin-bottom: 50px;
@@ -33,13 +33,13 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .dragAreaHead {
     background-color: var(--light);
-    border-radius: 8px;
+    border-radius: 6px;
     font-family: PT-bold;
     font-size: 2.4rem;
     font-weight: 400;
@@ -67,7 +67,7 @@ body {
     color: white;
     display: flex;
     align-items: flex-start;
-    border-radius: 5px;
+    border-radius: 6px;
     padding: 6px;
     margin: 10px 4px 10px 0px;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -78,11 +78,11 @@ body {
     position: absolute;
     width: 60rem;
     height: 20rem;
-    border-radius: 20px;
+    border-radius: 6px;
     font-size: 2rem;
     font-weight: 300;
     color: white;
-    background-color: rgba(71, 71, 71, 0.795);
+    background-color: rgba(71, 71, 71);
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
@@ -208,7 +208,7 @@ body {
     margin-top: 10px;
     padding: 10px;
     background-color: rgba(143, 142, 142, 0.144);
-    border-radius: 20px;
+    border-radius: 6px;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
@@ -251,10 +251,10 @@ body {
     height: 3rem;
     bottom: 4px;
     right: 40px;
-    background-color:rgba(143, 142, 142, 0.144);
+    background-color: rgba(143, 142, 142, 0.144);
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     border-color: transparent;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
@@ -264,23 +264,18 @@ body {
 }
 
 @media (max-width: 1400px) {
-
     .elementDetails {
         width: 96%;
     }
-
     .innerHTMLTask {
         width: 90%;
     }
-
     .elementHeader {
         width: 96%;
     }
-
     .task {
         width: 38rem;
     }
-
     .dragArea {
         width: 42rem;
         height: 42vh;
@@ -309,12 +304,10 @@ body {
     .openedUserImgContainer {
         height: 14rem;
     }
-    
     .openedTaskWindow,
     .openedTask {
         width: 40rem;
     }
-
     .openedHeader {
         display: flex;
         justify-content: space-around;
@@ -352,11 +345,9 @@ body {
 }
 
 @media (max-width: 1000px) {
-
     .task {
         width: 30rem;
     }
-
     .dragArea {
         width: 34rem;
         height: 42vh;
@@ -379,58 +370,53 @@ body {
 }
 
 @media (max-width: 850px) {
-
     .task {
         width: 24rem;
     }
-
-    .dragArea, .dragAreaSingle, .dragAreaHead {
+    .dragArea,
+    .dragAreaSingle,
+    .dragAreaHead {
         width: 26rem;
     }
 }
 
 @media (max-width: 700px) {
-
     .task {
         width: 20rem;
     }
-
-    .dragArea, .dragAreaSingle, .dragAreaHead {
+    .dragArea,
+    .dragAreaSingle,
+    .dragAreaHead {
         width: 22rem;
     }
 }
 
 @media (max-width: 600px) {
-
     .task {
         width: 26rem;
     }
-
-    .dragArea, .dragAreaSingle, .dragAreaHead {
+    .dragArea,
+    .dragAreaSingle,
+    .dragAreaHead {
         width: 30rem;
     }
-
     .openedTaskWindow,
     .openedTask {
         width: 28rem;
     }
-
     .openedHeader {
         display: flex;
         justify-content: space-around;
         height: 5rem;
         width: 22rem;
     }
-
     .openedTaskWindow,
     .openedTask {
         width: 30rem;
     }
-
     .openedInnerHTMLTask {
         width: 28rem;
     }
-
     .openedTitle {
         height: 4rem;
         width: 10rem;
@@ -447,24 +433,20 @@ body {
         width: 26rem;
         max-height: 40rem;
     }
-    
 }
 
 @media (max-width: 450px) {
-
     .task {
         width: 20rem;
     }
-
-    .dragArea, .dragAreaSingle, .dragAreaHead {
+    .dragArea,
+    .dragAreaSingle,
+    .dragAreaHead {
         width: 22rem;
     }
-
     .dragArea {
         height: fit-content;
         min-height: 20rem;
         max-height: 40rem;
     }
 }
-
-

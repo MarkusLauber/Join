@@ -24,27 +24,46 @@
     text-align: center;
 }
 
-#logo {
-    width: 100px;
-    height: 100px;
-    background-image: url("../icons/joinlogo.png");
-    background-repeat: no-repeat;
-    background-position: center;
+.logoJoin {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    padding: 20px 10px 20px 10px;
 }
 
 a {
     color: var(--headerFontColor);
     font-family: PT-bold;
-    font-size: 24px;
+    font-size: 20px;
     text-decoration: none;
-    margin: 16px;
+    margin: 14px;
+    display: flex;
+}
+
+.aIcon {
+    margin: 0px;
 }
 
 #toggle {
     color: var(--headerFontColor);
     font-family: PT-bold;
-    font-size: 24px;
+    font-size: 20px;
     text-decoration: none;
     margin: 16px;
-    margin-top: 48px;
+}
+
+.sidebarIcon {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.sidebarIcon:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+    zoom: 102%;
+    border-radius: 8%;
+    background-color: rgba(56, 56, 56, 0.486);
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }

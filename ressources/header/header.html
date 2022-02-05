@@ -13,12 +13,23 @@
     <div id="burger" class="header_icon hide"></div>
     <div id="close" class="header_icon hide"></div>
     <div id="header_body">
-        <div id="logo"></div>
-        <a href="draganddrop.html">Task&shy;board</a>
-        <a href="backlog.html">Back&shy;log</a>
-        <a href="add.html">Add Task</a>
-        <a href="help.html">Help</a>
-        <div id="toggle" class="pointer" onclick="changeColors()">Toggle Dark&shy;mode</div>
+        <img class="logoJoin" src="ressources/icons/joinlogo.png">
+        <a class="standardSidebar" id="taskboardHeader" href="draganddrop.html">Task&shy;board</a>
+        <a class="standardSidebar" id="backlogHeader" href="backlog.html">Back&shy;log</a>
+        <a class="standardSidebar" id="addHeader" href="add.html">Add Task</a>
+        <a class="standardSidebar" id="helpHeader" href="help.html">Help</a>
+        <div class="standardSidebar" id="toggle" class="pointer" onclick="changeColors()">Toggle Dark&shy;mode</div>
+
+        <a class="aIcon" href="draganddrop.html"><img class="sidebarIcon whitemode" src="ressources/icons/taskboardBlack.svg"></a>
+        <a class="aIcon" href="draganddrop.html"><img class="sidebarIcon darkmode" src="ressources/icons/taskboardWhite.svg"></a>
+        <a class="aIcon" href="backlog.html"><img class="sidebarIcon whitemode" src="ressources/icons/backlogBlack.svg"></a>
+        <a class="aIcon" href="backlog.html"><img class="sidebarIcon darkmode" src="ressources/icons/backlogWhite.svg"></a>
+        <a class="aIcon" href="add.html"><img class="sidebarIcon whitemode" src="ressources/icons/addBlack.svg"></a>
+        <a class="aIcon" href="add.html"><img class="sidebarIcon darkmode" src="ressources/icons/addWhite.svg"></a>
+        <a class="aIcon" href="help.html"><img class="sidebarIcon whitemode" src="ressources/icons/helpBlack.svg"></a>
+        <a class="aIcon" href="help.html"><img class="sidebarIcon darkmode" src="ressources/icons/helpWhite.svg"></a>
+        <img class="sidebarIcon darkmode" src="ressources/icons/lightmodeWhite.svg" onclick="changeColors()">
+        <img class="sidebarIcon whitemode" src="ressources/icons/darkmodeBlack.svg" onclick="changeColors()">
     </div>
 </body>
 

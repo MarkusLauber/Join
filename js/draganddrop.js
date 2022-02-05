@@ -4,7 +4,8 @@ startTasks = async() => {
     colors();
     await serverLoad();
     includeHTML();
-    setTimeout(updateDragAndDropArea, 100)
+    setTimeout(updateDragAndDropArea, 100),
+        editTask(3);
 }
 
 updateDragAndDropArea = () => {
@@ -99,15 +100,15 @@ moveTo = (status) => {
 }
 
 openTaskWindow = (id) => {
-    document.getElementById('openedTaskID').style = "display: flex;";
-    document.getElementById('openedTaskID').innerHTML = '';
+        document.getElementById('openedTaskID').style = "display: flex;";
+        document.getElementById('openedTaskID').innerHTML = '';
 
-    document.getElementById('openedTaskID').innerHTML += `
+        document.getElementById('openedTaskID').innerHTML += `
     <div id="openedTaskWindowID" class="openedTask">
         <div class="openedUserImgContainer">
         ` +
-        getOpenedUserPics(id) +
-        ` 
+            getOpenedUserPics(id) +
+            ` 
         </div>
         <div class="openedInnerHTMLTask">
             <div class="openedHeader">
@@ -118,11 +119,12 @@ openTaskWindow = (id) => {
             </span>
         </div>
         <img class="closeIcon" id="closedIconImg(${id})" onclick="updateDetails(${id}), updateTitle(${id}), closeTaskWindow()" src="ressources/icons/x.ico">
-        <button class="backlogButton" id="pullBtn" onclick="backToBacklog(${id})">back to BG</button>
+        
+        <button class="backlogButton" onclick="editTask(${id})">edit</button>
     <div>
     `;
-}
-
+    }
+    // <button class="backlogButton" id="pullBtn" onclick="backToBacklog(${id})">back to BG</button>
 updateDetails = (id) => {
     details = tasks[id].details;
     newDetails = document.getElementById('openedDetailsID').innerText;

@@ -7,6 +7,12 @@ body {
     width: 90%;
 }
 
+.btnSection {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .backlogName {
     margin-left: 35px;
 }
@@ -18,6 +24,20 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 150px;
+}
+
+.backlogButton {
+    font-size: 1.6rem;
+    width: 6rem;
+    margin: 5px;
+    height: 3rem;
+    bottom: 4px;
+    right: 40px;
+    background-color: rgba(143, 142, 142, 0.144);
+    box-shadow: rgb(255 255 255 / 10%) 0px 1px 1px 0px inset, rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px;
+    border-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .backlogContainer {
@@ -32,9 +52,16 @@ body {
     box-sizing: border-box;
 }
 
+.footer-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .memberImg {
     height: 40px;
     width: 40px;
+    margin: 10px;
     object-fit: cover;
     margin-top: 5px;
     border-radius: 100%;
@@ -95,9 +122,38 @@ body {
     font-weight: bold;
 }
 
-.category {}
+.line {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
 
-#detailsWindow {
+.openedUserImgContainer {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.openedTask {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: absolute;
+    width: 50rem;
+    height: 40rem;
+    border-radius: 20px;
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    background-color: rgba(71, 71, 71, 0.795);
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+/* #detailsWindow {
     background-color: lightgrey;
     height: 600px;
     width: 700px;
@@ -108,7 +164,7 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     border-radius: 20px;
-}
+} */
 
 #backgroundDetails {
     height: 100%;
@@ -151,17 +207,18 @@ body {
     }
 }
 
+
+/* 
 #userDetailed {
     width: auto;
     height: max-content;
     display: flex;
     flex-direction: column;
     margin: 5px;
-}
+} */
 
 .memberInfo {
     display: flex;
-    width: 100%;
     align-items: center;
 }
 
@@ -177,7 +234,7 @@ body {
     font-size: 30px;
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 #fullText {
@@ -186,6 +243,14 @@ body {
     overflow-wrap: break-word;
     border: 3px solid;
     border-radius: 5px;
+}
+
+.backlogBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
 }
 
 p {
@@ -229,4 +294,14 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 20px;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -70px;
 }

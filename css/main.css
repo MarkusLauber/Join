@@ -25,10 +25,29 @@
     --prio5: rgba(131, 133, 224, 0.5);
 }
 
+.darkmode {
+    display: block;
+}
 
-/* --prio2: rgba(253, 100, 100, 0.286);
---prio3: rgba(252, 211, 134, 0.525);
---prio4: rgba(131, 224, 131, 0.341); */
+.whitemode {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .standardSidebar {
+        display: none;
+    }
+    .sidebarIcons {
+        display: flex;
+    }
+}
+
+@media (min-width: 801px) {
+    .darkmode,
+    .whitemode {
+        display: none;
+    }
+}
 
 body {
     margin: 0;
@@ -135,13 +154,14 @@ select {
 }
 
 #editWindow {
-    width: 40%;
+    width: max (300px, 50vh);
     z-index: 10;
     position: fixed;
     top: 30%;
     left: 50%;
     transform: translateX(-25%);
     background-color: var(--medium);
+    font-size: 16px;
 }
 
 #editColor {
@@ -153,17 +173,32 @@ select {
     justify-content: space-evenly
 }
 
+.editLabel {
+    margin-bottom: 4px;
+}
+
 .editField {
     display: flex;
     flex-direction: column;
     margin: 8px;
 }
 
+#editDetails {
+    height: 150px;
+}
+
+#editUsers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .editUserPic {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    margin: 0 4px 0 4px;
+    margin: 0 4px 12px 4px;
 }
 
 .editBtns {
@@ -176,8 +211,8 @@ select {
 }
 
 .editAddUserContainer {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     background: var(--light);
     border-radius: 50%;
     display: flex;
@@ -189,4 +224,88 @@ select {
     width: 24px;
     height: 24px;
     background-image: url("../ressources/icons/add_black.svg");
+}
+
+.addUserContainer {
+    width: 50px;
+    height: 50px;
+    background: var(--light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userpic {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.buttonbox {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button {
+    width: 30%;
+    font-family: PT;
+    background: var(--light);
+    border: none;
+}
+
+.user_area {
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-25%);
+    z-index: 10;
+    width: max(30%, 220px);
+    background: var(--dark);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 8px 4px 8px;
+}
+
+.usercard {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.userinfo {
+    width: 100%;
+    border-radius: 8px;
+    background: var(--light);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 4px 0 4px;
+}
+
+.userdata {
+    width: 50%;
+    height: 100%;
+    padding: 4px 0 4px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.username {
+    font-size: 18px;
+    text-align: center;
+}
+
+.userdetail {
+    text-align: center;
 }

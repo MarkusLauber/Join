@@ -39,15 +39,16 @@ saveTask = () => {
 }
 
 updateUsers = () => {
-    updateUserArea();
     updateAddedUsers();
 }
 
-updateUserArea = () => {
+generateUserArea = () => {
+    let screen = document.getElementById("screenContainer");
     let freeUsers = filterFreeUsers();
-    userArea.innerHTML = null;
+    let UserAreaString = `<div id="userArea" class="user_area box-shadow">`;
     freeUsers.forEach((user, i) => {
-        userArea.innerHTML += `<div class="usercard" onclick="addUser(${users.indexOf(user)})">
+
+        UserAreaString += `<div class="usercard" onclick="addUser(${users.indexOf(user)})">
                                 <div class="userinfo">
                                     <img class="userpic" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">
                                     <div class="userdata">
@@ -60,6 +61,12 @@ updateUserArea = () => {
                                 </div>
                             </div>`
     })
+    UserAreaString += "</div>"
+    screen.innerHTML = UserAreaString;
+    let userArea = document.getElementById("userArea");
+    document.addEventListener('click', (event) => {
+        if (!userArea.contains(event.target)) { closeUserArea() }
+    })
 }
 
 updateAddedUsers = () => {
@@ -68,19 +75,12 @@ updateAddedUsers = () => {
         addedUsers.innerHTML += `<img title"Remove User" class="userpic pointer"src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
     })
     if (currentUsers.length < 3) {
-        addedUsers.innerHTML += `<div class="addUserContainer pointer" onclick="openUserArea(), event.stopPropagation()"><div class="addUser"></div>`
+        addedUsers.innerHTML += `<div class="addUserContainer pointer" onclick="generateUserArea(), event.stopPropagation()"><div class="addUser"></div>`
     }
 }
 
-openUserArea = () => {
-    userArea.classList.remove("hide");
-    document.addEventListener('click', (event) => {
-        if (!userArea.contains(event.target)) { closeUserArea() }
-    })
-}
-
 closeUserArea = () => {
-    userArea.classList.add("hide");
+    document.getElementById("screenContainer").innerHTML = null;
     document.removeEventListener('click', (event) => {
         if (!userArea.contains(event.target)) { closeUserArea() }
     })
@@ -91,16 +91,10 @@ addUser = (i) => {
     users[i].assigned = true;
     closeUserArea();
     updateAddedUsers();
-    updateUserArea();
 }
 
 removeUser = (i, j) => {
     currentUsers.splice(i, 1);
     users[j].assigned = false;
     updateAddedUsers();
-    updateUserArea();
-}
-
-filterFreeUsers = () => {
-    return users.filter(free => free.assigned == false)
 }

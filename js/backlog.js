@@ -1,10 +1,23 @@
 let backlogContainer;
 let backlog
 
+
 async function loadBacklog() {
+
+
+
     await serverLoad();
+
+
+
     colors();
+
+
+
     includeHTML();
+
+
+
     backlogContainer = document.getElementById(`backlog`);
     setTimeout(generateBacklog, 100);
 
@@ -40,14 +53,16 @@ openDetails = (x) => {
     clearDetails();
     document.getElementById(`backgroundDetails`).classList = "fadeIn";
     document.getElementById(`detailsWindow`).classList.remove("hide");
-    document.getElementById("pushBtn").onclick = () => { pushToTaskBoard(x) };
+
+
+    document.getElementById(`deadline`).innerHTML = `<div id="date" class="date"><b>DEADLINE:</b>  ${tasks[x].date}</div>`;
 
     document.getElementById(`categoryInfo`).innerHTML = `
     <div class=categoryInfo><em>Category</em> - ${task.category}</div>
     <div id="prioEditing" class=prioEdit>${tasks[x].urgency}</div> 
-    <div id="editCon"><button id="editing" class="editBtn" onClick="editingTaskOnBacklog(${x})">edit</button></div>
+ 
     `;
-    //editTask(${x}) 
+    "editingTaskOnBacklog(${x})"
 
     for (let i = 0; i < task.users.length; i++) {
 
@@ -55,16 +70,22 @@ openDetails = (x) => {
         <div id="infoUser${i}" class="memberInfo">
         <img id="detailedImg${i}" class="memberImg big"  src="${task.users[i].pic}" style="box-shadow: 1px 1px 5px 1px ${task.users[i].color}">
         <div>
-        <span class="infoUser">
-        <b>Name:</b> ${task.users[i].name}</span> 
-        <span class="infoUser"><b>tel.Nr:</b> ${task.users[i].phone}</span> 
-        <span class="infoUser"><b>E-mail:</b> ${task.users[i].mail}</span>
         <span id="deleteUser${i}" onClick="deleteUserInEditmode(${i})" class="hide">X</Span>
         </div>
         `
+        document.getElementById("pushBtn").onclick = () => { pushToTaskBoard(x) };
     };
 
     document.getElementById(`fullText`).innerHTML = `<p id="editableText" contenteditable="false">${task.details}<p>`;
+    document.getElementById(`btnSection`).innerHTML = `
+  
+  
+    
+    <div id="editCon"><button id="editing" class="backlogButton" onClick="editTask(${x})">edit</button></div>
+    `
+
+
+
 }
 
 

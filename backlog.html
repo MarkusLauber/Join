@@ -16,23 +16,33 @@
 <body onload="loadBacklog()">
     <header w3-include-html="ressources/header/header.html"></header>
     <div id="windowContainer"></div>
+    <div id="screenContainer"></div>
     <div class="backlogBigContainer">
         <h1>Backlog</h1>
+        <div id="backlog" class="backlogContainer box-shadow"></div>
         <div id="backgroundDetails" class="fadeOut">
-            <div id="detailsWindow" class="hide">
+
+
+            <div id="detailsWindow" class="openedTask hide">
+                <div id="deadline" class="date"></div>
                 <div id="categoryInfo"></div>
-                <hr>
-                <div id="userDetailed"></div>
+                <div id="userDetailed" class="openedUserImgContainer"></div>
+
+
                 <div class="categoryDetailed"></div>
-                <hr>
-                <h2>Beschreibung:</h2>
+
+
                 <div id="fullText" class="fullTextField"></div>
-                <button onclick="closeDetails()">X</button>
-                <button id="pushBtn">To TB</button>
+                <div class="footer-btn">
+                    <div>
+                        <button class="backlogButton" onclick="closeDetails()">X</button>
+                        <button class="backlogButton" id="pushBtn">To TB</button>
+                    </div>
+                    <div id="btnSection" class="btnSection"></div>
+                </div>
+
             </div>
         </div>
-        <div id="backlog" class="backlogContainer box-shadow"></div>
-    </div>
 </body>
 
 </html>
