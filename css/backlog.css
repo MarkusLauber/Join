@@ -80,6 +80,13 @@ body {
     margin: 4px 0 4px 0;
     border: 1px solid;
     border-radius: 5px;
+    transition: 225ms ease-in-out;
+}
+
+.taskMain:hover{
+    border: 1px solid white;
+    box-shadow: 1px 1px 5px 1px white;
+    opacity: 0.8;
 }
 
 .taskTop {
@@ -205,9 +212,10 @@ body {
     border-radius: 20px;
 } */
 
+
 #backgroundDetails {
     height: 100%;
-    width: 90%;
+    width: 85%;
     background-color: #000000cc;
     z-index: 1;
     position: fixed;
@@ -317,4 +325,8 @@ hr {
     right: 0;
     top: -70px;
     white-space: break-spaces;
+}
+
+@media (max-width: 1200px) {
+    
 }
