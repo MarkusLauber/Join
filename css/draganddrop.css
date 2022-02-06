@@ -102,7 +102,7 @@ body {
 .task:hover {
     filter: brightness(1.2);
     cursor: pointer;
-    zoom: 102%;
+    transform: scale(1.02);
 }
 
 .elementTitle {
@@ -452,34 +452,27 @@ body {
         min-height: 20rem;
         max-height: 40rem;
     }
-
     .openedTaskWindow,
     .openedTask {
         width: 24rem;
     }
-
     .openedInnerHTMLTask {
         width: 22rem;
     }
-
     .openedTitle {
         font-size: 1.4rem;
         width: 8rem;
     }
-
     .openedCategory {
         font-size: 1.2rem;
         width: 8rem;
     }
-
     .openedDetails {
         font-size: 1.4rem;
         width: 20rem;
     }
-
     .openedTaskWindow {
         position: fixed;
         top: 10px;
     }
-
 }
