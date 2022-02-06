@@ -66,7 +66,7 @@ generateUserArea = () => {
     let userArea = document.getElementById("userArea");
     document.addEventListener('click', (event) => {
         if (!userArea.contains(event.target)) { closeUserArea() }
-    })
+    }, { once: true })
 }
 
 updateAddedUsers = () => {
@@ -81,9 +81,6 @@ updateAddedUsers = () => {
 
 closeUserArea = () => {
     document.getElementById("screenContainer").innerHTML = null;
-    document.removeEventListener('click', (event) => {
-        if (!userArea.contains(event.target)) { closeUserArea() }
-    })
 }
 
 addUser = (i) => {
