@@ -150,7 +150,46 @@ body {
     color: white;
     background-color: rgba(71, 71, 71, 0.795);
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    animation: fade_in 225ms forwards;
 }
+
+.closeTask{
+    transform: translateX(-500px);
+    animation: fade_out 225ms forwards;
+}
+
+.fade_out{
+    transform: translateX(-500px);
+    animation: fade_out 225ms forwards;
+}
+
+@keyframes fade_in {
+    from {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+}
+
+@keyframes fade_out {
+    from {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+
+}
+
+
 
 
 /* #detailsWindow {
@@ -175,37 +214,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fade_in ease-in-out 225ms;
 }
 
-.fadeIn {
-    animation: fade_in 500ms linear forwards;
-}
 
-@keyframes fade_in {
-    from {
-        transform: translateX(-500px);
-    }
-    to {
-        transform: translateX(0px);
-    }
-}
 
-.fadeOut {
-    animation: fade_in 500ms linear backwards;
-    visibility: hidden;
-}
-
-@keyframes fade_out {
-    from {
-        opacity: 100%;
-        transform: translateX(0px);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(500px);
-    }
-}
 
 
 /* 
@@ -304,4 +316,5 @@ hr {
     left: 0;
     right: 0;
     top: -70px;
+    white-space: break-spaces;
 }

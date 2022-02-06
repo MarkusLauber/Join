@@ -53,9 +53,10 @@ openDetails = (x) => {
     clearDetails();
     document.getElementById(`backgroundDetails`).classList = "fadeIn";
     document.getElementById(`detailsWindow`).classList.remove("hide");
+    document.getElementById(`detailsWindow`).classList.remove("fade_out");
 
 
-    document.getElementById(`deadline`).innerHTML = `<div id="date" class="date"><b>DEADLINE:</b>  ${tasks[x].date}</div>`;
+    document.getElementById(`deadline`).innerHTML = `<div id="date" class="date"><b>DEADLINE:  </b>   ${tasks[x].date}</div>`;
 
     document.getElementById(`categoryInfo`).innerHTML = `
     <div class=categoryInfo><em>Category</em> - ${task.category}</div>
@@ -154,8 +155,14 @@ getUsersBacklog = (element) => {
 
 
 closeDetails = () => {
-    document.getElementById(`backgroundDetails`).classList = "fadeOut";
-    document.getElementById(`detailsWindow`).classList.add("hide");
+    document.getElementById(`backgroundDetails`).classList = ("fade_out");
+    window.setTimeout(function() {
+        document.getElementById(`backgroundDetails`).classList = ("hide");
+    }, 200);
+    
+
+
+    document.getElementById(`detailsWindow`).classList.add("fade_out");
 }
 
 clearDetails = () => {
