@@ -4,8 +4,7 @@ startTasks = async() => {
     colors();
     await serverLoad();
     includeHTML();
-    setTimeout(updateDragAndDropArea, 100),
-        editTask(3);
+    setTimeout(updateDragAndDropArea, 100)
 }
 
 updateDragAndDropArea = () => {
@@ -13,7 +12,6 @@ updateDragAndDropArea = () => {
     enableInProgress();
     enableTesting();
     enableDone();
-
 }
 
 enableToDo = () => {

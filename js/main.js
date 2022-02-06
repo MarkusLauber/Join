@@ -191,7 +191,7 @@ resetAssigned = () => {
 
 addEditUser = (taskUserNr, taskNr) => {
     tasks[taskNr].users.push(users[taskUserNr]);
-    users[tasks[taskNr].users[taskUserNr].id].assigned = true;
+    users[taskUserNr].assigned = true;
     updateEditUsers(taskNr);
     closeEditUserArea();
 }
@@ -293,11 +293,11 @@ createEditWindow = () => {
                     <div class="editField">
                         <label class="editLabel">Urgency</label>
                         <select id="editUrgency">
-                            <option value="prio1">&#x1F7EA;Very High</option>
-                            <option value="prio2">&#x1F7E5;High</option>
-                            <option value="prio3">&#x1F7E8;Medium</option>
-                            <option value="prio4">&#x1F7E9;Low</option>
-                            <option value="prio5">&#x1F7E6;Very Low</option>
+                            <option value="prio1">&#x1F7EA; Very High</option>
+                            <option value="prio2">&#x1F7E5; High</option>
+                            <option value="prio3">&#x1F7E8; Medium</option>
+                            <option value="prio4">&#x1F7E9; Low</option>
+                            <option value="prio5">&#x1F7E6; Very Low</option>
                         </select>
                     </div>
                     <div class="editField">
@@ -307,9 +307,9 @@ createEditWindow = () => {
                 </div>
                 </div>
                 <div class="editBtns">
-                    <button id="editSaveBtn" class="editBtn2" onclick="saveEdit()">Save</button>
-                    <button id="editDeleteBtn" class="editBtn2" onclick="showDeleteDialog()">Delete</button>
-                    <button id="editCloseBtn" class="editBtn2" onclick="closeEditWindow()">Close</button>
+                    <button id="editSaveBtn" class="button" onclick="saveEdit()">Save</button>
+                    <button id="editDeleteBtn" class="button" onclick="showDeleteDialog()">Delete</button>
+                    <button id="editCloseBtn" class="button" onclick="closeEditWindow()">Close</button>
                 </div>
             </div>
         </div>
