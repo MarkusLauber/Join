@@ -200,7 +200,6 @@ removeEditUser = (taskUserNr, taskNr) => {
     users[tasks[taskNr].users[taskUserNr].id].assigned = false;
     tasks[taskNr].users.splice(taskUserNr, 1);
     updateEditUsers(taskNr);
-    closeEditUserArea();
 }
 
 filterFreeUsers = () => {
@@ -229,13 +228,13 @@ deleteTask = (taskNr) => {
 showSavescreen = () => {
     let screen = document.getElementById("screenContainer")
     screen.innerHTML = '<div class="savescreen box-shadow">Task wurde gespeichert!</div>'
-    setTimeout(() => { screen.innerHTML = null; }, 1500);
+    setTimeout(() => { screen.innerHTML = null }, 1500);
 }
 
 showDeletescreen = () => {
     let screen = document.getElementById("screenContainer")
     screen.innerHTML = '<div class="savescreen box-shadow">Task wurde gelöscht!</div>'
-    setTimeout(() => { screen.innerHTML = null; }, 1500);
+    setTimeout(() => { screen.innerHTML = null }, 1500);
 }
 
 showDeleteDialog = (taskNr) => {
@@ -321,7 +320,7 @@ generateEditUserArea = (taskNr) => {
     let freeUsers = filterFreeUsers();
     let UserAreaString = `<div id="editUserArea" class="user_area box-shadow">`;
     freeUsers.forEach((user, i) => {
-        UserAreaString += `<div class="usercard" onclick="addEditUser(${users.indexOf(user)},${taskNr})">
+        UserAreaString += `<div class="usercard" onclick="addEditUser(${users.indexOf(user)},${taskNr}), event.stopPropagation()">
                                 <div class="userinfo">
                                     <img class="userpic" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">
                                     <div class="userdata">
@@ -339,7 +338,7 @@ generateEditUserArea = (taskNr) => {
     let editUserArea = document.getElementById("editUserArea");
     document.addEventListener('click', (event) => {
         if (!editUserArea.contains(event.target)) { closeEditUserArea() }
-    })
+    }, { once: true })
 }
 
 closeEditUserArea = () => {
