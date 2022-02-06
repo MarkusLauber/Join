@@ -9,7 +9,6 @@ init = () => {
     userArea = document.getElementById("userArea");
     addedUsers = document.getElementById("addedUsers");
     updateUsers();
-    setTimeout(() => { editTask(3) }, 100);
 }
 
 clearTask = () => {
