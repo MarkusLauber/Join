@@ -46,7 +46,6 @@
     .sidebarIcons {
         display: flex;
     }
-
     #header_body {
         width: 60px;
     }
@@ -175,17 +174,15 @@ select {
     transition: ease-in-out;
     animation: appear 225ms ease-in-out;
 }
+
 @keyframes appear {
-    from{
+    from {
         opacity: 0;
-       
     }
     to {
         opacity: 1;
-        
-    } 
+    }
 }
-
 
 #editColor {
     border-radius: 8px;
@@ -208,20 +205,23 @@ select {
 
 #editDetails {
     height: 150px;
+    resize: none;
 }
 
 #editUsers {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    box-sizing: border-box;
+    height: 150px;
 }
 
 .editUserPic {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    margin: 0 4px 12px 4px;
+    margin: 0 4px 0 4px;
 }
 
 .editBtns {
@@ -231,6 +231,7 @@ select {
 
 .editBtn2 {
     font-family: PT;
+    background-color: var(--light)
 }
 
 .editAddUserContainer {
