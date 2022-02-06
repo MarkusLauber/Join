@@ -36,6 +36,7 @@
 @media (max-width: 1200px) {
     #header_body {
         width: 100px;
+        z-index: 1;
     }
 }
 

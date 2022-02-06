@@ -215,7 +215,7 @@ body {
 
 #backgroundDetails {
     height: 100%;
-    width: 85%;
+    width: 110%;
     background-color: #000000cc;
     z-index: 1;
     position: fixed;
@@ -261,7 +261,9 @@ body {
     height: 100%;
     margin: 5px;
     overflow-wrap: break-word;
+    overflow-y: scroll;
     border: 3px solid;
+    max-height: 500px;
     border-radius: 5px;
 }
 
@@ -323,10 +325,86 @@ hr {
     position: absolute;
     left: 0;
     right: 0;
-    top: -70px;
+    top: -40px;
     white-space: break-spaces;
 }
 
 @media (max-width: 1200px) {
-    
+
+    .taskCategory{
+        font-size: 1.2em !important;
+    }
+    #categoryInfo{
+        font-size: 30px;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .openedUserImgContainer {
+        margin-left: 10px;
+        height: 65px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .openedUserImgContainer {
+        margin-left: 0px;
+        margin-top: 0px;
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .date{
+        top: -29px;
+    }
+    .backlogContainer{
+        padding: 0px;
+        width: 60%
+    }
+
+    .innerTaskDetails{
+        width: auto;
+        font-size: 0.8em;
+    }
+    .memberImg{
+        height: 2em;
+        width: 2em;
+        margin: 0px;
+    }
+
+    .taskTop{
+        font-size: 0.8em;
+    }
+    .openedTask{
+        height: auto;
+        width: 29rem;
+    }
+    p{
+        font-size: 0.5em;
+    }
+
+    #fullText{
+        height: auto;
+    }
+
+    .backlogButton{
+        font-size: 1rem;
+        width: 4rem;
+        height: 2rem;
+    }
+    .big{
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@media (max-width: 650px){
+    .openedTask{
+        width: 24rem;
+    }
+
 }
