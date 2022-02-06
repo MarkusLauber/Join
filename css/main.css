@@ -33,12 +33,22 @@
     display: none;
 }
 
+@media (max-width: 1200px) {
+    #header_body {
+        width: 100px;
+    }
+}
+
 @media (max-width: 800px) {
     .standardSidebar {
         display: none;
     }
     .sidebarIcons {
         display: flex;
+    }
+
+    #header_body {
+        width: 60px;
     }
 }
 
