@@ -83,7 +83,7 @@ body {
     transition: 225ms ease-in-out;
 }
 
-.taskMain:hover{
+.taskMain:hover {
     border: 1px solid white;
     box-shadow: 1px 1px 5px 1px white;
     opacity: 0.8;
@@ -127,6 +127,7 @@ body {
 .taskCategory {
     font-size: 20px;
     font-weight: bold;
+    margin-right: 5px;
 }
 
 .line {
@@ -160,12 +161,12 @@ body {
     animation: fade_in 225ms forwards;
 }
 
-.closeTask{
+.closeTask {
     transform: translateX(-500px);
     animation: fade_out 225ms forwards;
 }
 
-.fade_out{
+.fade_out {
     transform: translateX(-500px);
     animation: fade_out 225ms forwards;
 }
@@ -328,13 +329,48 @@ hr {
     top: -40px;
     white-space: break-spaces;
 }
+#windowContainer{
+    height: 100%;
+    width: 110%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 @media (max-width: 1200px) {
+    #windowContainer{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    .taskCategory{
+    #editWindow{
+        width: max (300px, 50vh);
+        z-index: 10;
+        background-color: var(--medium);
+        font-size: 0.8em;
+        transition: ease-in-out;
+        animation: appear 225ms ease-in-out;
+    }
+
+
+
+    .taskCategory {
         font-size: 1.2em !important;
     }
-    #categoryInfo{
+
+    #categoryInfo {
         font-size: 30px;
         display: flex;
         width: 100%;
@@ -342,6 +378,7 @@ hr {
         font-size: 1rem;
         margin-top: 10px;
     }
+
     .openedUserImgContainer {
         margin-left: 10px;
         height: 65px;
@@ -349,6 +386,7 @@ hr {
         justify-content: space-around;
         align-items: center;
     }
+
     .openedUserImgContainer {
         margin-left: 0px;
         margin-top: 0px;
@@ -358,53 +396,103 @@ hr {
         align-items: center;
     }
 
-    .date{
+    .date {
         top: -29px;
+        font-size: 0.8em;
     }
-    .backlogContainer{
+
+    .backlogContainer {
         padding: 0px;
         width: 60%
     }
 
-    .innerTaskDetails{
+    .innerTaskDetails {
         width: auto;
         font-size: 0.8em;
     }
-    .memberImg{
+
+    .memberImg {
         height: 2em;
         width: 2em;
         margin: 0px;
     }
 
-    .taskTop{
+    .taskTop {
         font-size: 0.8em;
+        margin-right: 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-direction: column;
     }
-    .openedTask{
+
+    .openedTask {
         height: auto;
         width: 29rem;
     }
-    p{
+
+    p {
         font-size: 0.5em;
     }
 
-    #fullText{
+    #fullText {
         height: auto;
     }
 
-    .backlogButton{
+    .backlogButton {
         font-size: 1rem;
         width: 4rem;
         height: 2rem;
     }
-    .big{
+
+    .big {
         height: 40px;
         width: 40px;
     }
 }
 
-@media (max-width: 650px){
-    .openedTask{
+@media (max-width: 650px) {
+
+  
+    .editField {
+        display: flex;
+        flex-direction: column;
+        margin: 8px;
+        width: 6em;
+    }
+
+    .taskTop{
+        overflow-x: scroll;
+    }
+    ::-webkit-scrollbar {
+        overflow-x: scroll;
+        height: 4px;
+       
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    .openedTask {
         width: 24rem;
     }
 
+    ::-webkit-scrollbar {
+        width: 20px;
+    }
+
+}
+@media (max-width: 450px) {
+    .openedTask{
+        width: 16rem;
+    }
+    
 }

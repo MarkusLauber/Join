@@ -265,6 +265,19 @@ body {
     zoom: 102%;
     filter: brightness(1.5);
 }
+#windowContainer{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media (max-width: 1400px) {
     .elementDetails {
@@ -344,6 +357,14 @@ body {
         font-size: 1.8rem;
         width: 36rem;
         max-height: 60rem;
+    }
+    #editWindow{
+        width: max (300px, 50vh);
+        z-index: 10;
+        background-color: var(--medium);
+        font-size: 1.4em;
+        transition: ease-in-out;
+        animation: appear 225ms ease-in-out;
     }
 }
 

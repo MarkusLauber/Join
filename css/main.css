@@ -66,6 +66,7 @@ body {
 
 header {
     width: max(10vw, 75px);
+    z-index: 1;
 }
 
 h1 {
@@ -171,9 +172,6 @@ select {
     width: max (300px, 50vh);
     z-index: 10;
     position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-25%);
     background-color: var(--medium);
     font-size: 16px;
     transition: ease-in-out;
