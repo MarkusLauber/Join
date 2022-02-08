@@ -207,6 +207,7 @@ filterFreeUsers = () => {
 }
 
 saveEdit = (taskNr) => {
+    document.getElementById('windowContainer').style = "display:none";
     tasks[taskNr].title = document.getElementById("editTitle").value;
     tasks[taskNr].category = document.getElementById("editCategory").value;
     tasks[taskNr].details = document.getElementById("editDetails").value;
@@ -238,6 +239,7 @@ showDeletescreen = () => {
 }
 
 showDeleteDialog = (taskNr) => {
+    document.getElementById('windowContainer').style = "display:none";
     document.getElementById("screenContainer").innerHTML = `
         <div class="deleteDialog box-shadow">
             <div>Wirklich löschen?</div>
@@ -252,6 +254,7 @@ closeDeleteDialog = () => {
 }
 
 closeEditWindow = () => {
+    document.getElementById('windowContainer').style = "display:none";
     document.getElementById("windowContainer").innerHTML = null;
 }
 
@@ -260,6 +263,7 @@ refreshPage = () => {
 }
 
 createEditWindow = () => {
+    document.getElementById('windowContainer').style = "";
     document.getElementById("windowContainer").innerHTML = `
 <div id="editWindow" class="box-shadow">
             <div id="editColor">
@@ -342,5 +346,6 @@ generateEditUserArea = (taskNr) => {
 }
 
 closeEditUserArea = () => {
+    document.getElementById('windowContainer').style = "display:none";
     document.getElementById("screenContainer").innerHTML = null;
 }
