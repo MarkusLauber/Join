@@ -15,57 +15,59 @@
 
 <body onload="init()">
     <header w3-include-html="ressources/header/header.html"></header>
-    <div id="windowContainer"></div>
-    <div id="screenContainer"></div>
-    <main>
-        <h1>Add Task</h1>
-        <div class="inputarea box-shadow">
-            <div class="inputcolumn">
-                <div class="inputbox">
-                    <label class="label">TITLE</label>
-                    <input id="title" class="small" type="text" maxlength="20">
-                </div>
-                <div class="inputbox">
-                    <label class="label">CATEGORY</label>
-                    <select id="category" class="pointer small">
+    <div id="mainWindow">
+        <div id="windowContainer"></div>
+        <div id="screenContainer"></div>
+        <main>
+            <h1>Add Task</h1>
+            <div class="inputarea box-shadow">
+                <div class="inputcolumn">
+                    <div class="inputbox">
+                        <label class="label">TITLE</label>
+                        <input id="title" class="small" type="text" maxlength="20">
+                    </div>
+                    <div class="inputbox">
+                        <label class="label">CATEGORY</label>
+                        <select id="category" class="pointer small">
                         <option selected="selected" value="Product">Product</option>
                         <option value="Marketing">Marketing</option>
                         <option value="Management">Management</option>
                         <option value="Sale">Sale</option>
                         <option value="Other">Other</option>
                     </select>
+                    </div>
+                    <div class="inputbox">
+                        <label class="label">DETAILS</label>
+                        <textarea id="details" class="big" type="text"></textarea>
+                    </div>
                 </div>
-                <div class="inputbox">
-                    <label class="label">DETAILS</label>
-                    <textarea id="details" class="big" type="text"></textarea>
-                </div>
-            </div>
-            <div class="inputcolumn">
-                <div class="inputbox">
-                    <label class="label">DUE DATE</label>
-                    <input id="date" class="small" type="date" onclick="">
-                </div>
-                <div class="inputbox">
-                    <label class="label">URGENCY</label>
-                    <select id="urgency" class="pointer small">
+                <div class="inputcolumn">
+                    <div class="inputbox">
+                        <label class="label">DUE DATE</label>
+                        <input id="date" class="small" type="date">
+                    </div>
+                    <div class="inputbox">
+                        <label class="label">URGENCY</label>
+                        <select id="urgency" class="pointer small">
                         <option value="prio1">&#x1F7EA; Very High</option>
                         <option selected="selected" value="prio2">&#x1F7E5; High</option>
                         <option value="prio3">&#x1F7E8; Medium</option>
                         <option value="prio4">&#x1F7E9; Low</option>
                         <option value="prio5">&#x1F7E6; Very Low</option>
                     </select>
-                </div>
-                <div class="inputbox">
-                    <label class="label">ASSIGNED TO</label>
-                    <div id="addedUsers" class="medium"></div>
-                </div>
-                <div class="buttonbox small">
-                    <button id="clearBtn" class="button pointer" onclick="clearTask()">Clear</button>
-                    <button id="saveBtn" class="button pointer" onclick="saveTask()">Save</button>
+                    </div>
+                    <div class="inputbox">
+                        <label class="label">ASSIGNED TO</label>
+                        <div id="addedUsers" class="medium"></div>
+                    </div>
+                    <div class="buttonbox small">
+                        <button id="clearBtn" class="button pointer" onclick="clearTask()">Clear</button>
+                        <button id="saveBtn" class="button pointer" onclick="saveTask()">Save</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>

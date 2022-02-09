@@ -345,8 +345,7 @@ body {
         width: 36rem;
         max-height: 60rem;
     }
-    
-    #editWindow{
+    #editWindow {
         width: max (300px, 50vh);
         z-index: 10;
         background-color: var(--medium);
@@ -401,6 +400,10 @@ body {
     .dragAreaHead {
         width: 22rem;
     }
+    .elementHeader,
+    .elementDetails {
+        max-width: 16rem;
+    }
 }
 
 @media (max-width: 600px) {
@@ -454,7 +457,7 @@ body {
     .dragArea,
     .dragAreaSingle,
     .dragAreaHead {
-        width: 22rem;
+        width: 24rem;
     }
     .dragArea {
         height: fit-content;
@@ -484,7 +487,6 @@ body {
         position: fixed;
         top: 10px;
     }
-
     .elementHeader,
     .elementDetails {
         max-width: 160px;

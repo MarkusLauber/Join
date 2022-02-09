@@ -64,7 +64,7 @@ startDragging = (id) => {
 generateTask = (element) => {
     let tNumber = tasks.indexOf(element);
     return `
-    <div onclick="openTaskWindow(${tNumber}), addDeleteTask(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
+    <div onclick="openTaskWindow(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
         <div id="userPics" class="userContainer">
         ` +
         getUserPics(element) +
@@ -167,18 +167,6 @@ getOpenedUserPics = (id) => {
     tasks[id].users.forEach((user) =>
         userPicString += `<img class="openedUserImg" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
     return userPicString;
-}
-
-addDeleteTask = (tNumber) => {
-    if (tasks[tNumber].status == 'done') {
-        document.getElementById("openedTaskWindowID").innerHTML += `
-        <img onclick="deleteTask(${tNumber})" class="trashIcon" src="ressources/icons/trash.ico">
-        `;
-    }
-}
-
-deleteTask = (tNumber) => {
-
 }
 
 backToBacklog = (x) => {

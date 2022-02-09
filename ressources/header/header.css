@@ -7,14 +7,6 @@
     height: var(--size);
 }
 
-#burger {
-    background-image: url(../icons/menu_white.svg);
-}
-
-#close {
-    background-image: url(../icons/close_white.svg);
-}
-
 #header_body {
     height: max(100vh, 100%);
     background-color: var(--headerColor);
@@ -72,4 +64,3 @@ a {
 .standardSidebar:hover {
     cursor: pointer;
 }
-

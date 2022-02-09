@@ -238,6 +238,7 @@ showDeletescreen = () => {
 }
 
 showDeleteDialog = (taskNr) => {
+    console.log(taskNr);
     document.getElementById("screenContainer").innerHTML = `
         <div class="deleteDialog box-shadow">
             <div>Wirklich löschen?</div>

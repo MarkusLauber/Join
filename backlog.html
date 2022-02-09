@@ -15,35 +15,37 @@
 
 <body onload="loadBacklog()">
     <header w3-include-html="ressources/header/header.html"></header>
-    <div id="windowContainer"></div>
-    <div id="screenContainer"></div>
-    <div class="backlogBigContainer">
-        <h1>Backlog</h1>
-        <div id="backlog" class="backlogContainer box-shadow"></div>
-        <div id="backgroundDetails" class="hide">
+    <div id="mainWindow">
+        <div id="windowContainer"></div>
+        <div id="screenContainer"></div>
+        <div class="backlogBigContainer">
+            <h1>Backlog</h1>
+            <div id="backlog" class="backlogContainer box-shadow"></div>
+            <div id="backgroundDetails" class="hide">
 
 
-            <div id="detailsWindow" class="openedTask hide">
-                <div id="deadline" class="date"></div>
-                <div id="categoryInfo"></div>
-                <div id="userDetailed" class="openedUserImgContainer"></div>
+                <div id="detailsWindow" class="openedTask hide">
+                    <div id="deadline" class="date"></div>
+                    <div id="categoryInfo"></div>
+                    <div id="userDetailed" class="openedUserImgContainer"></div>
 
 
-                <div class="categoryTitel"></div>
+                    <div class="categoryTitel"></div>
 
 
-                <div id="fullText" class="fullTextField"></div>
-                <div class="footer-btn">
-                    <div>
-                        <button class="backlogButton" onclick="closeDetails()">X</button>
-                        <button class="backlogButton" id="pushBtn">To TB</button>
+                    <div id="fullText" class="fullTextField"></div>
+                    <div class="footer-btn">
+                        <div>
+                            <button class="backlogButton" onclick="closeDetails()">X</button>
+                            <button class="backlogButton" id="pushBtn">To TB</button>
+                        </div>
+                        <div id="btnSection" class="btnSection"></div>
                     </div>
-                    <div id="btnSection" class="btnSection"></div>
-                </div>
 
+                </div>
             </div>
         </div>
+    </div>
 </body>
 
 </html>
-

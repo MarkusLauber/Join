@@ -3,23 +3,12 @@ let backlog
 
 
 async function loadBacklog() {
-
-
-
     await serverLoad();
-
-
-
     colors();
-
-
-
     includeHTML();
-
-
-
     backlogContainer = document.getElementById(`backlog`);
     setTimeout(generateBacklog, 100);
+    editTask(0);
 
 }
 
@@ -54,19 +43,13 @@ openDetails = (x) => {
     document.getElementById(`backgroundDetails`).classList = "fadeIn";
     document.getElementById(`detailsWindow`).classList.remove("hide");
     document.getElementById(`detailsWindow`).classList.remove("fade_out");
-
-
     document.getElementById(`deadline`).innerHTML = `<div id="date" class="date"><b>DEADLINE:  </b>   ${tasks[x].date}</div>`;
-
     document.getElementById(`categoryInfo`).innerHTML = `
     <div class=categoryInfo><em>Category</em> - ${task.category}</div>
     <div id="prioEditing" class=prioEdit>${tasks[x].urgency}</div> 
- 
     `;
     "editingTaskOnBacklog(${x})"
-
     for (let i = 0; i < task.users.length; i++) {
-
         document.getElementById("userDetailed").innerHTML += `
         <div id="infoUser${i}" class="memberInfo">
         <img id="detailedImg${i}" class="memberImg big"  src="${task.users[i].pic}" style="box-shadow: 1px 1px 5px 1px ${task.users[i].color}">
@@ -79,36 +62,22 @@ openDetails = (x) => {
 
     document.getElementById(`fullText`).innerHTML = `<p id="editableText" contenteditable="false">${task.details}<p>`;
     document.getElementById(`btnSection`).innerHTML = `
-  
-  
-    
     <div id="editCon"><button id="editing" class="backlogButton" onClick="editTask(${x})">edit</button></div>
     `
-
-
-
 }
-
 
 function deleteUserInEditmode(i) {
     document.getElementById(`infoUser${i}`).innerHTML = ``
 };
 
 function editingTaskOnBacklog(x) {
-
     let task = tasks[x];
-
-
-
     let deleteBtn = document.getElementById(`editing`);
     deleteBtn.remove();
     let saveBtn = document.getElementById(`editCon`);
     saveBtn.innerHTML = `
     <button id="addUser" class="editAddBtn" onClick="addUserOnEdit()">add User</button>
     <button class="editBtn" onClick="saveEditedTaskOnBacklog(${x})">save</button>`;
-
-
-
     showXMark(task);
     editUrgency(task);
     textEditable();
@@ -153,15 +122,11 @@ getUsersBacklog = (element) => {
     return userPicString;
 }
 
-
 closeDetails = () => {
     document.getElementById(`backgroundDetails`).classList = ("fade_out");
     window.setTimeout(function() {
         document.getElementById(`backgroundDetails`).classList = ("hide");
     }, 200);
-    
-
-
     document.getElementById(`detailsWindow`).classList.add("fade_out");
 }
 

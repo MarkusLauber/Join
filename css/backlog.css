@@ -106,6 +106,8 @@ body {
     padding-left: 10px;
     padding-top: 10px;
     overflow: hidden;
+    border-top-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .innerTaskDetails {
@@ -125,7 +127,7 @@ body {
 }
 
 .taskCategory {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     margin-right: 5px;
 }
@@ -143,6 +145,10 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.taskTitle {
+    font-size: 20px;
 }
 
 .openedTask {
@@ -176,12 +182,10 @@ body {
         opacity: 0;
         transform: translateX(-500px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0px);
     }
-
 }
 
 @keyframes fade_out {
@@ -189,15 +193,11 @@ body {
         opacity: 1;
         transform: translateX(0px);
     }
-
     to {
         opacity: 0;
         transform: translateX(500px);
     }
-
 }
-
-
 
 
 /* #detailsWindow {
@@ -213,7 +213,6 @@ body {
     border-radius: 20px;
 } */
 
-
 #backgroundDetails {
     height: 100%;
     width: 110%;
@@ -224,9 +223,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-
-
 
 
 /* 
@@ -330,22 +326,10 @@ hr {
     white-space: break-spaces;
 }
 
-@media (max-width: 1200px) {
-    #editWindow{
-        width: max (300px, 50vh);
-        z-index: 10;
-        background-color: var(--medium);
-        font-size: 0.8em;
-        transition: ease-in-out;
-        animation: appear 225ms ease-in-out;
-    }
-
-
-
+@media (max-width: 700px) {
     .taskCategory {
         font-size: 1.2em;
     }
-
     #categoryInfo {
         font-size: 30px;
         display: flex;
@@ -354,7 +338,6 @@ hr {
         font-size: 1rem;
         margin-top: 10px;
     }
-
     .openedUserImgContainer {
         margin-left: 10px;
         height: 65px;
@@ -362,7 +345,6 @@ hr {
         justify-content: space-around;
         align-items: center;
     }
-
     .openedUserImgContainer {
         margin-left: 0px;
         margin-top: 0px;
@@ -371,28 +353,23 @@ hr {
         justify-content: space-around;
         align-items: center;
     }
-
     .date {
         top: -29px;
         font-size: 0.8em;
     }
-
     .backlogContainer {
         padding: 0px;
-        width: 60%
+        width: 90%
     }
-
     .innerTaskDetails {
         width: auto;
         font-size: 0.8em;
     }
-
     .memberImg {
         height: 2em;
         width: 2em;
         margin: 0px;
     }
-
     .taskTop {
         font-size: 0.8em;
         margin-right: 10px;
@@ -401,26 +378,21 @@ hr {
         justify-content: space-around;
         flex-direction: column;
     }
-
     .openedTask {
         height: auto;
         width: 29rem;
     }
-
     p {
         font-size: 0.5em;
     }
-
     #fullText {
         height: auto;
     }
-
     .backlogButton {
         font-size: 1rem;
         width: 4rem;
         height: 2rem;
     }
-
     .big {
         height: 40px;
         width: 40px;
@@ -428,47 +400,29 @@ hr {
 }
 
 @media (max-width: 650px) {
-
-  
-    .editField {
-        display: flex;
-        flex-direction: column;
-        margin: 8px;
-        width: 6em;
-    }
-
-    .taskTop{
-        overflow-x: scroll;
-    }
-    ::-webkit-scrollbar {
+     ::-webkit-scrollbar {
         overflow-x: scroll;
         height: 4px;
-       
     }
-
-    ::-webkit-scrollbar-track {
+     ::-webkit-scrollbar-track {
         background: #f1f1f1;
     }
-
-    ::-webkit-scrollbar-thumb {
+     ::-webkit-scrollbar-thumb {
         background: #888;
     }
-
-    ::-webkit-scrollbar-thumb:hover {
+     ::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
     .openedTask {
         width: 24rem;
     }
-
-    ::-webkit-scrollbar {
+     ::-webkit-scrollbar {
         width: 20px;
     }
-
 }
+
 @media (max-width: 450px) {
-    .openedTask{
+    .openedTask {
         width: 16rem;
     }
-    
 }
