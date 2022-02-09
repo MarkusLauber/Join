@@ -168,6 +168,18 @@ select {
     justify-content: space-evenly;
 }
 
+#windowContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #editWindow {
     width: max (300px, 50vh);
     z-index: 10;

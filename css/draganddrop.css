@@ -265,17 +265,6 @@ body {
     zoom: 102%;
     filter: brightness(1.5);
 }
-#windowContainer{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 @media (max-width: 1400px) {
     .elementDetails {
@@ -356,6 +345,7 @@ body {
         width: 36rem;
         max-height: 60rem;
     }
+    
     #editWindow{
         width: max (300px, 50vh);
         z-index: 10;
