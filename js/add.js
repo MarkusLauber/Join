@@ -95,3 +95,18 @@ removeUser = (i, j) => {
     users[j].assigned = false;
     updateAddedUsers();
 }
+
+allFilled = () => {
+    if ((document.getElementById("title").value.length == 0) ||
+        (document.getElementById("details").value.length == 0) ||
+        (document.getElementById("date").value.length == 0) ||
+        (currentUsers.length == 0)) {
+        showFillscreen();
+    } else { saveTask() }
+}
+
+showFillscreen = () => {
+    let screen = document.getElementById("screenContainer")
+    screen.innerHTML = '<div class="savescreen box-shadow">Bitte füllen Sie die Eingabefelder aus.</div>'
+    setTimeout(() => { screen.innerHTML = null }, 1500);
+}

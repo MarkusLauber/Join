@@ -8,8 +8,6 @@ async function loadBacklog() {
     includeHTML();
     backlogContainer = document.getElementById(`backlog`);
     setTimeout(generateBacklog, 100);
-    editTask(0);
-
 }
 
 generateBacklog = () => {
