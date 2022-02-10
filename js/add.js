@@ -2,7 +2,6 @@ let userArea;
 let addedUsers;
 let currentUsers = [];
 
-
 /**
  * Initialisation
  */
@@ -16,7 +15,7 @@ init = () => {
 }
 
 /**
- * Set Inpultfields to  null / default
+ * Reset Inputfields to null/default
  */
 clearTask = () => {
     document.getElementById("title").value = null;
@@ -30,7 +29,7 @@ clearTask = () => {
 }
 
 /**
- * Saves Inpult to Server
+ * Saves Input to Server
  */
 saveTask = () => {
     let task = {
@@ -49,7 +48,7 @@ saveTask = () => {
 }
 
 /**
- * updates User Area about assigned Users
+ * Updates User Area about assigned Users
  */
 generateUserArea = () => {
     let screen = document.getElementById("screenContainer");
@@ -67,7 +66,7 @@ generateUserArea = () => {
 }
 
 /**
- * creates String with Userinformation
+ * Creates String with Userinformation
  */
 userString = (user) => {
     return `<div class="usercard" onclick="addUser(${users.indexOf(user)})">
@@ -85,7 +84,7 @@ userString = (user) => {
 }
 
 /**
- * show/updates assigned Users and Add Button
+ * Show/Updates assigned Users and Add Button
  */
 updateAddedUsers = () => {
     addedUsers.innerHTML = null;
@@ -98,14 +97,14 @@ updateAddedUsers = () => {
 }
 
 /**
- * closes UserArea
+ * Closes UserArea
  */
 closeUserArea = () => {
     document.getElementById("screenContainer").innerHTML = null;
 }
 
 /**
- * adds a User to Task
+ * Adds a User to Task
  */
 addUser = (i) => {
     currentUsers.push(users[i]);
@@ -115,7 +114,7 @@ addUser = (i) => {
 }
 
 /**
- * removes a User from Task
+ * Removes a User from Task
  */
 removeUser = (i, j) => {
     currentUsers.splice(i, 1);
@@ -124,7 +123,7 @@ removeUser = (i, j) => {
 }
 
 /**
- * chechs if all fields are filled
+ * Checks if all fields are filled
  */
 allFilled = () => {
     if ((document.getElementById("title").value.length == 0) ||
@@ -136,7 +135,7 @@ allFilled = () => {
 }
 
 /**
- * shows window to fill all inputfields
+ * Shows Window to fill all Inputfields
  */
 showFillscreen = () => {
     let screen = document.getElementById("screenContainer")
