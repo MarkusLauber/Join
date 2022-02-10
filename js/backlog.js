@@ -1,7 +1,9 @@
 let backlogContainer;
 let backlog
 
-
+/**
+ * Initiale Backlog-Page
+ */
 async function loadBacklog() {
     await serverLoad();
     colors();
@@ -10,6 +12,9 @@ async function loadBacklog() {
     setTimeout(generateBacklog, 100);
 }
 
+/**
+ * Generate Backlog-Page
+ */
 generateBacklog = () => {
     backlogContainer.innerHTML = null;
     let backlog = tasks.filter(item => item.status == 'backlog');
@@ -35,6 +40,10 @@ generateBacklog = () => {
     })
 }
 
+/**
+ * Open Details
+ * @param {number} x - Index of Tasks
+ */
 openDetails = (x) => {
     let task = tasks[x];
     clearDetails();
@@ -64,55 +73,10 @@ openDetails = (x) => {
     `
 }
 
-function deleteUserInEditmode(i) {
-    document.getElementById(`infoUser${i}`).innerHTML = ``
-};
-
-function editingTaskOnBacklog(x) {
-    let task = tasks[x];
-    let deleteBtn = document.getElementById(`editing`);
-    deleteBtn.remove();
-    let saveBtn = document.getElementById(`editCon`);
-    saveBtn.innerHTML = `
-    <button id="addUser" class="editAddBtn" onClick="addUserOnEdit()">add User</button>
-    <button class="editBtn" onClick="saveEditedTaskOnBacklog(${x})">save</button>`;
-    showXMark(task);
-    editUrgency(task);
-    textEditable();
-}
-
-function addUserOnEdit() {
-    document.getElementById('addUser').innerHTML = `
-    <select name="addingUser" id="selectingUser" placeholder="add User">
-    <Option value="
-    </select
-    `
-}
-
-function showXMark(task) {
-    for (let i = 0; i < task.users.length; i++) {
-        document.getElementById("deleteUser" + i).classList.remove('hide');
-        document.getElementById("deleteUser" + i).classList.add('deleteUser');
-    }
-}
-
-function editUrgency(task) {
-    document.getElementById(`prioEditing`).innerHTML = `
-    <select name="prio" id="urgence">
-    <option value="prio1">Very High</option>
-    <option value="prio2">High</option>
-    <option value="prio3">Medium</option>
-    <option value="prio4">Low</option>
-    <option value="prio5">Very Low</option>
-    </select>`;
-    document.getElementById(`urgence`).value = task.urgency;
-}
-
-function textEditable() {
-    let newText = document.getElementById('editableText');
-    newText.contentEditable = "true";
-}
-
+/**
+ * Genrate Userstring
+ * @param {object} element - Tasks.Users Array
+ */
 getUsersBacklog = (element) => {
     let userPicString = "";
     element.users.forEach((user) =>
@@ -120,6 +84,9 @@ getUsersBacklog = (element) => {
     return userPicString;
 }
 
+/**
+ * Closes the details-container.
+ */
 closeDetails = () => {
     document.getElementById(`backgroundDetails`).classList = ("fade_out");
     window.setTimeout(function() {
@@ -128,10 +95,17 @@ closeDetails = () => {
     document.getElementById(`detailsWindow`).classList.add("fade_out");
 }
 
+/**
+ * Clears the details-container.
+ */
 clearDetails = () => {
     document.getElementById("userDetailed").innerHTML = null;
 }
 
+/**
+ * push the task from backlog to the draganddrop Area in toDo. 
+ * @param {number} x - Index of Tasks 
+ */
 pushToTaskBoard = (x) => {
     tasks[x].status = "toDo";
     serverSave();

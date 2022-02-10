@@ -39,19 +39,16 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .standardSidebar {
         display: none;
-    }
-    .sidebarIcons {
-        display: flex;
     }
     #header_body {
         width: 60px;
     }
 }
 
-@media (min-width: 801px) {
+@media (min-width: 1001px) {
     .darkmode,
     .whitemode {
         display: none;
@@ -371,6 +368,11 @@ select {
 
 .userdetail {
     text-align: center;
+}
+
+#docu {
+    appearance: none;
+    font-size: 2em !important;
 }
 
 @media (max-width:650px) {

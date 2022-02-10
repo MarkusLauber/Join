@@ -1,4 +1,32 @@
-let users = [{
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: main.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: main.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let users = [{
     "name": "John Doe",
     "mail": "123@456.com",
     "phone": "12345",
@@ -57,7 +85,7 @@ function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /* Loop through a collection of all HTML elements: */
     z = document.getElementsByTagName("*");
-    for (i = 0; i < z.length; i++) {
+    for (i = 0; i &lt; z.length; i++) {
         elmnt = z[i];
         /*search for elements with a certain atrribute:*/
         file = elmnt.getAttribute("w3-include-html");
@@ -94,7 +122,7 @@ initHelp = () => {
  *@param {number} b - Index of second Task to compare
  */
 urgencySort = (a, b) => {
-    if (a.urgency < b.urgency) {
+    if (a.urgency &lt; b.urgency) {
         return -1;
     }
     if (a.urgency > b.urgency) {
@@ -221,11 +249,11 @@ updateEditUsers = (taskNr) => {
     let editUsers = document.getElementById("editUsers");
     editUsers.innerHTML = null;
     task.users.forEach((user, taskUserNr) => {
-        editUsers.innerHTML += `<img title="Remove User" class="editUserPic pointer" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeEditUser(${taskUserNr},${taskNr})">`;
+        editUsers.innerHTML += `&lt;img title="Remove User" class="editUserPic pointer" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeEditUser(${taskUserNr},${taskNr})">`;
         users[user.id].assigned = true;
     })
-    if (task.users.length < 3) {
-        editUsers.innerHTML += `<div class="editAddUserContainer pointer" onclick="generateEditUserArea(${taskNr}),event.stopPropagation()"><div class="editAddUser"></div>`
+    if (task.users.length &lt; 3) {
+        editUsers.innerHTML += `&lt;div class="editAddUserContainer pointer" onclick="generateEditUserArea(${taskNr}),event.stopPropagation()">&lt;div class="editAddUser">&lt;/div>`
     }
 }
 
@@ -300,7 +328,7 @@ deleteTask = (taskNr) => {
  */
 showSavescreen = () => {
     let screen = document.getElementById("screenContainer")
-    screen.innerHTML = '<div class="savescreen box-shadow">Task wurde gespeichert!</div>'
+    screen.innerHTML = '&lt;div class="savescreen box-shadow">Task wurde gespeichert!&lt;/div>'
     setTimeout(() => { screen.innerHTML = null }, 1500);
 }
 
@@ -309,7 +337,7 @@ showSavescreen = () => {
  */
 showDeletescreen = () => {
     let screen = document.getElementById("screenContainer")
-    screen.innerHTML = '<div class="savescreen box-shadow">Task wurde gelöscht!</div>'
+    screen.innerHTML = '&lt;div class="savescreen box-shadow">Task wurde gelöscht!&lt;/div>'
     setTimeout(() => { screen.innerHTML = null }, 1500);
 }
 
@@ -320,12 +348,12 @@ showDeletescreen = () => {
 showDeleteDialog = (taskNr) => {
     console.log(taskNr);
     document.getElementById("screenContainer").innerHTML = `
-        <div class="deleteDialog box-shadow">
-            <div>Wirklich löschen?</div>
-            <div class="deleteBtns">
-                <button onclick="deleteTask(${taskNr})">Ja</button>
-                <button onclick="closeDeleteDialog()">Nein</button>
-            </div></div>`
+        &lt;div class="deleteDialog box-shadow">
+            &lt;div>Wirklich löschen?&lt;/div>
+            &lt;div class="deleteBtns">
+                &lt;button onclick="deleteTask(${taskNr})">Ja&lt;/button>
+                &lt;button onclick="closeDeleteDialog()">Nein&lt;/button>
+            &lt;/div>&lt;/div>`
 }
 
 /**
@@ -354,58 +382,58 @@ refreshPage = () => {
  */
 createEditWindow = () => {
     document.getElementById("windowContainer").innerHTML = `
-<div id="editWindow" class="box-shadow">
-            <div id="editColor">
-            <div id="editContainer">
-                <div class="editColumn">
-                    <div class="editField">
-                        <label class="editLabel">Title</label>
-                        <input id="editTitle"></input>
-                    </div>
-                    <div class="editField">
-                        <label class="editLabel">Category</label>
-                        <select id="editCategory">
-                            <option value="Product">Product</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Management">Management</option>
-                            <option value="Sale">Sale</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="editField">
-                        <label class="editLabel">Details</label>
-                        <textarea id="editDetails"></textarea>
-                    </div>
-                </div>
-                <div class="editColumn">
-                    <div class="editField">
-                        <label class="editLabel">Due Date</label>
-                        <input id="editDate" type="date"></input>
-                    </div>
-                    <div class="editField">
-                        <label class="editLabel">Urgency</label>
-                        <select id="editUrgency">
-                            <option value="prio1">&#x1F7EA; Very High</option>
-                            <option value="prio2">&#x1F7E5; High</option>
-                            <option value="prio3">&#x1F7E8; Medium</option>
-                            <option value="prio4">&#x1F7E9; Low</option>
-                            <option value="prio5">&#x1F7E6; Very Low</option>
-                        </select>
-                    </div>
-                    <div class="editField">
-                        <label class="editLabel">Users</label>
-                        <div id="editUsers"></div>
-                    </div>
-                </div>
-                </div>
-                <div class="editBtns">
-                    <button id="editSaveBtn" class="button" onclick="saveEdit()">Save</button>
-                    <button id="editDeleteBtn" class="button" onclick="showDeleteDialog()">Delete</button>
-                    <button id="editCloseBtn" class="button" onclick="closeEditWindow()">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>`
+&lt;div id="editWindow" class="box-shadow">
+            &lt;div id="editColor">
+            &lt;div id="editContainer">
+                &lt;div class="editColumn">
+                    &lt;div class="editField">
+                        &lt;label class="editLabel">Title&lt;/label>
+                        &lt;input id="editTitle">&lt;/input>
+                    &lt;/div>
+                    &lt;div class="editField">
+                        &lt;label class="editLabel">Category&lt;/label>
+                        &lt;select id="editCategory">
+                            &lt;option value="Product">Product&lt;/option>
+                            &lt;option value="Marketing">Marketing&lt;/option>
+                            &lt;option value="Management">Management&lt;/option>
+                            &lt;option value="Sale">Sale&lt;/option>
+                            &lt;option value="Other">Other&lt;/option>
+                        &lt;/select>
+                    &lt;/div>
+                    &lt;div class="editField">
+                        &lt;label class="editLabel">Details&lt;/label>
+                        &lt;textarea id="editDetails">&lt;/textarea>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="editColumn">
+                    &lt;div class="editField">
+                        &lt;label class="editLabel">Due Date&lt;/label>
+                        &lt;input id="editDate" type="date">&lt;/input>
+                    &lt;/div>
+                    &lt;div class="editField">
+                        &lt;label class="editLabel">Urgency&lt;/label>
+                        &lt;select id="editUrgency">
+                            &lt;option value="prio1">&amp;#x1F7EA; Very High&lt;/option>
+                            &lt;option value="prio2">&amp;#x1F7E5; High&lt;/option>
+                            &lt;option value="prio3">&amp;#x1F7E8; Medium&lt;/option>
+                            &lt;option value="prio4">&amp;#x1F7E9; Low&lt;/option>
+                            &lt;option value="prio5">&amp;#x1F7E6; Very Low&lt;/option>
+                        &lt;/select>
+                    &lt;/div>
+                    &lt;div class="editField">
+                        &lt;label class="editLabel">Users&lt;/label>
+                        &lt;div id="editUsers">&lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;/div>
+                &lt;div class="editBtns">
+                    &lt;button id="editSaveBtn" class="button" onclick="saveEdit()">Save&lt;/button>
+                    &lt;button id="editDeleteBtn" class="button" onclick="showDeleteDialog()">Delete&lt;/button>
+                    &lt;button id="editCloseBtn" class="button" onclick="closeEditWindow()">Close&lt;/button>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>`
 }
 
 /**
@@ -415,22 +443,22 @@ createEditWindow = () => {
 generateEditUserArea = (taskNr) => {
     let screen = document.getElementById("screenContainer");
     let freeUsers = filterFreeUsers();
-    let UserAreaString = `<div id="editUserArea" class="user_area box-shadow">`;
+    let UserAreaString = `&lt;div id="editUserArea" class="user_area box-shadow">`;
     freeUsers.forEach((user, i) => {
-        UserAreaString += `<div class="usercard" onclick="addEditUser(${users.indexOf(user)},${taskNr}), event.stopPropagation()">
-                                <div class="userinfo">
-                                    <img class="userpic" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">
-                                    <div class="userdata">
-                                        <div class="username">${user.name}</div>
-                                        <div>
-                                            <div class="userdetail"><span class="dark">Email: </span>${user.mail}</div>
-                                            <div class="userdetail"><span class="dark">Phone: </span>${user.phone}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`
+        UserAreaString += `&lt;div class="usercard" onclick="addEditUser(${users.indexOf(user)},${taskNr}), event.stopPropagation()">
+                                &lt;div class="userinfo">
+                                    &lt;img class="userpic" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">
+                                    &lt;div class="userdata">
+                                        &lt;div class="username">${user.name}&lt;/div>
+                                        &lt;div>
+                                            &lt;div class="userdetail">&lt;span class="dark">Email: &lt;/span>${user.mail}&lt;/div>
+                                            &lt;div class="userdetail">&lt;span class="dark">Phone: &lt;/span>${user.phone}&lt;/div>
+                                        &lt;/div>
+                                    &lt;/div>
+                                &lt;/div>
+                            &lt;/div>`
     })
-    UserAreaString += "</div>"
+    UserAreaString += "&lt;/div>"
     screen.innerHTML = UserAreaString;
     document.addEventListener('click', (event) => { outsideUserAreaClick(event), { once: true } })
 }
@@ -449,5 +477,27 @@ closeEditUserArea = () => {
  */
 outsideUserAreaClick = (event) => {
     let editUserArea = document.getElementById("editUserArea");
-    if (editUserArea && !editUserArea.contains(event.target)) { closeEditUserArea() }
-}
+    if (editUserArea &amp;&amp; !editUserArea.contains(event.target)) { closeEditUserArea() }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addEditUser">addEditUser</a></li><li><a href="global.html#addInit">addInit</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#allFilled">allFilled</a></li><li><a href="global.html#backToBacklog">backToBacklog</a></li><li><a href="global.html#bright">bright</a></li><li><a href="global.html#changeColors">changeColors</a></li><li><a href="global.html#clearDetails">clearDetails</a></li><li><a href="global.html#clearTask">clearTask</a></li><li><a href="global.html#closeDeleteDialog">closeDeleteDialog</a></li><li><a href="global.html#closeDetails">closeDetails</a></li><li><a href="global.html#closeEditUserArea">closeEditUserArea</a></li><li><a href="global.html#closeEditWindow">closeEditWindow</a></li><li><a href="global.html#closeUserArea">closeUserArea</a></li><li><a href="global.html#colors">colors</a></li><li><a href="global.html#createEditWindow">createEditWindow</a></li><li><a href="global.html#dark">dark</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#enableDone">enableDone</a></li><li><a href="global.html#enableInProgress">enableInProgress</a></li><li><a href="global.html#enableTesting">enableTesting</a></li><li><a href="global.html#enableToDo">enableToDo</a></li><li><a href="global.html#fillEditWindow">fillEditWindow</a></li><li><a href="global.html#filterFreeUsers">filterFreeUsers</a></li><li><a href="global.html#generateBacklog">generateBacklog</a></li><li><a href="global.html#generateEditUserArea">generateEditUserArea</a></li><li><a href="global.html#generateTask">generateTask</a></li><li><a href="global.html#generateTitle">generateTitle</a></li><li><a href="global.html#generateUserArea">generateUserArea</a></li><li><a href="global.html#getOpenedUserPics">getOpenedUserPics</a></li><li><a href="global.html#getUserPics">getUserPics</a></li><li><a href="global.html#getUsersBacklog">getUsersBacklog</a></li><li><a href="global.html#includeHTML">includeHTML</a></li><li><a href="global.html#initHelp">initHelp</a></li><li><a href="global.html#loadBacklog">loadBacklog</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openDetails">openDetails</a></li><li><a href="global.html#openTaskWindow">openTaskWindow</a></li><li><a href="global.html#outsideUserAreaClick">outsideUserAreaClick</a></li><li><a href="global.html#pushToTaskBoard">pushToTaskBoard</a></li><li><a href="global.html#refreshPage">refreshPage</a></li><li><a href="global.html#removeEditUser">removeEditUser</a></li><li><a href="global.html#removeUser">removeUser</a></li><li><a href="global.html#resetAssigned">resetAssigned</a></li><li><a href="global.html#saveEdit">saveEdit</a></li><li><a href="global.html#saveTask">saveTask</a></li><li><a href="global.html#serverLoad">serverLoad</a></li><li><a href="global.html#serverSave">serverSave</a></li><li><a href="global.html#showDeleteDialog">showDeleteDialog</a></li><li><a href="global.html#showDeletescreen">showDeletescreen</a></li><li><a href="global.html#showFillscreen">showFillscreen</a></li><li><a href="global.html#showSavescreen">showSavescreen</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startTasks">startTasks</a></li><li><a href="global.html#updateAddedUsers">updateAddedUsers</a></li><li><a href="global.html#updateDragAndDropArea">updateDragAndDropArea</a></li><li><a href="global.html#updateEditUsers">updateEditUsers</a></li><li><a href="global.html#urgencySort">urgencySort</a></li><li><a href="global.html#userString">userString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Feb 10 2022 17:51:05 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

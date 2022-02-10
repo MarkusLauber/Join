@@ -3,9 +3,9 @@ let addedUsers;
 let currentUsers = [];
 
 /**
- * Initialisation
+ * Initialisation of Add-Page
  */
-init = () => {
+addInit = () => {
     colors();
     includeHTML();
     serverLoad();
@@ -67,6 +67,7 @@ generateUserArea = () => {
 
 /**
  * Creates String with Userinformation
+ * @param {object} user - User JSON
  */
 userString = (user) => {
     return `<div class="usercard" onclick="addUser(${users.indexOf(user)})">
@@ -77,10 +78,7 @@ userString = (user) => {
             <div>
                 <div class="userdetail"><span class="dark">Email: </span>${user.mail}</div>
                 <div class="userdetail"><span class="dark">Phone: </span>${user.phone}</div>
-            </div>
-        </div>
-    </div>
-</div>`
+            </div></div></div></div>`
 }
 
 /**
@@ -105,6 +103,7 @@ closeUserArea = () => {
 
 /**
  * Adds a User to Task
+ * @param {number} i - Index of User in Users-Array
  */
 addUser = (i) => {
     currentUsers.push(users[i]);
@@ -115,6 +114,8 @@ addUser = (i) => {
 
 /**
  * Removes a User from Task
+ * @param {number} i - Index of User in Tasks.Users-Array
+ * @param {number} j - Index of User in Users-Array
  */
 removeUser = (i, j) => {
     currentUsers.splice(i, 1);

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: backlog.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: backlog.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let backlogContainer;
+let backlog
+
+/**
+ * Initiale Backlog-Page
+ */
+async function loadBacklog() {
+    await serverLoad();
+    colors();
+    includeHTML();
+    backlogContainer = document.getElementById(`backlog`);
+    setTimeout(generateBacklog, 100);
+}
+
+/**
+ * Generate Backlog-Page
+ */
+generateBacklog = () => {
+    backlogContainer.innerHTML = null;
+    let backlog = tasks.filter(item => item.status == 'backlog');
+    backlog.sort(urgencySort);
+    backlog.forEach((task, i) => {
+        backlogContainer.innerHTML += `
+
+&lt;div id="${tasks.indexOf(task)}" class="taskMain ${task.urgency}">
+    &lt;div class="taskTop">
+        &lt;div id="categoryTask${i}" class="taskCategory">${task.category}&lt;/div>
+        &lt;div id="titleTask${i}" class="taskTitle">${task.title}&lt;/div>
+        &lt;div id="dateTask${i}" class="taskDate">${task.date}&lt;/div>
+    &lt;/div>
+    &lt;div id="details${i}" onClick="openDetails(${tasks.indexOf(task)})" class="taskBottom">
+        &lt;div class="taskDetails">
+        &lt;div id="detailsTask${i}" class="innerTaskDetails">${task.details}&lt;/div>
+        &lt;/div>
+        &lt;div id="assignedTask${i}" class="taskUsers">` +
+            getUsersBacklog(task) + `
+        &lt;/div>
+    &lt;/div>
+&lt;div>`
+    })
+}
+
+/**
+ * Open Details
+ * @param {number} x - Index of Tasks
+ */
+openDetails = (x) => {
+    let task = tasks[x];
+    clearDetails();
+    document.getElementById(`backgroundDetails`).classList = "fadeIn";
+    document.getElementById(`detailsWindow`).classList.remove("hide");
+    document.getElementById(`detailsWindow`).classList.remove("fade_out");
+    document.getElementById(`deadline`).innerHTML = `&lt;div id="date" class="date">&lt;b>DEADLINE:  &lt;/b>   ${tasks[x].date}&lt;/div>`;
+    document.getElementById(`categoryInfo`).innerHTML = `
+    &lt;div class=categoryInfo>&lt;em>Category&lt;/em> - ${task.category}&lt;/div>
+    &lt;div id="prioEditing" class=prioEdit>${tasks[x].urgency}&lt;/div> 
+    `;
+    "editingTaskOnBacklog(${x})"
+    for (let i = 0; i &lt; task.users.length; i++) {
+        document.getElementById("userDetailed").innerHTML += `
+        &lt;div id="infoUser${i}" class="memberInfo">
+        &lt;img id="detailedImg${i}" class="memberImg big"  src="${task.users[i].pic}" style="box-shadow: 1px 1px 5px 1px ${task.users[i].color}">
+        &lt;div>
+        &lt;span id="deleteUser${i}" onClick="deleteUserInEditmode(${i})" class="hide">X&lt;/Span>
+        &lt;/div>
+        `
+        document.getElementById("pushBtn").onclick = () => { pushToTaskBoard(x) };
+    };
+
+    document.getElementById(`fullText`).innerHTML = `&lt;p id="editableText" contenteditable="false">${task.details}&lt;p>`;
+    document.getElementById(`btnSection`).innerHTML = `
+    &lt;div id="editCon">&lt;button id="editing" class="backlogButton" onClick="editTask(${x})">edit&lt;/button>&lt;/div>
+    `
+}
+
+/**
+ * Genrate Userstring
+ * @param {object} element - Tasks.Users Array
+ */
+getUsersBacklog = (element) => {
+    let userPicString = "";
+    element.users.forEach((user) =>
+        userPicString += `&lt;img class="memberImg" title="` + generateTitle(user) + `" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
+    return userPicString;
+}
+
+/**
+ * Closes the details-container.
+ */
+closeDetails = () => {
+    document.getElementById(`backgroundDetails`).classList = ("fade_out");
+    window.setTimeout(function() {
+        document.getElementById(`backgroundDetails`).classList = ("hide");
+    }, 200);
+    document.getElementById(`detailsWindow`).classList.add("fade_out");
+}
+
+/**
+ * Clears the details-container.
+ */
+clearDetails = () => {
+    document.getElementById("userDetailed").innerHTML = null;
+}
+
+/**
+ * push the task from backlog to the draganddrop Area in toDo. 
+ * @param {number} x - Index of Tasks 
+ */
+pushToTaskBoard = (x) => {
+    tasks[x].status = "toDo";
+    serverSave();
+    generateBacklog();
+    closeDetails();
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addEditUser">addEditUser</a></li><li><a href="global.html#addInit">addInit</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#allFilled">allFilled</a></li><li><a href="global.html#backToBacklog">backToBacklog</a></li><li><a href="global.html#bright">bright</a></li><li><a href="global.html#changeColors">changeColors</a></li><li><a href="global.html#clearDetails">clearDetails</a></li><li><a href="global.html#clearTask">clearTask</a></li><li><a href="global.html#closeDeleteDialog">closeDeleteDialog</a></li><li><a href="global.html#closeDetails">closeDetails</a></li><li><a href="global.html#closeEditUserArea">closeEditUserArea</a></li><li><a href="global.html#closeEditWindow">closeEditWindow</a></li><li><a href="global.html#closeUserArea">closeUserArea</a></li><li><a href="global.html#colors">colors</a></li><li><a href="global.html#createEditWindow">createEditWindow</a></li><li><a href="global.html#dark">dark</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#enableDone">enableDone</a></li><li><a href="global.html#enableInProgress">enableInProgress</a></li><li><a href="global.html#enableTesting">enableTesting</a></li><li><a href="global.html#enableToDo">enableToDo</a></li><li><a href="global.html#fillEditWindow">fillEditWindow</a></li><li><a href="global.html#filterFreeUsers">filterFreeUsers</a></li><li><a href="global.html#generateBacklog">generateBacklog</a></li><li><a href="global.html#generateEditUserArea">generateEditUserArea</a></li><li><a href="global.html#generateTask">generateTask</a></li><li><a href="global.html#generateTitle">generateTitle</a></li><li><a href="global.html#generateUserArea">generateUserArea</a></li><li><a href="global.html#getOpenedUserPics">getOpenedUserPics</a></li><li><a href="global.html#getUserPics">getUserPics</a></li><li><a href="global.html#getUsersBacklog">getUsersBacklog</a></li><li><a href="global.html#includeHTML">includeHTML</a></li><li><a href="global.html#initHelp">initHelp</a></li><li><a href="global.html#loadBacklog">loadBacklog</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openDetails">openDetails</a></li><li><a href="global.html#openTaskWindow">openTaskWindow</a></li><li><a href="global.html#outsideUserAreaClick">outsideUserAreaClick</a></li><li><a href="global.html#pushToTaskBoard">pushToTaskBoard</a></li><li><a href="global.html#refreshPage">refreshPage</a></li><li><a href="global.html#removeEditUser">removeEditUser</a></li><li><a href="global.html#removeUser">removeUser</a></li><li><a href="global.html#resetAssigned">resetAssigned</a></li><li><a href="global.html#saveEdit">saveEdit</a></li><li><a href="global.html#saveTask">saveTask</a></li><li><a href="global.html#serverLoad">serverLoad</a></li><li><a href="global.html#serverSave">serverSave</a></li><li><a href="global.html#showDeleteDialog">showDeleteDialog</a></li><li><a href="global.html#showDeletescreen">showDeletescreen</a></li><li><a href="global.html#showFillscreen">showFillscreen</a></li><li><a href="global.html#showSavescreen">showSavescreen</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startTasks">startTasks</a></li><li><a href="global.html#updateAddedUsers">updateAddedUsers</a></li><li><a href="global.html#updateDragAndDropArea">updateDragAndDropArea</a></li><li><a href="global.html#updateEditUsers">updateEditUsers</a></li><li><a href="global.html#urgencySort">urgencySort</a></li><li><a href="global.html#userString">userString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Feb 10 2022 17:51:05 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: draganddrop.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: draganddrop.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let currentDraggedElement;
+/**
+ * initialization of the drag and drop site. The timeout is 
+ * necessary because the serverLoad need some time.
+ */
+startTasks = async() => {
+    colors();
+    await serverLoad();
+    includeHTML();
+    setTimeout(updateDragAndDropArea, 100)
+}
+
+/**
+ * Enables the filter of the drag and drop area
+ */
+
+updateDragAndDropArea = () => {
+    enableToDo();
+    enableInProgress();
+    enableTesting();
+    enableDone();
+}
+
+/**
+ * The filter function for the toDo Container
+ */
+enableToDo = () => {
+    let toDo = tasks.filter(filterTask => filterTask.status == 'toDo');
+    toDo.sort(urgencySort);
+    document.getElementById('toDo').innerHTML = '';
+    for (let i = 0; i &lt; toDo.length; i++) {
+        const element = toDo[i];
+        document.getElementById('toDo').innerHTML += generateTask(element);
+    }
+}
+
+/**
+ * The filter function for the inProgress Container
+ */
+enableInProgress = () => {
+        let inProgress = tasks.filter(filterTask => filterTask.status == 'inProgress');
+        inProgress.sort(urgencySort);
+        document.getElementById('inProgress').innerHTML = '';
+
+        for (let i = 0; i &lt; inProgress.length; i++) {
+            const element = inProgress[i];
+            document.getElementById('inProgress').innerHTML += generateTask(element);
+        }
+    }
+    /**
+     * The filter function for the testing Container
+     */
+enableTesting = () => {
+    let testing = tasks.filter(filterTask => filterTask.status == 'testing');
+    testing.sort(urgencySort)
+    document.getElementById('testing').innerHTML = '';
+
+    for (let i = 0; i &lt; testing.length; i++) {
+        const element = testing[i];
+        document.getElementById('testing').innerHTML += generateTask(element);
+    }
+}
+
+/**
+ * The filter function for the done Container
+ */
+enableDone = () => {
+    let done = tasks.filter(filterTask => filterTask.status == 'done');
+    done.sort(urgencySort)
+    document.getElementById('done').innerHTML = '';
+
+    for (let i = 0; i &lt; done.length; i++) {
+        const element = done[i];
+        document.getElementById('done').innerHTML += generateTask(element);
+    }
+}
+
+/**
+ * The number/id of the dragged element.
+ */
+startDragging = (id) => {
+    currentDraggedElement = id;
+}
+
+/**
+ * Generates the tasks
+ */
+generateTask = (element) => {
+    let tNumber = tasks.indexOf(element);
+    return `
+    &lt;div onclick="openTaskWindow(${tNumber})" id="${tNumber}" draggable="true" ondragstart="startDragging(${tNumber})" class="task ${element.urgency}">
+        &lt;div id="userPics" class="userContainer">
+        ` +
+        getUserPics(element) +
+        ` 
+        &lt;/div>
+        &lt;div class="innerHTMLTask">
+            &lt;div class="elementHeader">
+                &lt;span class="elementTitle">
+                    ${element.title}
+                &lt;/span>
+                &lt;span class="elementCategory">
+                    ${element.category}
+                &lt;/span>
+            &lt;/div>
+            &lt;span class="elementDetails">
+                ${element.details}
+            &lt;/span>
+        &lt;/div>
+    &lt;div>
+    `;
+}
+
+allowDrop = (ev) => {
+    ev.preventDefault();
+}
+
+/**
+ * If an element is moved to another area it gets the status of this area. 
+ */
+moveTo = (status) => {
+    tasks[currentDraggedElement]['status'] = status;
+    serverSave();
+    updateDragAndDropArea();
+}
+
+/**
+ * Creates the opened Task.
+ */
+openTaskWindow = (id) => {
+        document.getElementById('openedTaskID').style = "display: flex;";
+        document.getElementById('openedTaskID').innerHTML = '';
+
+        document.getElementById('openedTaskID').innerHTML += `
+    &lt;div id="openedTaskWindowID" class="openedTask">
+        &lt;div class="openedUserImgContainer">
+        ` +
+            getOpenedUserPics(id) +
+            ` 
+        &lt;/div>
+        &lt;div class="openedInnerHTMLTask">
+            &lt;div class="openedHeader">
+                &lt;span id="openedTitleID" class="openedTitle">${tasks[id].title}&lt;/span>&lt;span class="openedCategory">Department: ${tasks[id].category}&lt;/span>
+            &lt;/div>
+            &lt;span id="openedDetailsID" class="openedDetails">
+                ${tasks[id].details}
+            &lt;/span>
+        &lt;/div>
+        &lt;img class="closeIcon" id="closedIconImg(${id})" onclick="closeTaskWindow()" src="ressources/icons/x.ico">
+        
+        &lt;button class="backlogButton" onclick="editTask(${id})">edit&lt;/button>
+    &lt;div>
+    `;
+    }
+    // &lt;button class="backlogButton" id="pullBtn" onclick="backToBacklog(${id})">back to BG&lt;/button>
+
+closeTaskWindow = () => {
+        document.getElementById('openedTaskID').style = "display: none;"
+
+        document.getElementById('openedTaskID').innerHTML = '';
+    }
+    /**
+     * Enables the user images in the normal task.
+     */
+getUserPics = (element) => {
+    let userPicString = "";
+    element.users.forEach((user) =>
+        userPicString += `&lt;img class="elementUserImg" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
+    return userPicString;
+}
+
+/**
+ * Enables the user images in the opened task.
+ */
+getOpenedUserPics = (id) => {
+    let userPicString = "";
+    tasks[id].users.forEach((user) =>
+        userPicString += `&lt;img class="openedUserImg" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">`)
+    return userPicString;
+}
+
+/**
+ * Changes the status of a task to backlog. The task moves to the backlog site. 
+ */
+backToBacklog = (x) => {
+    tasks[x].status = "backlog";
+    serverSave();
+    closeTaskWindow();
+    updateDragAndDropArea();
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addEditUser">addEditUser</a></li><li><a href="global.html#addInit">addInit</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#allFilled">allFilled</a></li><li><a href="global.html#backToBacklog">backToBacklog</a></li><li><a href="global.html#bright">bright</a></li><li><a href="global.html#changeColors">changeColors</a></li><li><a href="global.html#clearDetails">clearDetails</a></li><li><a href="global.html#clearTask">clearTask</a></li><li><a href="global.html#closeDeleteDialog">closeDeleteDialog</a></li><li><a href="global.html#closeDetails">closeDetails</a></li><li><a href="global.html#closeEditUserArea">closeEditUserArea</a></li><li><a href="global.html#closeEditWindow">closeEditWindow</a></li><li><a href="global.html#closeUserArea">closeUserArea</a></li><li><a href="global.html#colors">colors</a></li><li><a href="global.html#createEditWindow">createEditWindow</a></li><li><a href="global.html#dark">dark</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#enableDone">enableDone</a></li><li><a href="global.html#enableInProgress">enableInProgress</a></li><li><a href="global.html#enableTesting">enableTesting</a></li><li><a href="global.html#enableToDo">enableToDo</a></li><li><a href="global.html#fillEditWindow">fillEditWindow</a></li><li><a href="global.html#filterFreeUsers">filterFreeUsers</a></li><li><a href="global.html#generateBacklog">generateBacklog</a></li><li><a href="global.html#generateEditUserArea">generateEditUserArea</a></li><li><a href="global.html#generateTask">generateTask</a></li><li><a href="global.html#generateTitle">generateTitle</a></li><li><a href="global.html#generateUserArea">generateUserArea</a></li><li><a href="global.html#getOpenedUserPics">getOpenedUserPics</a></li><li><a href="global.html#getUserPics">getUserPics</a></li><li><a href="global.html#getUsersBacklog">getUsersBacklog</a></li><li><a href="global.html#includeHTML">includeHTML</a></li><li><a href="global.html#initHelp">initHelp</a></li><li><a href="global.html#loadBacklog">loadBacklog</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openDetails">openDetails</a></li><li><a href="global.html#openTaskWindow">openTaskWindow</a></li><li><a href="global.html#outsideUserAreaClick">outsideUserAreaClick</a></li><li><a href="global.html#pushToTaskBoard">pushToTaskBoard</a></li><li><a href="global.html#refreshPage">refreshPage</a></li><li><a href="global.html#removeEditUser">removeEditUser</a></li><li><a href="global.html#removeUser">removeUser</a></li><li><a href="global.html#resetAssigned">resetAssigned</a></li><li><a href="global.html#saveEdit">saveEdit</a></li><li><a href="global.html#saveTask">saveTask</a></li><li><a href="global.html#serverLoad">serverLoad</a></li><li><a href="global.html#serverSave">serverSave</a></li><li><a href="global.html#showDeleteDialog">showDeleteDialog</a></li><li><a href="global.html#showDeletescreen">showDeletescreen</a></li><li><a href="global.html#showFillscreen">showFillscreen</a></li><li><a href="global.html#showSavescreen">showSavescreen</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startTasks">startTasks</a></li><li><a href="global.html#updateAddedUsers">updateAddedUsers</a></li><li><a href="global.html#updateDragAndDropArea">updateDragAndDropArea</a></li><li><a href="global.html#updateEditUsers">updateEditUsers</a></li><li><a href="global.html#urgencySort">urgencySort</a></li><li><a href="global.html#userString">userString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Feb 10 2022 17:51:05 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

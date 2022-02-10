@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: add.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: add.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let userArea;
+let addedUsers;
+let currentUsers = [];
+
+/**
+ * Initialisation of Add-Page
+ */
+addInit = () => {
+    colors();
+    includeHTML();
+    serverLoad();
+    userArea = document.getElementById("userArea");
+    addedUsers = document.getElementById("addedUsers");
+    updateAddedUsers();
+}
+
+/**
+ * Reset Inputfields to null/default
+ */
+clearTask = () => {
+    document.getElementById("title").value = null;
+    document.getElementById("category").value = "Product";
+    document.getElementById("details").value = null;
+    document.getElementById("date").value = null;
+    document.getElementById("urgency").value = "prio2";
+    currentUsers = [];
+    users.forEach((user) => { user.assigned = false })
+    updateAddedUsers();
+}
+
+/**
+ * Saves Input to Server
+ */
+saveTask = () => {
+    let task = {
+        "status": "backlog",
+        "title": document.getElementById("title").value,
+        "category": document.getElementById("category").value,
+        "details": document.getElementById("details").value,
+        "date": document.getElementById("date").value,
+        "urgency": document.getElementById("urgency").value,
+        "users": currentUsers
+    }
+    tasks.push(task);
+    serverSave();
+    showSavescreen();
+    clearTask();
+}
+
+/**
+ * Updates User Area about assigned Users
+ */
+generateUserArea = () => {
+    let screen = document.getElementById("screenContainer");
+    let freeUsers = filterFreeUsers();
+    let UserAreaString = `&lt;div id="userArea" class="user_area box-shadow">`;
+    freeUsers.forEach((user) => {
+        UserAreaString += userString(user)
+    })
+    UserAreaString += "&lt;/div>"
+    screen.innerHTML = UserAreaString;
+    let userArea = document.getElementById("userArea");
+    document.addEventListener('click', (event) => {
+        if (!userArea.contains(event.target)) { closeUserArea() }
+    }, { once: true })
+}
+
+/**
+ * Creates String with Userinformation
+ * @param {object} user - User JSON
+ */
+userString = (user) => {
+    return `&lt;div class="usercard" onclick="addUser(${users.indexOf(user)})">
+    &lt;div class="userinfo">
+        &lt;img class="userpic" src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color}">
+        &lt;div class="userdata">
+            &lt;div class="username">${user.name}&lt;/div>
+            &lt;div>
+                &lt;div class="userdetail">&lt;span class="dark">Email: &lt;/span>${user.mail}&lt;/div>
+                &lt;div class="userdetail">&lt;span class="dark">Phone: &lt;/span>${user.phone}&lt;/div>
+            &lt;/div>&lt;/div>&lt;/div>&lt;/div>`
+}
+
+/**
+ * Show/Updates assigned Users and Add Button
+ */
+updateAddedUsers = () => {
+    addedUsers.innerHTML = null;
+    currentUsers.forEach((user, i) => {
+        addedUsers.innerHTML += `&lt;img title"Remove User" class="userpic pointer"src="${user.pic}" style="box-shadow: 1px 1px 5px 1px ${user.color};" onclick="removeUser(${i},${users.indexOf(user)})">`
+    })
+    if (currentUsers.length &lt; 3) {
+        addedUsers.innerHTML += `&lt;div class="addUserContainer pointer" onclick="generateUserArea(), event.stopPropagation()">&lt;div class="addUser">&lt;/div>`
+    }
+}
+
+/**
+ * Closes UserArea
+ */
+closeUserArea = () => {
+    document.getElementById("screenContainer").innerHTML = null;
+}
+
+/**
+ * Adds a User to Task
+ * @param {number} i - Index of User in Users-Array
+ */
+addUser = (i) => {
+    currentUsers.push(users[i]);
+    users[i].assigned = true;
+    closeUserArea();
+    updateAddedUsers();
+}
+
+/**
+ * Removes a User from Task
+ * @param {number} i - Index of User in Tasks.Users-Array
+ * @param {number} j - Index of User in Users-Array
+ */
+removeUser = (i, j) => {
+    currentUsers.splice(i, 1);
+    users[j].assigned = false;
+    updateAddedUsers();
+}
+
+/**
+ * Checks if all fields are filled
+ */
+allFilled = () => {
+    if ((document.getElementById("title").value.length == 0) ||
+        (document.getElementById("details").value.length == 0) ||
+        (document.getElementById("date").value.length == 0) ||
+        (currentUsers.length == 0)) {
+        showFillscreen();
+    } else { saveTask() }
+}
+
+/**
+ * Shows Window to fill all Inputfields
+ */
+showFillscreen = () => {
+    let screen = document.getElementById("screenContainer")
+    screen.innerHTML = '&lt;div class="savescreen box-shadow">Bitte füllen Sie die Eingabefelder aus.&lt;/div>'
+    setTimeout(() => { screen.innerHTML = null }, 1500);
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addEditUser">addEditUser</a></li><li><a href="global.html#addInit">addInit</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#allFilled">allFilled</a></li><li><a href="global.html#backToBacklog">backToBacklog</a></li><li><a href="global.html#bright">bright</a></li><li><a href="global.html#changeColors">changeColors</a></li><li><a href="global.html#clearDetails">clearDetails</a></li><li><a href="global.html#clearTask">clearTask</a></li><li><a href="global.html#closeDeleteDialog">closeDeleteDialog</a></li><li><a href="global.html#closeDetails">closeDetails</a></li><li><a href="global.html#closeEditUserArea">closeEditUserArea</a></li><li><a href="global.html#closeEditWindow">closeEditWindow</a></li><li><a href="global.html#closeUserArea">closeUserArea</a></li><li><a href="global.html#colors">colors</a></li><li><a href="global.html#createEditWindow">createEditWindow</a></li><li><a href="global.html#dark">dark</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#enableDone">enableDone</a></li><li><a href="global.html#enableInProgress">enableInProgress</a></li><li><a href="global.html#enableTesting">enableTesting</a></li><li><a href="global.html#enableToDo">enableToDo</a></li><li><a href="global.html#fillEditWindow">fillEditWindow</a></li><li><a href="global.html#filterFreeUsers">filterFreeUsers</a></li><li><a href="global.html#generateBacklog">generateBacklog</a></li><li><a href="global.html#generateEditUserArea">generateEditUserArea</a></li><li><a href="global.html#generateTask">generateTask</a></li><li><a href="global.html#generateTitle">generateTitle</a></li><li><a href="global.html#generateUserArea">generateUserArea</a></li><li><a href="global.html#getOpenedUserPics">getOpenedUserPics</a></li><li><a href="global.html#getUserPics">getUserPics</a></li><li><a href="global.html#getUsersBacklog">getUsersBacklog</a></li><li><a href="global.html#includeHTML">includeHTML</a></li><li><a href="global.html#initHelp">initHelp</a></li><li><a href="global.html#loadBacklog">loadBacklog</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openDetails">openDetails</a></li><li><a href="global.html#openTaskWindow">openTaskWindow</a></li><li><a href="global.html#outsideUserAreaClick">outsideUserAreaClick</a></li><li><a href="global.html#pushToTaskBoard">pushToTaskBoard</a></li><li><a href="global.html#refreshPage">refreshPage</a></li><li><a href="global.html#removeEditUser">removeEditUser</a></li><li><a href="global.html#removeUser">removeUser</a></li><li><a href="global.html#resetAssigned">resetAssigned</a></li><li><a href="global.html#saveEdit">saveEdit</a></li><li><a href="global.html#saveTask">saveTask</a></li><li><a href="global.html#serverLoad">serverLoad</a></li><li><a href="global.html#serverSave">serverSave</a></li><li><a href="global.html#showDeleteDialog">showDeleteDialog</a></li><li><a href="global.html#showDeletescreen">showDeletescreen</a></li><li><a href="global.html#showFillscreen">showFillscreen</a></li><li><a href="global.html#showSavescreen">showSavescreen</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#startTasks">startTasks</a></li><li><a href="global.html#updateAddedUsers">updateAddedUsers</a></li><li><a href="global.html#updateDragAndDropArea">updateDragAndDropArea</a></li><li><a href="global.html#updateEditUsers">updateEditUsers</a></li><li><a href="global.html#urgencySort">urgencySort</a></li><li><a href="global.html#userString">userString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Feb 10 2022 17:51:05 GMT+0100 (Mitteleuropäische Normalzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
